@@ -1,0 +1,95 @@
+{
+    "id": "HyoEDdvxG",
+    "original": null,
+    "cdate": 1511651123102,
+    "pdate": null,
+    "odate": null,
+    "mdate": null,
+    "tcdate": 1511651123102,
+    "tmdate": 1515642471890,
+    "ddate": null,
+    "number": 1,
+    "content": {
+        "title": "Proposed Wasserstein GAN: not well-suited to ICA",
+        "rating": "3: Clear rejection",
+        "review": "The focus of the paper is independent component analysis (ICA) and its nonlinear variants such as the post non-linear (PNL) ICA model. Motivated by the fact that estimating mutual information and similar dependency measures require density estimates and hard to optimize, the authors propose a Wasserstein GAN (generative adversarial network) based solution to tackle the problem, with illustrations on 6 (synthetic) and 3-dimemensional (audio) examples. The primary idea of the paper is to use the Wasserstein distance as an independence measure of the estimated source coordinates, and optimize it in a neural network (NN) framework.\n\nAlthough finding novel GAN applications is an exciting topic, I am not really convinced that ICA with the proposed Wasserstein GAN based technique fulfills this goal.\n \nBelow I detail my reasons:\n\n1)The ICA problem can be formulated as the minimization of pairwise mutual information [1] or one-dimensional entropy [2]. In other words, estimating the joint dependence of the source coordinates is not necessary; it is worthwhile to avoid it.\n\n2)The PNL ICA task can be efficiently tackled by first 'removing' the nonlinearity followed by classical linear ICA; see for example [3].\n\n3)Estimating information theoretic (IT) measures (mutual information, divergence) is a quite mature field with off-the-self techniques, see for example [4,5,6,8]. These methods do not estimate the underlying densities; it would be superfluous (and hard).\n\n4)Optimizing non-differentiable IT measures can computationally quite efficiently carried out in the ICA context by e.g., Givens rotations [7]; differentiable ICA cost functions can be robustly handled by Stiefel manifold methods; see for example [8,9].\n\n5)Section 3.1: This section is devoted to generating samples from the product of the marginals, even using separate generator networks. I do not see the necessity of these solutions; the subtask can be solved by independently shuffling all the coordinates of the sample.\n\n6)Experiments (Section 6): \ni) It seems to me that the proposed NN-based technique has some quite serious divergence issues: 'After discarding diverged models, ...' or 'Unfortunately, the model selection procedure also didn't identify good settings for the Anica-g model...'.\nii) The proposed method gives pretty comparable results to the chosen baselines (fastICA, PNLMISEP) on the selected small-dimensional tasks. In fact, [7,8,9] are likely to provide more accurate (fastICA is a simple kurtosis based method, which is \na somewhat crude 'estimate' of entropy) and faster estimates; see also 2).\n\nReferences:\n[1] Pierre Comon. Independent component analysis, a new concept? Signal Processing, 36:287-314, 1994.\n[2] Aapo Hyvarinen and Erkki Oja. Independent Component Analysis: Algorithms and Applications. Neural Networks, 13(4-5):411-30, 2000. \n[3] Andreas Ziehe, Motoaki Kawanabe, Stefan Harmeling, and Klaus-Robert Muller. Blind separation of postnonlinear mixtures using linearizing transformations and temporal decorrelation. Journal of Machine Learning Research, 4:1319-1338, 2003.\n[4] Barnabas Poczos, Liang Xiong, and Jeff Schneider. Nonparametric divergence: Estimation with applications to machine learning on distributions. In Conference on Uncertainty in Artificial Intelligence, pages 599-608, 2011.\n[5] Arthur Gretton, Karsten M. Borgwardt, Malte J. Rasch, Bernhard Scholkopf, Alexander Smola. A Kernel Two-Sample Test. Journal of Machine Learning Research, 13:723-773, 2012.\n[6] Alan Wisler, Visar Berisha, Andreas Spanias, Alfred O. Hero. A data-driven basis for direct estimation of functionals of distributions. TR, 2017. (https://arxiv.org/abs/1702.06516) \n[7] Erik G. Learned-Miller, John W. Fisher III. ICA using spacings estimates of entropy. Journal of Machine Learning Research, 4:1271-1295, 2003.\n[8] Francis R. Bach. Michael I. Jordan. Kernel Independent Component Analysis. Journal of Machine Learning Research 3: 1-48, 2002.\n[9] Hao Shen, Stefanie Jegelka and Arthur Gretton. Fast Kernel-Based Independent Component Analysis, IEEE Transactions on Signal Processing, 57:3498-3511, 2009.\n",
+        "confidence": "5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature"
+    },
+    "forum": "ryykVe-0W",
+    "referent": null,
+    "invitation": "ICLR.cc/2018/Conference/-/Paper573/Official_Review",
+    "replyto": "ryykVe-0W",
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "ICLR.cc/2018/Conference/Paper573/AnonReviewer3"
+    ],
+    "writers": [],
+    "Sub(s)": [
+        {
+            "id": "SytMSVTmf",
+            "original": null,
+            "cdate": 1515173137481,
+            "pdate": null,
+            "odate": null,
+            "mdate": null,
+            "tcdate": 1515173137481,
+            "tmdate": 1515173137481,
+            "ddate": null,
+            "number": 3,
+            "content": {
+                "title": "Thanks for the feedback.",
+                "comment": "Thanks for the feedback and interesting references.\n\nMany of the criticisms here seem to be based on notions which are specific to linear ICA. Unfortunately this seems to be attributable to a lack of clarity in the paper and we'd like to emphasize that we didn't try to provide an alternative to methods which have been specifically designed for that problem. We evaluated our methods on linear ICA and PNL ICA because solutions to these problems are known and comparisons were possible but the point is that the method we propose is less dependent on the specific mixing process.\n\n\"1)The ICA problem can be formulated as the minimization of pairwise mutual information [1] or one-dimensional entropy [2]. In other words, estimating the joint dependence of the source coordinates is not necessary; it is worthwhile to avoid it.\"\n\nThe first observation is specific to the linear case but interesting to know about. Working with the entropy seems to be based on the same ideas as infomax and introduces other limitations but we consider it complementary to our approach. \n\n\"2)The PNL ICA task can be efficiently tackled by first 'removing' the nonlinearity followed by classical linear ICA; see for example [3].\"\n\nWhile we didn't aim to be optimal for the PNL case either, we'd like to point out that the approach in [3] is still an iterative procedure.\n\n\"4)Optimizing non-differentiable IT measures can computationally quite efficiently carried out in the ICA context by e.g., Givens rotations [7]; differentiable ICA cost functions can be robustly handled by Stiefel manifold methods; see for example [8,9].\"\n\nThese points seem to be specific to the linear case again but are once again interesting.\n\n\"5)Section 3.1: This section is devoted to generating samples from the product of the marginals, even using separate generator networks. I do not see the necessity of these solutions; the subtask can be solved by independently shuffling all the coordinates of the sample.\"\n\nThe first solution is indeed basically shuffling the coordinates of the sample but we admit that the text was a bit overly didactic and we shortened it a bit. The separate generator networks could be interesting in a setup in which shuffling is not desirable because there are temporal dependencies, for example. We changed the text to make this more clear.\n\n\"6)Experiments (Section 6): \ni) It seems to me that the proposed NN-based technique has some quite serious divergence issues: 'After discarding diverged models, ...' or 'Unfortunately, the model selection procedure also didn't identify good settings for the Anica-g model...'.\nii) The proposed method gives pretty comparable results to the chosen baselines (fastICA, PNLMISEP) on the selected small-dimensional tasks. In fact, [7,8,9] are likely to provide more accurate (fastICA is a simple kurtosis based method, which is a somewhat crude 'estimate' of entropy) and faster estimates; see also 2).\"\n\nThe first point is fair in that our model selection heuristic wasn't always able to identify the best model and that GAN training can be unstable. That said, the discarding of models was mainly because we performed a random search with aggressive hyperparameter ranges which could select very high learning rates, for example. The second point is fair too in that the cited methods might prove to be stronger baselines. We don't think that obtaining comparable results with a more general method is a bad thing but that is of course somewhat subjective.\n\nWe'd finally like to point out that we don't propose the use of the Wasserstein GAN loss specifically but GAN type objectives in general for learning independent features. The WGAN example in the text was mainly there to illustrate how in some cases the objective can be seen as a proxy for the mutual information.\n\nThanks again."
+            },
+            "forum": "ryykVe-0W",
+            "referent": null,
+            "invitation": "ICLR.cc/2018/Conference/-/Paper573/Official_Comment",
+            "replyto": "HyoEDdvxG",
+            "readers": [
+                "everyone"
+            ],
+            "nonreaders": [],
+            "signatures": [
+                "ICLR.cc/2018/Conference/Paper573/Authors"
+            ],
+            "writers": [
+                "ICLR.cc/2018/Conference/Paper573/Authors"
+            ],
+            "Sub(s)": [
+                {
+                    "id": "SybdzO8Nf",
+                    "original": null,
+                    "cdate": 1515778665025,
+                    "pdate": null,
+                    "odate": null,
+                    "mdate": null,
+                    "tcdate": 1515778665025,
+                    "tmdate": 1515778665025,
+                    "ddate": null,
+                    "number": 5,
+                    "content": {
+                        "title": "Thank you for the feedback",
+                        "comment": "Thank you for your response.\n\nMaximizing independence under general mixing conditions does not necessarily lead to the recovery of the underlying independent sources (even up to the standard ambiguities); this is one of the major motivations why the linear and post-nonlinear ICA (PNL-ICA) tasks have been considered in the literature.\n\nConstructing new general ICA 'solvers' can have certain impact, however the merits of the proposed heuristic are not illustrated/clear.\n1)In case of linear and post-nonlinear ICA: Available off-the-shelf methods can solve 1-2 orders-of-magnitude larger tasks than the ones studied with high accuracy in a numerically robust way.\n2)For general non-linear ICA tasks: \n-One should investigate whether techniques maximizing an independence measure lead to provable solution, find the hidden sources. \n-In fact, using approximate independence measures [such as (4)] raises further unhandled issues. \n\nTo sum up, it would be crucial to (i) understand the validity domain of the studied scheme, (ii) make it comparable to existing methods (in terms of scalability, precision and robustness; at least in the ICA and PNL-ICA settings), and (iii) construct new well-posed non-linear ICA tasks.\n\nMy opinion has not changed."
+                    },
+                    "forum": "ryykVe-0W",
+                    "referent": null,
+                    "invitation": "ICLR.cc/2018/Conference/-/Paper573/Official_Comment",
+                    "replyto": "SytMSVTmf",
+                    "readers": [
+                        "everyone"
+                    ],
+                    "nonreaders": [],
+                    "signatures": [
+                        "ICLR.cc/2018/Conference/Paper573/AnonReviewer3"
+                    ],
+                    "writers": [
+                        "ICLR.cc/2018/Conference/Paper573/AnonReviewer3"
+                    ],
+                    "Sub(s)": []
+                }
+            ]
+        }
+    ]
+}

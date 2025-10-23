@@ -1,0 +1,30 @@
+{
+    "id": "ry2lpp_ez",
+    "original": null,
+    "cdate": 1511738612355,
+    "pdate": null,
+    "odate": null,
+    "mdate": null,
+    "tcdate": 1511738612355,
+    "tmdate": 1515642471817,
+    "ddate": null,
+    "number": 3,
+    "content": {
+        "title": "Thought provoking paper but lacks more detailed analysis",
+        "rating": "6: Marginally above acceptance threshold",
+        "review": "\nThe idea of ICA is constructing a mapping from dependent inputs to outputs (=the derived features) such that the outputs are as independent as possible. As the input/output densities are often not known and/or are intractable, natural independence measures such as mutual information are hard to estimate. In practice, the independence is characterized by certain functions of higher order moments -- leading to several alternatives in a zoo of independence objectives.  \n\nThe current paper makes the iteresting observation that independent features can also be computed via adversarial objectives. The key idea of adversarial training is adapted in this context as comparing samples from the joint distribution and the product of the marginals. \n\nTwo methods are proposed for drawing samples from the products of marginals. \nOne method is generating samples but permuting randomly the sample indices for individual marginals - this resampling mechanism generates approximately independent samples from the product distribution. The second method is essentially samples each marginal separately. \n\nThe approach is demonstrated in the solution of both linear and non-linear ICA problems.\n\nPositive:\nThe paper is well written and easy to follow on a higher level. GAN's provide a fresh look at nonlinear ICA and the paper is certainly thought provoking. \n\n\nNegative:\nMost of the space is devoted for reviewing related work and motivations, while the specifics of the method are described relatively short in section 4. There is no analysis and the paper is \nsomewhat anecdotal. The simulation results section is limited in scope. The sampling from product distribution method is somewhat obvious.\n\n\nQuestions:\n\n- The overcomplete audio source separation case is well known for audio and I could not understand why a convincing baseline can not be found. Is this due to nonlinear mixing?\nAs 26 channels and 6 channels are given, a simple regularization based method can be easily developed to provide a baseline performance, \n\n\n- The need for normalization in section 4 is surprising, as it obviously renders the outputs dependent. \n\n- Figure 1 may be misleading as h are not defined \n",
+        "confidence": "3: The reviewer is fairly confident that the evaluation is correct"
+    },
+    "forum": "ryykVe-0W",
+    "referent": null,
+    "invitation": "ICLR.cc/2018/Conference/-/Paper573/Official_Review",
+    "replyto": "ryykVe-0W",
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "ICLR.cc/2018/Conference/Paper573/AnonReviewer2"
+    ],
+    "writers": []
+}

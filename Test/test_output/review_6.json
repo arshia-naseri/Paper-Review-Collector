@@ -1,0 +1,30 @@
+{
+    "id": "SytMSVTmf",
+    "original": null,
+    "cdate": 1515173137481,
+    "pdate": null,
+    "odate": null,
+    "mdate": null,
+    "tcdate": 1515173137481,
+    "tmdate": 1515173137481,
+    "ddate": null,
+    "number": 3,
+    "content": {
+        "title": "Thanks for the feedback.",
+        "comment": "Thanks for the feedback and interesting references.\n\nMany of the criticisms here seem to be based on notions which are specific to linear ICA. Unfortunately this seems to be attributable to a lack of clarity in the paper and we'd like to emphasize that we didn't try to provide an alternative to methods which have been specifically designed for that problem. We evaluated our methods on linear ICA and PNL ICA because solutions to these problems are known and comparisons were possible but the point is that the method we propose is less dependent on the specific mixing process.\n\n\"1)The ICA problem can be formulated as the minimization of pairwise mutual information [1] or one-dimensional entropy [2]. In other words, estimating the joint dependence of the source coordinates is not necessary; it is worthwhile to avoid it.\"\n\nThe first observation is specific to the linear case but interesting to know about. Working with the entropy seems to be based on the same ideas as infomax and introduces other limitations but we consider it complementary to our approach. \n\n\"2)The PNL ICA task can be efficiently tackled by first 'removing' the nonlinearity followed by classical linear ICA; see for example [3].\"\n\nWhile we didn't aim to be optimal for the PNL case either, we'd like to point out that the approach in [3] is still an iterative procedure.\n\n\"4)Optimizing non-differentiable IT measures can computationally quite efficiently carried out in the ICA context by e.g., Givens rotations [7]; differentiable ICA cost functions can be robustly handled by Stiefel manifold methods; see for example [8,9].\"\n\nThese points seem to be specific to the linear case again but are once again interesting.\n\n\"5)Section 3.1: This section is devoted to generating samples from the product of the marginals, even using separate generator networks. I do not see the necessity of these solutions; the subtask can be solved by independently shuffling all the coordinates of the sample.\"\n\nThe first solution is indeed basically shuffling the coordinates of the sample but we admit that the text was a bit overly didactic and we shortened it a bit. The separate generator networks could be interesting in a setup in which shuffling is not desirable because there are temporal dependencies, for example. We changed the text to make this more clear.\n\n\"6)Experiments (Section 6): \ni) It seems to me that the proposed NN-based technique has some quite serious divergence issues: 'After discarding diverged models, ...' or 'Unfortunately, the model selection procedure also didn't identify good settings for the Anica-g model...'.\nii) The proposed method gives pretty comparable results to the chosen baselines (fastICA, PNLMISEP) on the selected small-dimensional tasks. In fact, [7,8,9] are likely to provide more accurate (fastICA is a simple kurtosis based method, which is a somewhat crude 'estimate' of entropy) and faster estimates; see also 2).\"\n\nThe first point is fair in that our model selection heuristic wasn't always able to identify the best model and that GAN training can be unstable. That said, the discarding of models was mainly because we performed a random search with aggressive hyperparameter ranges which could select very high learning rates, for example. The second point is fair too in that the cited methods might prove to be stronger baselines. We don't think that obtaining comparable results with a more general method is a bad thing but that is of course somewhat subjective.\n\nWe'd finally like to point out that we don't propose the use of the Wasserstein GAN loss specifically but GAN type objectives in general for learning independent features. The WGAN example in the text was mainly there to illustrate how in some cases the objective can be seen as a proxy for the mutual information.\n\nThanks again."
+    },
+    "forum": "ryykVe-0W",
+    "referent": null,
+    "invitation": "ICLR.cc/2018/Conference/-/Paper573/Official_Comment",
+    "replyto": "HyoEDdvxG",
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "ICLR.cc/2018/Conference/Paper573/Authors"
+    ],
+    "writers": [
+        "ICLR.cc/2018/Conference/Paper573/Authors"
+    ]
+}

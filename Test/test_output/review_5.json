@@ -1,0 +1,30 @@
+{
+    "id": "BkIBV767G",
+    "original": null,
+    "cdate": 1515168829970,
+    "pdate": null,
+    "odate": null,
+    "mdate": null,
+    "tcdate": 1515168829970,
+    "tmdate": 1515168829970,
+    "ddate": null,
+    "number": 1,
+    "content": {
+        "title": "Thanks for the suggestions and comments. We adjusted the paper.",
+        "comment": "First of all, thanks for the feedback and suggestions.\n\nWe removed some of the text which basically reiterated the sampling process as it seemed that multiple reviewers found it redundant. As you suggested, we made the definitions of the full system in Section 4 a bit more explicit. \n\n\"The overcomplete audio source separation case is well known for audio and I could not understand why a convincing baseline can not be found. Is this due to nonlinear mixing?\"\n\nGood question and something we certainly looked at. The most important reason for our lack of a baseline here is that the real-world audio separation setting is slightly more complicated due to the different arrival times of the source signals and reverberation. Most multi-channel audio separation methods we know of work in the frequency domain to alleviate some of these issues, introducing the necessity to predict phase information to reconstruct the raw signals. Another issue was that the evaluation criteria and benchmark data sets in this domain still seem to be under active development but of course we'd love to hear about good real-world benchmarks we might have overlooked. \n\n\"As 26 channels and 6 channels are given, a simple regularization based method can be easily developed to provide a baseline performance, \"\n\nThis sounds interesting. Do you mean an auto-encoder with more standard regularization? In that case the hidden units wouldn't be trained to become independent but perhaps we misunderstood the suggestion.\n\n\"The need for normalization in section 4 is surprising, as it obviously renders the outputs dependent.\"\n\nWe normalize over samples in a batch and not over the units in the layer but admit that this was not clear in the paper. We changed the text to address this issue.\n\nWe also removed the figure you referred to as it didn't add much and took up a lot of space.\n\nThanks again.\n"
+    },
+    "forum": "ryykVe-0W",
+    "referent": null,
+    "invitation": "ICLR.cc/2018/Conference/-/Paper573/Official_Comment",
+    "replyto": "ry2lpp_ez",
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "ICLR.cc/2018/Conference/Paper573/Authors"
+    ],
+    "writers": [
+        "ICLR.cc/2018/Conference/Paper573/Authors"
+    ]
+}

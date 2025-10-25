@@ -1,0 +1,31 @@
+{
+    "id": "SJy0B1pBz",
+    "original": null,
+    "cdate": 1517249990947,
+    "pdate": null,
+    "odate": null,
+    "mdate": null,
+    "tcdate": 1517249990963,
+    "tmdate": 1517260082563,
+    "ddate": null,
+    "number": 676,
+    "content": {
+        "decision": "Reject",
+        "title": "ICLR 2018 Conference Acceptance Decision",
+        "comment": "The paper proposes the use of GANs to match the joint distribution of features to the product of their marginals for ICA. The approach is totally plausible but reviewers have complaints about lack of rigor and analysis in terms of (i) mixing conditions under which the proposed GAN based approach will work, given that ICA is ill-posed for general nonlinear mixing  (ii) comparison with prior work on linear and PNL ICA.\n\nFurther, in most scenarios where GANs are used, one of the distributions is fixed (say, the real distribution) and the other is dynamic (fake distribution) trying to come close to the fixed distribution during optimization. In the proposed method, the discriminator encodes the distance b/w joint and product of marginals which are both dynamic during the learning. It might be useful to comment whether or not it has any implications wrt increased instability of training, etc. "
+    },
+    "forum": "ryykVe-0W",
+    "referent": null,
+    "invitation": "ICLR.cc/2018/Conference/-/Acceptance_Decision",
+    "replyto": "ryykVe-0W",
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "ICLR.cc/2018/Conference/Program_Chairs"
+    ],
+    "writers": [
+        "ICLR.cc/2018/Conference/Program_Chairs"
+    ]
+}

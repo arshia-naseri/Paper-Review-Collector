@@ -1,0 +1,156 @@
+{
+    "id": "ryzm6BATZ",
+    "original": "B1zmTBAT-",
+    "cdate": 1518730189355,
+    "pdate": null,
+    "odate": null,
+    "mdate": null,
+    "tcdate": 1508953370259,
+    "tmdate": 1644493022819,
+    "ddate": null,
+    "number": 93,
+    "content": {
+        "title": "Image Quality Assessment Techniques Improve Training and Evaluation of Energy-Based Generative Adversarial Networks",
+        "abstract": "We propose a new, multi-component energy function for energy-based Generative Adversarial Networks (GANs) based on methods from the image quality assessment literature. Our approach expands on the Boundary Equilibrium Generative Adversarial Network (BEGAN) by outlining some of the short-comings of the original energy and loss functions. We address these short-comings by incorporating an l1 score, the Gradient Magnitude Similarity score, and a chrominance score into the new energy function. We then provide a set of systematic experiments that explore its hyper-parameters. We show that each of the energy function's components is able to represent a slightly different set of features, which require their own evaluation criteria to assess whether they have been adequately learned. We show that models using the new energy function are able to produce better image representations than the BEGAN model in predicted ways.",
+        "pdf": "/pdf/7e656f2b65e7c379977b425701a3c58d618758ae.pdf",
+        "TL;DR": "Image Quality Assessment Techniques Improve Training and Evaluation of Energy-Based Generative Adversarial Networks",
+        "paperhash": "vertolli|image_quality_assessment_techniques_improve_training_and_evaluation_of_energybased_generative_adversarial_networks",
+        "keywords": [
+            "generative adversarial networks",
+            "gans",
+            "deep learning",
+            "image modeling",
+            "image generation",
+            "energy based models"
+        ],
+        "authors": [
+            "Michael O. Vertolli",
+            "Jim Davies"
+        ],
+        "authorids": [
+            "michaelvertolli@gmail.com",
+            "jim@jimdavies.org"
+        ],
+        "data": "[CelebA](https://paperswithcode.com/dataset/celeba)",
+        "_bibtex": "@misc{\no.2018image,\ntitle={Image Quality Assessment Techniques Improve Training and Evaluation of Energy-Based Generative Adversarial Networks},\nauthor={Michael O. Vertolli and Jim Davies},\nyear={2018},\nurl={https://openreview.net/forum?id=ryzm6BATZ},\n}"
+    },
+    "forum": "ryzm6BATZ",
+    "referent": null,
+    "invitation": "ICLR.cc/2018/Conference/-/Blind_Submission",
+    "replyto": null,
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "ICLR.cc/2018/Conference"
+    ],
+    "writers": [
+        "ICLR.cc/2018/Conference"
+    ],
+    "details": {
+        "revisions": true,
+        "invitation": {
+            "reply": {
+                "readers": {
+                    "description": "The users who will be allowed to read the above content.",
+                    "values": [
+                        "everyone"
+                    ]
+                },
+                "writers": {
+                    "values": [
+                        "ICLR.cc/2018/Conference"
+                    ]
+                },
+                "signatures": {
+                    "description": "How your identity will be displayed with the above content.",
+                    "values": [
+                        "ICLR.cc/2018/Conference"
+                    ]
+                },
+                "content": {
+                    "pdf": {
+                        "required": true,
+                        "order": 9,
+                        "value-regex": ".*",
+                        "description": "Upload a PDF file that ends with .pdf"
+                    },
+                    "title": {
+                        "required": true,
+                        "order": 1,
+                        "description": "Title of paper.",
+                        "value-regex": ".{1,250}"
+                    },
+                    "abstract": {
+                        "required": true,
+                        "order": 8,
+                        "description": "Abstract of paper.",
+                        "value-regex": "[\\S\\s]{1,5000}"
+                    },
+                    "authors": {
+                        "required": true,
+                        "order": 2,
+                        "values-regex": "[^;,\\n]+(,[^,\\n]+)*",
+                        "description": "Comma separated list of author names. Please provide real names; identities will be anonymized."
+                    },
+                    "keywords": {
+                        "order": 6,
+                        "values-regex": "(^$)|[^;,\\n]+(,[^,\\n]+)*",
+                        "description": "Comma separated list of keywords."
+                    },
+                    "TL;DR": {
+                        "required": false,
+                        "order": 7,
+                        "description": "\"Too Long; Didn't Read\": a short sentence describing your paper",
+                        "value-regex": "[^\n]{0,500}"
+                    },
+                    "authorids": {
+                        "required": true,
+                        "order": 3,
+                        "values-regex": "([a-z0-9_\\-\\.]{2,}@[a-z0-9_\\-\\.]{2,}\\.[a-z]{2,},){0,}([a-z0-9_\\-\\.]{2,}@[a-z0-9_\\-\\.]{2,}\\.[a-z]{2,})",
+                        "description": "Comma separated list of author email addresses, lowercased, in the same order as above. For authors with existing OpenReview accounts, please make sure that the provided email address(es) match those listed in the author's profile. Please provide real emails; identities will be anonymized."
+                    },
+                    "code": {
+                        "required": false,
+                        "description": "Optional link to data sources",
+                        "value-regex": ".*",
+                        "markdown": true,
+                        "order": 100
+                    },
+                    "data": {
+                        "required": false,
+                        "description": "Optional link to data sources",
+                        "value-regex": ".*",
+                        "markdown": true,
+                        "order": 101
+                    },
+                    "community_implementations": {
+                        "required": false,
+                        "description": "Optional link to open source implementations",
+                        "value-regex": ".*",
+                        "markdown": true
+                    }
+                }
+            },
+            "cdate": 1506717071958,
+            "signatures": [
+                "ICLR.cc/2018/Conference"
+            ],
+            "readers": [
+                "everyone"
+            ],
+            "nonreaders": [],
+            "writers": [
+                "ICLR.cc/2018/Conference"
+            ],
+            "invitees": [
+                "ICLR.cc/2018/Conference"
+            ],
+            "noninvitees": [],
+            "tmdate": 1679773890668,
+            "id": "ICLR.cc/2018/Conference/-/Blind_Submission",
+            "type": "note"
+        }
+    }
+}

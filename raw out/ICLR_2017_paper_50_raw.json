@@ -1,0 +1,351 @@
+{
+    "id": "rkE3y85ee",
+    "original": null,
+    "cdate": null,
+    "pdate": 1486396478185,
+    "odate": null,
+    "mdate": null,
+    "tcdate": 1478283179713,
+    "tmdate": 1760257718603,
+    "ddate": null,
+    "number": 281,
+    "content": {
+        "title": "Categorical Reparameterization with Gumbel-Softmax",
+        "abstract": "Categorical variables are a natural choice for representing discrete structure in the world. However, stochastic neural networks rarely use categorical latent variables due to the inability to backpropagate through samples. In this work, we present an efficient gradient estimator that replaces the non-differentiable sample from a categorical distribution with a differentiable sample from a novel Gumbel-Softmax distribution. This distribution has the essential property that it can be smoothly annealed into a categorical distribution. We show that our Gumbel-Softmax estimator outperforms state-of-the-art gradient estimators on structured output prediction and unsupervised generative modeling tasks with categorical latent variables, and enables large speedups on semi-supervised classification.",
+        "pdf": "/pdf/14d989bed02fa62e71fbb485fcec6e26d6c91ccf.pdf",
+        "TL;DR": "Simple, differentiable sampling mechanism for categorical variables that can be trained in neural nets via standard backprop.",
+        "conflicts": [
+            "google.com"
+        ],
+        "authors": [
+            "Eric Jang",
+            "Shixiang Gu",
+            "Ben Poole"
+        ],
+        "keywords": [
+            "Deep learning",
+            "Semi-Supervised Learning",
+            "Optimization",
+            "Structured prediction"
+        ],
+        "authorids": [
+            "ejang@google.com",
+            "sg717@cam.ac.uk",
+            "poole@cs.stanford.edu"
+        ],
+        "venue": "ICLR 2017 Poster",
+        "venueid": "ICLR.cc/2017/conference",
+        "_bibtex": "@inproceedings{\njang2017categorical,\ntitle={Categorical Reparameterization with Gumbel-Softmax},\nauthor={Eric Jang and Shixiang Gu and Ben Poole},\nbooktitle={International Conference on Learning Representations},\nyear={2017},\nurl={https://openreview.net/forum?id=rkE3y85ee}\n}",
+        "community_implementations": "[![CatalyzeX](/images/catalyzex_icon.svg) 13 code implementations](https://www.catalyzex.com/paper/categorical-reparameterization-with-gumbel/code)",
+        "paperhash": "jang|categorical_reparameterization_with_gumbelsoftmax"
+    },
+    "forum": "rkE3y85ee",
+    "referent": null,
+    "invitation": "ICLR.cc/2017/conference/-/submission",
+    "replyto": null,
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "~Eric_Jang1"
+    ],
+    "writers": [],
+    "details": {
+        "revisions": true,
+        "directReplies": [
+            {
+                "tddate": null,
+                "ddate": null,
+                "cdate": null,
+                "tmdate": 1486396478185,
+                "tcdate": 1486396478185,
+                "number": 1,
+                "id": "S1LB3MLul",
+                "invitation": "ICLR.cc/2017/conference/-/paper281/acceptance",
+                "forum": "rkE3y85ee",
+                "replyto": "rkE3y85ee",
+                "signatures": [
+                    "ICLR.cc/2017/pcs"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2017/pcs"
+                ],
+                "content": {
+                    "title": "ICLR committee final decision",
+                    "comment": "This paper proposes a neat general method for relaxing models with discrete softmax choices into closely-related models with continuous random variables. The method is designed to work well with the reparameterization trick used in stochastic variational inference. This work is likely to have wide impact.\n \n Related submissions at ICLR:\n \"The Concrete Distribution: A Continuous Relaxation of Discrete Random Variables\" by Maddison et al. contains the same core idea. \"Discrete variational autoencoders\", by Rolfe, contains an alternative relaxation for autoencoders with discrete latents, which I personally find harder to follow.",
+                    "decision": "Accept (Poster)"
+                },
+                "nonreaders": []
+            },
+            {
+                "tddate": null,
+                "tmdate": 1482078807183,
+                "tcdate": 1482078742380,
+                "number": 3,
+                "id": "Sk0G5NVEg",
+                "invitation": "ICLR.cc/2017/conference/-/paper281/official/review",
+                "forum": "rkE3y85ee",
+                "replyto": "rkE3y85ee",
+                "signatures": [
+                    "ICLR.cc/2017/conference/paper281/AnonReviewer2"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2017/conference/paper281/AnonReviewer2"
+                ],
+                "content": {
+                    "title": "Interesting idea, encouraging results",
+                    "rating": "7: Good paper, accept",
+                    "review": "This paper introduces a continuous relaxation of categorical distribution,  namely the the Gumbel-Softmax distribution, such that generative models with categorical random variables can be trained using reparameterization (path-derivative) gradients. The method is shown to improve upon other methods in terms of the achieved log-likelihoods of the resulting models. The main contribution, namely the method itself, is simple yet nontrivial and worth publishing, and seems effective in experiments. The paper is well-written, and I applaud the details provided in the appendix. The main application seems to be semi-supervised situations where you really want categorical variables.\n\n - P1: \"differentiable sampling mechanism for softmax\". \"sampling\" => \"approximate sampling\", since it's technically sampling from the Gumbal-softmax.\n \n - P3: \"backpropagtion\"\n \n - Section 4.1: Interesting experiments.\n \n - It would be interesting to report whether there is any discrepancy between the relaxed and non-relaxed models in terms of log-likelihood. Currently, only the likelihoods under the non-relaxed models are reported.\n \n - It is slightly discouraging that the temperature (a nuisance parameter) is used differently across experiments. It would be nice to give more details on whether you were succesful in learning the temperature, instead of annealing it; it would be interesting if that hyper-parameter could be eliminated.",
+                    "confidence": "5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature"
+                },
+                "nonreaders": []
+            },
+            {
+                "tddate": null,
+                "active": true,
+                "tmdate": 1479945812024,
+                "tcdate": 1479945812019,
+                "number": 2,
+                "id": "BJ2URiQfg",
+                "invitation": "ICLR.cc/2017/conference/-/paper281/public/comment",
+                "forum": "rkE3y85ee",
+                "replyto": "rkE3y85ee",
+                "signatures": [
+                    "(anonymous)"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "(anonymous)"
+                ],
+                "content": {
+                    "title": "Applicability over large class sizes",
+                    "comment": "It would be interesting to see experiments over large class sizes(K>10k). Have the authors already tried that ?"
+                },
+                "nonreaders": []
+            },
+            {
+                "tddate": null,
+                "tmdate": 1481844935227,
+                "tcdate": 1481844935222,
+                "number": 1,
+                "id": "SJ1R_ieEg",
+                "invitation": "ICLR.cc/2017/conference/-/paper281/official/review",
+                "forum": "rkE3y85ee",
+                "replyto": "rkE3y85ee",
+                "signatures": [
+                    "ICLR.cc/2017/conference/paper281/AnonReviewer4"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2017/conference/paper281/AnonReviewer4"
+                ],
+                "content": {
+                    "title": "The paper is well written but the novelty of the paper is less clear",
+                    "rating": "6: Marginally above acceptance threshold",
+                    "review": "The paper combines Gumbel distribution with the popular softmax function to obtain a continuous distribution on the simplex that can approximate categorical samples. It is not surprising that Gumbel softmax outperforms other single sample gradient estimators. However, I am curious about how Gumbel compares with Dirichlet experimentally. \n\nThe computational efficiency of the estimator when training semi-supervised models is nice. However, the advantage will be greater when the number of classes are huge, which doesn't seem to be the case in a simple dataset like MNIST. I am wondering why the experiments are not done on a richer dataset. \n\nThe presentation of the paper is neat and clean. The experiments settings are clearly explained and the analysis appears to be complete. \n\nThe only concern I have is the novelty of this work. I consider this work as a nice but may be incremental (relatively small) contribution to our community. ",
+                    "confidence": "3: The reviewer is fairly confident that the evaluation is correct"
+                },
+                "nonreaders": []
+            },
+            {
+                "tddate": null,
+                "tmdate": 1481937682496,
+                "tcdate": 1481937578041,
+                "number": 2,
+                "id": "HJf3GfM4e",
+                "invitation": "ICLR.cc/2017/conference/-/paper281/official/review",
+                "forum": "rkE3y85ee",
+                "replyto": "rkE3y85ee",
+                "signatures": [
+                    "ICLR.cc/2017/conference/paper281/AnonReviewer3"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2017/conference/paper281/AnonReviewer3"
+                ],
+                "content": {
+                    "title": "Review: Categorical Reparameterization with Gumbel-Softmax",
+                    "rating": "6: Marginally above acceptance threshold",
+                    "review": "The authors propose a method for reparameterization gradients with categorical distributions. This is done by using the Gumbel-Softmax distribution, a smoothened version of the Gumbel-Max trick for sampling from a multinomial.\n\nThe paper is well-written and clear. The application to the semi-supervised model in Kingma et al. (2014) makes sense for large classes, as well as its application to general stochastic computation graphs (Schulman et al., 2015).\n\nOne disconcerting point is that (from my understanding at least), this does not actually perform variational inference for discrete latent variable models. Rather, it changes the probability model itself and performs approximate inference on the modified (continuous relaxed) version of the model. This is fine in practice given that it's all approximate inference, but unlike previous variational inference advances either in more expressive approximations or faster computation (as noted by the different gradient estimators they compare to), the probability model is fundamentally changed.\n\nTwo critical points seem key: the sensitivity of the temperature, and whether this applies for non-one hot encodings of the categorical distribution (and thus sufficiently scale to high dimensions). Comments by the authors on this are welcome.\n\nThere is a related work by Rolfe (2016) on discrete VAEs, who also consider a continuous relaxed approach. This is worth citing and comparing to (or at least mentioning) in the paper.\n\nReferences\n\nRolfe, J. T. (2016). Discrete Variational Autoencoders. arXiv.org.",
+                    "confidence": "4: The reviewer is confident but not absolutely certain that the evaluation is correct"
+                },
+                "nonreaders": []
+            },
+            {
+                "tddate": null,
+                "tmdate": 1481242756071,
+                "tcdate": 1481242756067,
+                "number": 3,
+                "id": "rJhKOuwXx",
+                "invitation": "ICLR.cc/2017/conference/-/paper281/public/comment",
+                "forum": "rkE3y85ee",
+                "replyto": "rkE3y85ee",
+                "signatures": [
+                    "(anonymous)"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "(anonymous)"
+                ],
+                "content": {
+                    "title": "Batch sizes used",
+                    "comment": "I am trying to reproduce the results in the paper. What are the batch sizes used in the experiments ?"
+                },
+                "nonreaders": []
+            },
+            {
+                "tddate": null,
+                "tmdate": 1481252506620,
+                "tcdate": 1481252506616,
+                "number": 1,
+                "id": "Symj05vmx",
+                "invitation": "ICLR.cc/2017/conference/-/paper281/pre-review/question",
+                "forum": "rkE3y85ee",
+                "replyto": "rkE3y85ee",
+                "signatures": [
+                    "ICLR.cc/2017/conference/paper281/AnonReviewer4"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2017/conference/paper281/AnonReviewer4"
+                ],
+                "content": {
+                    "title": "dirichlet distribution",
+                    "question": "How does this relate to dirichlet distribution?"
+                },
+                "nonreaders": []
+            }
+        ],
+        "invitation": {
+            "reply": {
+                "writers": {
+                    "values-regex": "~.*"
+                },
+                "signatures": {
+                    "values-regex": "~.*",
+                    "description": "How your identity will be displayed with the above content."
+                },
+                "content": {
+                    "pdf": {
+                        "required": true,
+                        "order": 5,
+                        "description": "Either upload a PDF file or provide a direct link to your PDF on ArXiv (link must begin with http(s) and end with .pdf)",
+                        "value-regex": "upload|(http|https):\\/\\/.+\\.pdf"
+                    },
+                    "title": {
+                        "required": true,
+                        "order": 1,
+                        "description": "Title of paper.",
+                        "value-regex": ".{1,250}"
+                    },
+                    "abstract": {
+                        "required": true,
+                        "order": 4,
+                        "description": "Abstract of paper.",
+                        "value-regex": "[\\S\\s]{1,5000}"
+                    },
+                    "authors": {
+                        "required": true,
+                        "order": 2,
+                        "values-regex": "[^;,\\n]+(,[^,\\n]+)*",
+                        "description": "Comma separated list of author names, as they appear in the paper."
+                    },
+                    "conflicts": {
+                        "required": true,
+                        "order": 99,
+                        "values-regex": "[^;,\\n]+(,[^,\\n]+)*",
+                        "description": "Comma separated list of email domains of people who would have a conflict of interest in reviewing this paper, (e.g., cs.umass.edu;google.com, etc.)."
+                    },
+                    "keywords": {
+                        "order": 6,
+                        "description": "Comma separated list of keywords.",
+                        "values-dropdown": [
+                            "Theory",
+                            "Computer vision",
+                            "Speech",
+                            "Natural language processing",
+                            "Deep learning",
+                            "Unsupervised Learning",
+                            "Supervised Learning",
+                            "Semi-Supervised Learning",
+                            "Reinforcement Learning",
+                            "Transfer Learning",
+                            "Multi-modal learning",
+                            "Applications",
+                            "Optimization",
+                            "Structured prediction",
+                            "Games"
+                        ]
+                    },
+                    "TL;DR": {
+                        "required": false,
+                        "order": 3,
+                        "description": "\"Too Long; Didn't Read\": a short sentence describing your paper",
+                        "value-regex": "[^\\n]{0,250}"
+                    },
+                    "authorids": {
+                        "required": true,
+                        "order": 3,
+                        "values-regex": "[^;,\\n]+(,[^,\\n]+)*",
+                        "description": "Comma separated list of author email addresses, in the same order as above."
+                    },
+                    "code": {
+                        "required": false,
+                        "description": "Optional link to data sources",
+                        "value-regex": ".*",
+                        "markdown": true,
+                        "order": 100
+                    },
+                    "data": {
+                        "required": false,
+                        "description": "Optional link to data sources",
+                        "value-regex": ".*",
+                        "markdown": true,
+                        "order": 101
+                    },
+                    "community_implementations": {
+                        "required": false,
+                        "description": "Optional link to open source implementations",
+                        "value-regex": ".*",
+                        "markdown": true,
+                        "order": 103
+                    }
+                }
+            },
+            "replyForumViews": [],
+            "expdate": 1682960113803,
+            "signatures": [
+                "ICLR.cc/2017/pcs"
+            ],
+            "readers": [
+                "everyone"
+            ],
+            "writers": [
+                "ICLR.cc/2017/pcs"
+            ],
+            "invitees": [
+                "~"
+            ],
+            "tmdate": 1682960113849,
+            "id": "ICLR.cc/2017/conference/-/submission",
+            "type": "note"
+        }
+    }
+}

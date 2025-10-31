@@ -1,0 +1,471 @@
+{
+    "id": "zY5J1vp7tZ",
+    "forum": "zY5J1vp7tZ",
+    "content": {
+        "title": {
+            "value": "RDD: Retrieval-Based Demonstration Decomposer for Planner Alignment in Long-Horizon Tasks"
+        },
+        "authors": {
+            "value": [
+                "Mingxuan Yan",
+                "Yuping Wang",
+                "Zechun Liu",
+                "Jiachen Li"
+            ]
+        },
+        "authorids": {
+            "value": [
+                "~Mingxuan_Yan2",
+                "~Yuping_Wang6",
+                "~Zechun_Liu1",
+                "~Jiachen_Li1"
+            ]
+        },
+        "keywords": {
+            "value": [
+                "Robotics Manipulation",
+                "Subtask Discovery"
+            ]
+        },
+        "abstract": {
+            "value": "To tackle long-horizon tasks, recent hierarchical vision-language-action (VLAs) frameworks employ vision-language model (VLM)-based planners to decompose complex manipulation tasks into simpler sub-tasks that low-level visuomotor policies can easily handle. Typically, the VLM planner is finetuned to learn to decompose a target task. This finetuning requires target task demonstrations segmented into sub-tasks by either human annotation or heuristic rules. However, the heuristic subtasks can deviate significantly from the training data of the visuomotor policy, which degrades task performance. To address these issues, we propose a Retrieval-based Demonstration Decomposer (RDD) that automatically decomposes demonstrations into sub-tasks by aligning the visual features of the decomposed sub-task intervals with those from the training data of the low-level visuomotor policies. Our method outperforms the state-of-the-art sub-task decomposer on both simulation and real-world tasks, demonstrating robustness across diverse settings. Code and more results are available at rdd-neurips.github.io"
+        },
+        "primary_area": {
+            "value": "reinforcement_learning"
+        },
+        "venue": {
+            "value": "NeurIPS 2025 poster"
+        },
+        "venueid": {
+            "value": "NeurIPS.cc/2025/Conference"
+        },
+        "pdf": {
+            "value": "/pdf/06bac50ed912d04eedbe7ee203b3c898579b54a2.pdf"
+        },
+        "supplementary_material": {
+            "value": "/attachment/8377a5662737e9d78a842f5bc537f4802e7e7796.zip"
+        },
+        "_bibtex": {
+            "value": "@inproceedings{\nyan2025rdd,\ntitle={{RDD}: Retrieval-Based Demonstration Decomposer for Planner Alignment in Long-Horizon Tasks},\nauthor={Mingxuan Yan and Yuping Wang and Zechun Liu and Jiachen Li},\nbooktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},\nyear={2025},\nurl={https://openreview.net/forum?id=zY5J1vp7tZ}\n}"
+        },
+        "paperhash": {
+            "value": "yan|rdd_retrievalbased_demonstration_decomposer_for_planner_alignment_in_longhorizon_tasks"
+        }
+    },
+    "invitations": [
+        "NeurIPS.cc/2025/Conference/-/Submission",
+        "NeurIPS.cc/2025/Conference/-/Post_Submission",
+        "NeurIPS.cc/2025/Conference/Submission7445/-/Full_Submission",
+        "NeurIPS.cc/2025/Conference/Submission7445/-/Supplementary_Material",
+        "NeurIPS.cc/2025/Conference/-/Edit",
+        "NeurIPS.cc/2025/Conference/Submission7445/-/Camera_Ready_Revision"
+    ],
+    "cdate": 1746477831371,
+    "pdate": 1758216720845,
+    "odate": 1761704806327,
+    "mdate": 1761704806359,
+    "signatures": [
+        "NeurIPS.cc/2025/Conference/Submission7445/Authors"
+    ],
+    "writers": [
+        "NeurIPS.cc/2025/Conference",
+        "NeurIPS.cc/2025/Conference/Submission7445/Authors"
+    ],
+    "readers": [
+        "everyone"
+    ],
+    "license": "CC BY-SA 4.0",
+    "details": {
+        "directReplies": [
+            {
+                "content": {
+                    "summary": {
+                        "value": "This work introduced RDD, which can decompose demonstrations into sub-tasks without relying on human annotation or heuristics rules. RDD aligns the visual features of sub-task intervals with the training data of visuomotor policy. The author provides detailed demo video and code, which significantly enhances the reproducibility of the proposed method. RDD achieves good performance on RLBench and robustness."
+                    },
+                    "strengths_and_weaknesses": {
+                        "value": "Strength: \n1. The author provides detailed demo video and code, which significantly enhances the reproducibility of the proposed method.\n2. The author conduct ablations and present detailed analysis for the proposed method.\n3. The paper is well-written.\n\nWeaknesses:\n1. How does the RDD perform compared to the decomposer based on code-generating LLM/VLMs, e.g., instruct2act [1], robotics programmer [2] and Code as policies [3].\n\n[1] Huang, Siyuan, et al. \"Instruct2act: Mapping multi-modality instructions to robotic actions with large language model.\"\u00a0arXiv preprint arXiv:2305.11176\u00a0(2023).\n\n[2] Xie, Senwei, et al. \"Robotic Programmer: Video Instructed Policy Code Generation for Robotic Manipulation.\"\u00a0arXiv preprint arXiv:2501.04268\u00a0(2025).\n\n[3] Liang, Jacky, et al. \"Code as policies: Language model programs for embodied control.\"\u00a0ICRA, 2023."
+                    },
+                    "quality": {
+                        "value": 3
+                    },
+                    "clarity": {
+                        "value": 4
+                    },
+                    "significance": {
+                        "value": 3
+                    },
+                    "originality": {
+                        "value": 4
+                    },
+                    "questions": {
+                        "value": "See Strengths And Weaknesses"
+                    },
+                    "limitations": {
+                        "value": "Yes"
+                    },
+                    "rating": {
+                        "value": 4
+                    },
+                    "confidence": {
+                        "value": 3
+                    },
+                    "ethical_concerns": {
+                        "value": [
+                            "NO or VERY MINOR ethics concerns only"
+                        ]
+                    },
+                    "paper_formatting_concerns": {
+                        "value": "none"
+                    },
+                    "code_of_conduct_acknowledgement": {
+                        "value": "Yes"
+                    },
+                    "responsible_reviewing_acknowledgement": {
+                        "value": "Yes"
+                    },
+                    "final_justification": {
+                        "value": "The authors\u2019 responses have addressed my concerns. I will maintain my scores, i.e, borderline accept."
+                    }
+                },
+                "id": "PuDxVkd7ve",
+                "forum": "zY5J1vp7tZ",
+                "replyto": "zY5J1vp7tZ",
+                "signatures": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/Reviewer_G7RJ"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2025/Conference",
+                    "NeurIPS.cc/2025/Conference/Submission7445/Reviewer_G7RJ"
+                ],
+                "number": 1,
+                "invitations": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/-/Official_Review",
+                    "NeurIPS.cc/2025/Conference/-/Edit",
+                    "NeurIPS.cc/2025/Conference/Submission7445/Official_Review1/-/Review_Revision"
+                ],
+                "domain": "NeurIPS.cc/2025/Conference",
+                "tcdate": 1750666623407,
+                "cdate": 1750666623407,
+                "tmdate": 1761706689811,
+                "mdate": 1761706689811,
+                "parentInvitations": "NeurIPS.cc/2025/Conference/-/Official_Review",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "This paper proposes a method to decompose the demonstration into \"sub-tasks\" to improve the learning of VLA models. The authors formulate the decomposition as an optimal partition problem, where the partition objective relates to the learning data of low-level policies. The decomposition method is applied to a baseline hierarchical VLA and tested on 18 RLBench tasks for evaluation."
+                    },
+                    "strengths_and_weaknesses": {
+                        "value": "[+] The overall idea is well-motivated and shares a lot of insights with recent hierarchical VLA models, where we can use long-horizon task demonstrations to facilitate the learning of plan and action, and also perhaps task augmentation.\n\n[+] The overall description of the framework is clear and illustrative, with major points of the design easy and clear to follow.\n\n[-] One major concern lies in the marginal improvement of this method to the tasks selected in the evaluation phase. The current result is a bit hard to validate the effectiveness of the current method, especially given several ties between the proposed and the Uniform or Heuristic methods.\n\n[-] Another point is that I do feel the current framework can be extended to form many more interesting attempts and analyses, e.g., cross-domain or sim2real transfer (as the current decomposition should ideally support skill reuse). The current discussion on only RLBench is a bit narrow in my opinion, especially given the marginal improvement."
+                    },
+                    "quality": {
+                        "value": 2
+                    },
+                    "clarity": {
+                        "value": 3
+                    },
+                    "significance": {
+                        "value": 2
+                    },
+                    "originality": {
+                        "value": 3
+                    },
+                    "questions": {
+                        "value": "See the strength and weakness section."
+                    },
+                    "limitations": {
+                        "value": "yes"
+                    },
+                    "rating": {
+                        "value": 4
+                    },
+                    "confidence": {
+                        "value": 4
+                    },
+                    "ethical_concerns": {
+                        "value": [
+                            "NO or VERY MINOR ethics concerns only"
+                        ]
+                    },
+                    "paper_formatting_concerns": {
+                        "value": "No formatting concerns."
+                    },
+                    "code_of_conduct_acknowledgement": {
+                        "value": "Yes"
+                    },
+                    "responsible_reviewing_acknowledgement": {
+                        "value": "Yes"
+                    },
+                    "final_justification": {
+                        "value": "The author rebuttal has addressed most of my concerns. Therefore, I'm increasing my score to an accept."
+                    }
+                },
+                "id": "VgkseFmvVV",
+                "forum": "zY5J1vp7tZ",
+                "replyto": "zY5J1vp7tZ",
+                "signatures": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/Reviewer_wuNw"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2025/Conference",
+                    "NeurIPS.cc/2025/Conference/Submission7445/Reviewer_wuNw"
+                ],
+                "number": 2,
+                "invitations": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/-/Official_Review",
+                    "NeurIPS.cc/2025/Conference/-/Edit",
+                    "NeurIPS.cc/2025/Conference/Submission7445/Official_Review2/-/Review_Revision"
+                ],
+                "domain": "NeurIPS.cc/2025/Conference",
+                "tcdate": 1751512739654,
+                "cdate": 1751512739654,
+                "tmdate": 1761706689639,
+                "mdate": 1761706689639,
+                "parentInvitations": "NeurIPS.cc/2025/Conference/-/Official_Review",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "This paper identifies a critical alignment issue between high-level planners and low-level visuomotor policies in hierarchical vision-language-action (VLA) agents. To address this, the authors propose a Retrieval-based Demonstration Decomposer (RDD), a novel training-free method to automatically segment long-horizon demonstrations for planner fine-tuning. The core mechanism of RDD is to formulate the task as an optimal partitioning problem, which is solved by retrieving visually and temporally similar sub-tasks from the low-level policy's training data to guide the decomposition."
+                    },
+                    "strengths_and_weaknesses": {
+                        "value": "Strengths\n1. The paper tackles a highly relevant and significant problem in hierarchical robot learning. Ensuring that the high-level planner generates instructions that the low-level policy can reliably execute is crucial for the success of long-horizon tasks. The proposed direction of aligning the planner's fine-tuning data with the policy's existing capabilities is a valuable contribution to the field.\n2. The central concept of RDD is elegant and highly intuitive. Instead of relying on hand-engineered heuristics or expensive human annotations, RDD leverages the policy's own training data as a \"template\" for what constitutes a good, executable sub-task. \n3. The experimental evaluation is comprehensive, featuring strong baselines on a standard benchmark and extensive ablations that validate key design choices and demonstrate the method's effectiveness.\n\nWeakness\n1. The sub-task representation, using only start and end frames, is simplistic. It discards crucial intermediate dynamics and may fail to distinguish between sub-tasks with different motions but similar boundary states.\n2. The technical novelty is somewhat limited. The method is primarily a novel application and combination of existing techniques (dynamic programming, visual similarity search) rather than a fundamental algorithmic contribution.\n3. The retrieval-based nature of RDD raises questions about its robustness to novel, out-of-distribution sub-tasks. The paper lacks discussion and experiments for scenarios where a new demonstration contains actions not well-represented in the training database."
+                    },
+                    "quality": {
+                        "value": 2
+                    },
+                    "clarity": {
+                        "value": 3
+                    },
+                    "significance": {
+                        "value": 2
+                    },
+                    "originality": {
+                        "value": 2
+                    },
+                    "questions": {
+                        "value": "1. Given RDD's reliance on the D_aug_train database, how does its performance depend on the quality and style of the upstream heuristic used to create that database? Is RDD robust to different or lower-quality source heuristics?\n2. What is the expected behavior of RDD when encountering a truly novel sub-task not present in its retrieval database? Have you considered fallback mechanisms for such low-confidence retrieval scenarios?\n3. To better isolate the contribution, have you considered a more direct evaluation of decomposition quality itself\uff1f"
+                    },
+                    "limitations": {
+                        "value": "Yes, the authors have acknowledged the existence of a limitations section in the appendix. However, given the significance of certain limitations (e.g., the reliance on the quality of the policy's training data), it would improve the paper to briefly discuss the most critical ones in the main text for better transparency."
+                    },
+                    "rating": {
+                        "value": 4
+                    },
+                    "confidence": {
+                        "value": 4
+                    },
+                    "ethical_concerns": {
+                        "value": [
+                            "NO or VERY MINOR ethics concerns only"
+                        ]
+                    },
+                    "paper_formatting_concerns": {
+                        "value": "N/A"
+                    },
+                    "code_of_conduct_acknowledgement": {
+                        "value": "Yes"
+                    },
+                    "responsible_reviewing_acknowledgement": {
+                        "value": "Yes"
+                    },
+                    "final_justification": {
+                        "value": "The authors' response has addressed some of my concerns, and I encourage the authors to include these experiments and discussions in the paper. I will raise my score to borderline accept."
+                    }
+                },
+                "id": "kLyD1HG7iQ",
+                "forum": "zY5J1vp7tZ",
+                "replyto": "zY5J1vp7tZ",
+                "signatures": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/Reviewer_DAU1"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2025/Conference",
+                    "NeurIPS.cc/2025/Conference/Submission7445/Reviewer_DAU1"
+                ],
+                "number": 3,
+                "invitations": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/-/Official_Review",
+                    "NeurIPS.cc/2025/Conference/-/Edit",
+                    "NeurIPS.cc/2025/Conference/Submission7445/Official_Review3/-/Review_Revision"
+                ],
+                "domain": "NeurIPS.cc/2025/Conference",
+                "tcdate": 1751523631655,
+                "cdate": 1751523631655,
+                "tmdate": 1761706689496,
+                "mdate": 1761706689496,
+                "parentInvitations": "NeurIPS.cc/2025/Conference/-/Official_Review",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "This paper introduces RDD (Retrieval-based Demonstration Decomposer), a training-free method for decomposing long-horizon robotic demonstrations into sub-tasks for finetuning hierarchical Vision-Language-Action (VLA) models. The key insight is that existing decomposition methods (human annotation or heuristics) often generate sub-tasks that deviate from the training data of low-level visuomotor policies, leading to suboptimal performance. RDD addresses this by formulating demonstration decomposition as an optimal partitioning problem that explicitly aligns decomposed sub-tasks with the visuomotor policy's training set through visual feature retrieval. The method uses dynamic programming to efficiently solve the optimization problem and demonstrates 6.7% improvement over state-of-the-art methods on 18 RLBench tasks."
+                    },
+                    "strengths_and_weaknesses": {
+                        "value": "=== Strengths ===\n\n1. The paper identifies an important gap in hierarchical VLAs - the misalignment between planner training data and visuomotor policy capabilities. This is a practically relevant insight that is overlooked in prior work.\n2. The formulation as an optimal partitioning problem with interval-wise additive scoring is mathematically sound. The dynamic programming solution with O(N\u00b2) complexity is efficient, and the theoretical analysis (including Corollary 3.1.1) is rigorous.\n3. Using only start/end frames for interval representation (Eq. 3.5) is clever, avoiding variable-length representations while maintaining efficiency for nearest neighbor search.\n\n=== Weaknesses ===\n\n1. The method is only evaluated on RLBench in simulation. Other more challenging manipulation benchmarks (e.g., LIBERO) and real-world robotic manipulation often involve more complex visual variations, occlusions, and dynamics that may challenge the visual similarity-based retrieval approach.\n2. RDD requires access to the full training dataset of the visuomotor policy to build the retrieval database. This may not always be feasible, especially for proprietary or large-scale policies.\n3. The experiments show that performance degrades when the retrieval database is down-sampled to 25% of its original size. This suggests that a large and comprehensive database is necessary for good performance, which could pose a scalability challenge as the number of tasks and skills grows."
+                    },
+                    "quality": {
+                        "value": 3
+                    },
+                    "clarity": {
+                        "value": 3
+                    },
+                    "significance": {
+                        "value": 3
+                    },
+                    "originality": {
+                        "value": 3
+                    },
+                    "questions": {
+                        "value": "1. How does RDD handle demonstrations containing sub-tasks that are fundamentally novel and have no close visual or temporal analogues in the policy's training set? Could you discuss this potential failure case and how it might impact the fine-tuning of the planner and overall task success? A change in my score would depend on a convincing explanation of how the system avoids catastrophic failure in such out-of-distribution scenarios.\n2. Your method's success relies on the quality of the pre-existing visuomotor training set. How sensitive is RDD to the quality of the sub-task segmentation within this dataset? For example, if $\\mathcal{D}^{train}_{aug}$ was segmented using a poor or noisy heuristic, would RDD simply learn to replicate this flawed strategy, or does the optimization process offer some resilience?\n3. Can you provide examples where RDD fails to decompose demonstrations correctly? Specifically, are there cases where visually similar intervals have very different semantic meanings that confuse retrieval?"
+                    },
+                    "limitations": {
+                        "value": "Yes."
+                    },
+                    "rating": {
+                        "value": 4
+                    },
+                    "confidence": {
+                        "value": 3
+                    },
+                    "ethical_concerns": {
+                        "value": [
+                            "NO or VERY MINOR ethics concerns only"
+                        ]
+                    },
+                    "paper_formatting_concerns": {
+                        "value": "No formatting issues."
+                    },
+                    "code_of_conduct_acknowledgement": {
+                        "value": "Yes"
+                    },
+                    "responsible_reviewing_acknowledgement": {
+                        "value": "Yes"
+                    },
+                    "final_justification": {
+                        "value": "The rebuttal mostly solved my concerns that RDD can be extended to OOD scenarios and prevent catastrophic failures. I therefore maintain my initial rating of borderline accept."
+                    }
+                },
+                "id": "YcAr8Tra9s",
+                "forum": "zY5J1vp7tZ",
+                "replyto": "zY5J1vp7tZ",
+                "signatures": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/Reviewer_9Wsv"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2025/Conference",
+                    "NeurIPS.cc/2025/Conference/Submission7445/Reviewer_9Wsv"
+                ],
+                "number": 4,
+                "invitations": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/-/Official_Review",
+                    "NeurIPS.cc/2025/Conference/-/Edit",
+                    "NeurIPS.cc/2025/Conference/Submission7445/Official_Review4/-/Review_Revision"
+                ],
+                "domain": "NeurIPS.cc/2025/Conference",
+                "tcdate": 1751542670015,
+                "cdate": 1751542670015,
+                "tmdate": 1761706689318,
+                "mdate": 1761706689318,
+                "parentInvitations": "NeurIPS.cc/2025/Conference/-/Official_Review",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "author_final_remarks": {
+                        "value": "**Dear Chairs and Reviewers,**\n\nWe sincerely thank you for your time and valuable feedback during the review process of our work!\n\nWe have addressed each reviewer\u2019s comments and concerns in detail, and below we summarize the discussion and reaffirm our main contributions.\n\n## Summary of Contributions\n\n1. **Novel Problem**: We are the first to address a critical issue in VLA task planning: the high-level VLM planner\u2019s lack of awareness of the low-level visuomotor policy\u2019s capabilities, which can lead to sub-optimal sub-task instructions.\n2. **Scalable & Adaptive Solution**: We propose a new problem formulation and algorithm with detailed theoretical analysis. We cast the visuomotor-aware planner fine-tuning dataset construction as an optimal partitioning problem and present an effective and efficient linear-time algorithm.\n3. **Extensive Validation**: We conduct extensive experiments across both simulation and real-world benchmarks, including handling out-of-distribution novel sub-tasks.\n\n## Summary of Comments and Responses\n\n| Questions                                                    | From Reviewers | Details of Our Response                                      |\n| ------------------------------------------------------------ | -------------- | ------------------------------------------------------------ |\n| How RDD handles novel sub-tasks?  | 9Wsv, DAU1     | Rebuttal to Reviewer 9Wsv (30 Jul 2025, 12:52).              |\n| Evaluation on additional benchmarks, including real-world datasets. | 9Wsv, wuNw     | Rebuttal to Reviewer 9Wsv (30 Jul 2025, 12:52).              |\n| Open access to visuomotor policy's training set   | 9Wsv | Follow-up (05 Aug 2025, 18:26) & Rebuttal (30 Jul 2025, 12:52) to Reviewer 9Wsv |\n| Scalability of RDD    | 9Wsv      | Follow-up (05 Aug 2025, 18:26) & Rebuttal (30 Jul 2025, 12:52) to Reviewer 9Wsv |\n| Sensitivity of RDD to sub-optimal sub-tasks     | 9Wsv   | Rebuttal (30 Jul 2025, 12:52) to Reviewer 9Wsv   |\n| Technical novelties | DAU1   | Rebuttal (30 Jul 2025, 13:07) to Reviewer DAU1     |\n| Intermediate evaluation metrics  | DAU1   | Rebuttal (30 Jul 2025, 13:07) to Reviewer DAU1      |\n| Significance of the improvement | wuNw   | Rebuttal (30 Jul 2025, 13:11) to Reviewer wuNw   |\n| Compare RDD with large vision-language models | G7RJ  | Rebuttal (30 Jul 2025, 13:12) to Reviewer G7RJ  |\n\n---\n\nThank you again for your time, support, and efforts in reviewing our work!\n\nWarm regards,\nThe Authors\nPaper #7445 \u2013 *\"RDD\"*"
+                    }
+                },
+                "id": "DyEdzaM8Fe",
+                "forum": "zY5J1vp7tZ",
+                "replyto": "zY5J1vp7tZ",
+                "signatures": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2025/Conference",
+                    "NeurIPS.cc/2025/Conference/Submission7445/Authors"
+                ],
+                "number": 1,
+                "invitations": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/-/Author_Final_Remarks",
+                    "NeurIPS.cc/2025/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2025/Conference",
+                "tcdate": 1754978157188,
+                "cdate": 1754978157188,
+                "tmdate": 1761717168184,
+                "mdate": 1761717168184,
+                "parentInvitations": "NeurIPS.cc/2025/Conference/-/Author_Final_Remarks",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "title": {
+                        "value": "Paper Decision"
+                    },
+                    "decision": {
+                        "value": "Accept (poster)"
+                    },
+                    "comment": {
+                        "value": "This submission focuses on the alignment between high-level planners and low-level visuomotor policy for long-horizon robotic manipulation. The authors propose a Retrieval-based Demonstration Decomposer, which a a training-free method to  automatically decomposes demonstrations into sub-tasks. Experiment on RLBench demonstrate the performance under various settings. All reviewers vote for borderline acceptance.\nAC recommend accept as poster."
+                    }
+                },
+                "id": "I10jRvwhbz",
+                "forum": "zY5J1vp7tZ",
+                "replyto": "zY5J1vp7tZ",
+                "signatures": [
+                    "NeurIPS.cc/2025/Conference/Program_Chairs"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2025/Conference",
+                    "NeurIPS.cc/2025/Conference/Program_Chairs"
+                ],
+                "number": 1,
+                "invitations": [
+                    "NeurIPS.cc/2025/Conference/Submission7445/-/Decision",
+                    "NeurIPS.cc/2025/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2025/Conference",
+                "tcdate": 1758112952758,
+                "cdate": 1758112952758,
+                "tmdate": 1761717296687,
+                "mdate": 1761717296687,
+                "parentInvitations": "NeurIPS.cc/2025/Conference/-/Decision",
+                "license": "CC BY 4.0",
+                "version": 2
+            }
+        ]
+    }
+}

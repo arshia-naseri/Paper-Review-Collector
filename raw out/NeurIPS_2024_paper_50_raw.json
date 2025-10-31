@@ -1,0 +1,466 @@
+{
+    "id": "zBG7WogAvm",
+    "forum": "zBG7WogAvm",
+    "content": {
+        "title": {
+            "value": "Amortized Bayesian Experimental Design for Decision-Making"
+        },
+        "authors": {
+            "value": [
+                "Daolang Huang",
+                "Yujia Guo",
+                "Luigi Acerbi",
+                "Samuel Kaski"
+            ]
+        },
+        "authorids": {
+            "value": [
+                "~Daolang_Huang1",
+                "~Yujia_Guo1",
+                "~Luigi_Acerbi1",
+                "~Samuel_Kaski1"
+            ]
+        },
+        "keywords": {
+            "value": [
+                "Bayesian experimental design",
+                "amortized inference",
+                "Bayesian decision theory",
+                "neural processes"
+            ]
+        },
+        "abstract": {
+            "value": "Many critical decisions, such as personalized medical diagnoses and product pricing, are made based on insights gained from designing, observing, and analyzing a series of experiments. This highlights the crucial role of experimental design, which goes beyond merely collecting information on system parameters as in traditional Bayesian experimental design (BED), but also plays a key part in facilitating downstream decision-making. Most recent BED methods use an amortized policy network to rapidly design experiments. However, the information gathered through these methods is suboptimal for down-the-line decision-making, as the experiments are not inherently designed with downstream objectives in mind. In this paper, we present an amortized decision-aware BED framework that prioritizes maximizing downstream decision utility. We introduce a novel architecture, the Transformer Neural Decision Process (TNDP), capable of instantly proposing the next experimental design, whilst inferring the downstream decision, thus effectively amortizing both tasks within a unified workflow. We demonstrate the performance of our method across several tasks, showing that it can deliver informative designs and facilitate accurate decision-making."
+        },
+        "primary_area": {
+            "value": "probabilistic_methods"
+        },
+        "venue": {
+            "value": "NeurIPS 2024 poster"
+        },
+        "venueid": {
+            "value": "NeurIPS.cc/2024/Conference"
+        },
+        "TLDR": {
+            "value": "We introduce a decision-aware amortized Bayesian experimental design framework with a novel Transformer neural decision process architecture to optimize experimental designs for better decision-making."
+        },
+        "pdf": {
+            "value": "/pdf/67b2e48fbef5361774799536072d5907137d322c.pdf"
+        },
+        "supplementary_material": {
+            "value": "/attachment/ae909fba2c1e3b7eb4782a71b9b094cfc7c180b9.zip"
+        },
+        "_bibtex": {
+            "value": "@inproceedings{\nhuang2024amortized,\ntitle={Amortized Bayesian Experimental Design for Decision-Making},\nauthor={Daolang Huang and Yujia Guo and Luigi Acerbi and Samuel Kaski},\nbooktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},\nyear={2024},\nurl={https://openreview.net/forum?id=zBG7WogAvm}\n}"
+        },
+        "paperhash": {
+            "value": "huang|amortized_bayesian_experimental_design_for_decisionmaking"
+        }
+    },
+    "invitations": [
+        "NeurIPS.cc/2024/Conference/-/Submission",
+        "NeurIPS.cc/2024/Conference/-/Edit",
+        "NeurIPS.cc/2024/Conference/-/Post_Submission",
+        "NeurIPS.cc/2024/Conference/Submission4055/-/Revision",
+        "NeurIPS.cc/2024/Conference/Submission4055/-/Camera_Ready_Revision"
+    ],
+    "cdate": 1715353002930,
+    "pdate": 1727287738721,
+    "odate": 1730873871819,
+    "mdate": 1735831662011,
+    "signatures": [
+        "NeurIPS.cc/2024/Conference/Submission4055/Authors"
+    ],
+    "writers": [
+        "NeurIPS.cc/2024/Conference",
+        "NeurIPS.cc/2024/Conference/Submission4055/Authors"
+    ],
+    "readers": [
+        "everyone"
+    ],
+    "license": "CC BY 4.0",
+    "details": {
+        "directReplies": [
+            {
+                "content": {
+                    "summary": {
+                        "value": "This paper proposes a method for decision-aware Bayesian experimental design, where the design is not optimized with respect to the most accurate posterior distribution of the latent parameters but rather with respect to the expected utility gain of the actual (down-stream) decision task."
+                    },
+                    "soundness": {
+                        "value": 3
+                    },
+                    "presentation": {
+                        "value": 2
+                    },
+                    "contribution": {
+                        "value": 4
+                    },
+                    "strengths": {
+                        "value": "This is an innovative paper with high practical relevance. The proposed method appears sound and the corresponding neural networks well designed to suit the goal. Despite my questions and concerns (see below), I am positive about this paper overall and eager to increase my score should my points be addressed."
+                    },
+                    "weaknesses": {
+                        "value": "- The presentation of p(y_Xi | h_t) between Eq 3 and 4 is partially unclear to me. From the definition, it seems this is not actually a distribution but a set of distributions. To me, then notation p(y_Xi | h_t) appears to be quite the abuse of notation because we cannot readily read this it as a single distribution. Can you perhaps think about a different notation that makes this easier to parse and understand? Relatedly, in Equation 4, it appears that we compute an expectation over p(y_Xi | h_t). But how do we compute an expectation over a set of distributions? I think I get what the authors do and want to imply but to me this notation doesn\u2019t help in understanding it.\n- Equation 7: It seems we approximate the predictive distribution always by a Gaussian. I mean this of course works if the true underlying function is some kind of GP, but what if the true predictive distribution is far away from Gaussian? I don\u2019t see this choice to be discussed properly so I consider it a weakness of this paper for now.\n- The discussion of training and inference time can only be found in the appendix. Specifically, training speed seems to be substantial, which of course makes sense for an amortized method. However, I don\u2019t see any discussion for when the training actually amortizes. That is, how many BED tasks do we need to run at minimum before the total (training + \u201cinference\u201d) time of the new method becomes better than those of the competing methods. More generally, I think a discussion of speed should be more prominent in the paper.\n- 6.1 toy example was hard for me to understand at first. Is this just a standard BO task to find the point where the unknown function is maximal?"
+                    },
+                    "questions": {
+                        "value": "- In 4.1 Query set: How problematic is the fact that we randomly generate some designs from the design space. Doesn\u2019t this mean we need a distribution over the design space? How can we obtain (or define) such a distribution in general?\n- In 4.1 Query set: You say that in the deployment phase we can obtain the optimal design by optimizing the models (which model\u2019s?) output. How do you optimize this exactly?\n- Given that (non-decision aware) amortized BED methods exist, why are the benchmarks only comparing against non-amortized methods? I suggest to also add amortized methods to the benchmarks unless you can convince me that this is not sensible for some reason.\n- What is the scalability of the method in terms of all relevant dimensions, e.g., dimensionality of xi, y, a, etc?\n- Figure 4: you say that your method provides substantial gains, but at least on the scale in the figure, gains seem to be small. Can you clarify why you feel that the improvements are indeed \u201csubstantial gains\u201d?\n- The method has quite a lot of components, I wonder which of the components is responsible for the improved results? For example, how relevant is it to consider non-myopic designs, i.e., how does the method perform when only trained in a myopic setup? Relatedly, are the alternative methods myopic or non-myopic?"
+                    },
+                    "limitations": {
+                        "value": "The paper discusses several limitations. I am missing a discussion on the initial overhead of training, which is usually substantial in amortized methods."
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": 7
+                    },
+                    "confidence": {
+                        "value": 4
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "3gJEIEzgWz",
+                "forum": "zBG7WogAvm",
+                "replyto": "zBG7WogAvm",
+                "signatures": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/Reviewer_7z19"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2024/Conference",
+                    "NeurIPS.cc/2024/Conference/Submission4055/Reviewer_7z19"
+                ],
+                "number": 1,
+                "invitations": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/-/Official_Review",
+                    "NeurIPS.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2024/Conference",
+                "tcdate": 1719839255650,
+                "cdate": 1719839255650,
+                "tmdate": 1730878895335,
+                "mdate": 1730878895335,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "The paper looks at the problem of designing Bayesian optimal experiments taking into account the downstream decision making. At the core is a Transformer Neural Decision Process (TNDP) architecture that is trained to amortise the experimental design process whilst simultaneously inferring the optimal downstream decision."
+                    },
+                    "soundness": {
+                        "value": 2
+                    },
+                    "presentation": {
+                        "value": 3
+                    },
+                    "contribution": {
+                        "value": 3
+                    },
+                    "strengths": {
+                        "value": "- Relevant and interesting topic: Downstream decision making is what ultimately matters, so taking this into account when designing experiments to collect data can result in more cost- and sample-efficient learning.  \n\n- Motivation for the paper as well as clarity of writing are excellent. Contextualisation relative to prior work can be improved as outlined in the next section.\n\n- The proposed Transformer Neural Decision Process (TNDP) architecture is tailored to the BED problem, is well-explained and adds some novelty to the architectures typically used in the field."
+                    },
+                    "weaknesses": {
+                        "value": "### Sections 2.2 & 3.2 and Lindley's decision-theoretic BED [1]:\n\nMy main issue with the paper is the presentation of DUG and EDUG as novel. This framework was first formulated in [1], and is very well summarised in Section 1.3 of [2]. I strongly recommend the authors read that section, and present their Section 3.2 accordingly, acknowledging they follow Lindley, 1972. The questions/comments in the next 2 bullets are a consequence of this omission of literature.\n\n- Second paragraph of Sec 2.2: I am not sure how the predictive distribution $p(y | \\xi, h_t)$ is defined. I would think it is $p(y | \\xi, h_t) = \\mathbb{E}_{p(\\theta |h_t)} [p(y | \\xi, \\theta)]$. Whether or not you compute/approximate the posterior $p(\\theta |h_t)$, or seek to directly approximate $p(y | \\xi, h_t)$ (eg variationally), I think you should explicitly define what this quantity is. \n\n- I am not sure how the utility $u(y_\\Xi, a)$ is defined. From a Bayesian decision-theoretic approach, the utility has to depend on the state of the world $\\theta$, as well as the experiments $\\xi$ you are going to perform (which I guess is implicit in $y_\\Xi$). So shouldn't the \"lowest level\" utility be a function $u(y, \\theta, \\xi, a)$, which you then integrate over $p(\\theta|h_t)$, to obtain $u(y, \\xi, a) = \\mathbb{E}_{p(\\theta|h_t)} [u(y, \\theta, \\xi, a)]$, then take $\\max$ wrt $a$,  and finally integrate over the predictive $p(y |\\xi, h_t)$ to obtain an expected utility, which can then act a design ranking criterion, as you do in Eq 4 and (cf Eq 2 in [2]).\n\n### Related work: \n\nFor a field that has such rich history and renewed interest from the ML community recently, the related works section is quite short and sparse on citations. Some areas that are missing include:\n- Decision-theoretic BED: as previously discussed, the general framework of utility-based BED was developed by Lindley (1972).\n- BED + RL: this work touches on some aspects of RL; It might be good to discuss relations recent works in the intersection such as [5] and [6] (in addition to those mentioned)\n- Decision-theoretic approaches in related fields such as Bayesian Optimisation, e.g. [7], [8]\n- Finally, I'm not too familiar with this line of literature, but  more recent work around decision transformers---is there any relation between TNDP with works like [9] and [10]?\n\n### Other:\n\n- Line 6: \"most recent BED methods use amortised inference with a policy network\" is not quite correct in the sense that no \"real inference\" (posterior updates on the parameters $\\theta$) are performed. \n- Line 179: \"to ensure the framework satisfied the permutation invariance property of sequential BED\": not all BED problems are permutation invariant. For example, designing experiments for time series models (e.g SIR in [3] and [4]), permutation invariance does not hold. This aspect has been discussed in e.g. Section 3.3 of [3].\n- Assuming you do want a permutation invariant architecture (most design problems fall in that category): by conditioning on $t$ as part of the global information (GI) set, I think you actually break that invariance. This is because encoding $(\\xi, y)$ at time $t$ or at time $s$ will give you different outputs. As far as I can tell from Fig2b), $D_c$ does attend to GI. Could you please explain if that's the case or I have misunderstood something?\n\n-----\n#### References\n\n[1] Lindley, D. V. (1972). Bayesian statistics: A review. Society for industrial and applied mathematics.\n\n[2] Chaloner, K., & Verdinelli, I. (1995). Bayesian experimental design: A review. Statistical science, 273-304.\n\n[3] Ivanova, D. R., Foster, A., Kleinegesse, S., Gutmann, M. U., & Rainforth, T. (2021). Implicit deep adaptive design: Policy-based experimental design without likelihoods. Advances in neural information processing systems, 34, 25785-25798.\n\n[4] Kleinegesse, S., & Gutmann, M. U. (2019, April). Efficient Bayesian experimental design for implicit models. In The 22nd International Conference on Artificial Intelligence and Statistics (pp. 476-485). PMLR.\n\n[5] Mehta, V., Paria, B., Schneider, J., Ermon, S., & Neiswanger, W. (2021). An experimental design perspective on model-based reinforcement learning. arXiv preprint arXiv:2112.05244.\n\n[6] Mehta, V., Char, I., Abbate, J., Conlin, R., Boyer, M., Ermon, S., ... & Neiswanger, W. (2022). Exploration via planning for information about the optimal trajectory. Advances in Neural Information Processing Systems, 35, 28761-28775.\n\n[7] Neiswanger, W., Yu, L., Zhao, S., Meng, C., & Ermon, S. (2022). Generalizing Bayesian optimization with decision-theoretic entropies. Advances in Neural Information Processing Systems, 35, 21016-21029.\n\n[8] Ivanova, D. R., Jennings, J., Rainforth, T., Zhang, C., & Foster, A. (2023, July). CO-BED: information-theoretic contextual optimization via Bayesian experimental design. In International Conference on Machine Learning (pp. 14445-14464). PMLR.\n\n[9] Chen, L., Lu, K., Rajeswaran, A., Lee, K., Grover, A., Laskin, M., ... & Mordatch, I. (2021). Decision transformer: Reinforcement learning via sequence modeling. Advances in neural information processing systems, 34, 15084-15097.\n\n[10] Zheng, Q., Zhang, A., & Grover, A. (2022, June). Online decision transformer. In international conference on machine learning (pp. 27042-27059). PMLR."
+                    },
+                    "questions": {
+                        "value": "In addition to the questions raised in the Weaknesses section:\n\n1.  I think the main contribution of the paper is the TNDP architecture. Have the authors performed any ablations, e.g. not sharing the same embedding block? Not including $t$ in the GI?\n2. In the decision-aware AL experiment: why does the random baseline perform as good as all the other ones?\n3. Could you give guidance on choosing utility functions? For the experiments in the paper it is quite straightforward to define them, but in real-world practical application that might not be the case. This is the reason why the mutual information has become the de facto standard utility in BED."
+                    },
+                    "limitations": {
+                        "value": "Some limitations of the work were outlined in the Discussion section of the paper. Regarding negative societal impact, the field of experimental design (which boils down to efficient data collection), generally warrants some discussion. \n\nThe experiments presented in this paper mostly use synthetic data and do not have negative impact; the HPO experiment, which uses real data does not (directly) represent an application with negative impact. However, applying these methods in real-world applications, particularly if decisions directly affect humans, as in e.g. personalised medicine, could raise concerns around bias, fairness, explainability and privacy. \n\nI would suggest to the authors to add 1-2 sentences in their limitations section to acknowledge 1) the synthetic or semi-synthetic nature of the experiments, and 2) potential concerns that might arise when applying their method in real-world applications."
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": 6
+                    },
+                    "confidence": {
+                        "value": 5
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "V0WZjw3Gmy",
+                "forum": "zBG7WogAvm",
+                "replyto": "zBG7WogAvm",
+                "signatures": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/Reviewer_Ctfm"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2024/Conference",
+                    "NeurIPS.cc/2024/Conference/Submission4055/Reviewer_Ctfm"
+                ],
+                "number": 2,
+                "invitations": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/-/Official_Review",
+                    "NeurIPS.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2024/Conference",
+                "tcdate": 1720354546730,
+                "cdate": 1720354546730,
+                "tmdate": 1730878895227,
+                "mdate": 1730878895227,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "The paper proposes a transformer-based architecture for jointly sampling designs and decisions in Bayesian Experiment Design (BED) using a forward-looking criterion. The latter considers the improvement in maximum expected utility brought about by a new design-outcome pair, where the expectation is taken with respect to the predictive distribution of the model. The main innovation of the paper lies in the coupling between information gain and utility maximization in an amortized, transformer-based framework in the spirit of attentive neural processes. The performance of the new architecture is evaluated on a toy regression task and two more representative models, exhibiting stable performance gains over contender methods."
+                    },
+                    "soundness": {
+                        "value": 3
+                    },
+                    "presentation": {
+                        "value": 3
+                    },
+                    "contribution": {
+                        "value": 3
+                    },
+                    "strengths": {
+                        "value": "- The paper is clearly written, the ideas and formulations are stringent and well-justified, overall making it easy to follow and a pleasure to read (with the exception of Section 4.1, see below).\n\n- The proposed architecture and training objectives are novel and seem to unlock both qualitative and quantitative improvements over existing methods. \n\n- The results indicate superior and stable performance of the proposed architecture on two interesting tasks, along a toy 1D GP model which seems to be a standard proof-of-concept task in the neural process (NP) literature."
+                    },
+                    "weaknesses": {
+                        "value": "- Some notational confusion can be avoided by consistently using the notation $a_{1:t}$ to denote a sequence of $t$ elements and $a_t$ to denote the $t$-th element in the sequence. Currently, $h_t$ denotes a sequence, but, e.g., $y_t$ denotes an element, and then again $\\theta_{1:L}$ also represents a sequence. Also, P4L126 is an abuse of notation with slightly confusing wording, such as \u201cthe predictive posterior distribution over all possible designs\u201d, whereas the predictive distribution(s) are over future \\textit{outcomes}. This is in no way different than the posterior predictive in Bayesian (non-linear or linear) regression, where the posterior predictive is conditioned on the training data set and the set of (unlabeled) predictors available at test time. Hence, I struggle to understand the need for the convoluted abuse of notation, but I may be missing something. Also section 4.1 suddenly starts using bold font for vectors, which was not the case in the preceding sections. \n\n- Figure 2 is not particularly informative for the data flow, as it does not clearly communicate weight sharing, input-output operations and dependencies (left panel); the right panel comes out of the blue and is not well explained (i.e., what are the elements on the \u201cleft\u201d and on the \u201ctop\u201d); the description below on P6 does indeed disambiguate the idea behind the construction of the masks, but I believe it is best when figures support and enhance the text and not vice versa.\n\n- Overall, I feel that Section 4.1 is the weakest link in the paper, and I believe the authors can think about optimizing the ratio of details dispersed between the main text and the appendix. For instance, there is no need to reiterate established transformer-based computations, but it could be helpful to explicate the construction of the masks, the representation types (e.g., vectors, sequences of vectors,...?), and the precise partitioning of the components into keys, queries, and values.\n\n- According to my understanding, none of the contender methods in the experiments is an amortized method. Wouldn\u2019t some of the existing amortized BED methods (e.g., as highlighted in the Related Work) make for suitable benchmarks, despite not optimizing for future decisions?\n\n- The topic of model misspecification is never mentioned in the paper, even though the comprehensive review paper [1] states that it remains a major unsolved issue in BED and in amortized Bayesian inference more generally [2]. I believe this should also be acknowledged in the current paper and the authors can potentially think about quantifying the impact of model misspecification in a small ablation study in the final version of the manuscript.\n \nI am happy to discuss these points with the authors and increase my score if they are addressed / clarified.\n\n[1] Rainforth, T., Foster, A., Ivanova, D. R., and Bickford Smith, F. (2024). Modern Bayesian\n429 experimental design. Statistical Science, 39(1):100\u2013114.\n\n[2] Schmitt, M., B\u00fcrkner, P. C., K\u00f6the, U., & Radev, S. T. (2024). Detecting Model Misspecification in Amortized Bayesian Inference with Neural Networks: An Extended Investigation. arXiv preprint arXiv:2406.03154."
+                    },
+                    "questions": {
+                        "value": "- Perhaps section 2 can be organized in a way to avoid singleton nested subsection (i.e., 2.1.1)?\n\n- P4L130: Isn\u2019t there also an assumption that decision are optimal only if there is no model misspecification (i.e., that we are working with the posterior of the \u201ctrue\u201d model)? \n\n- Are there any practical disadvantages of assuming a diagonal Gaussian predictive distribution? Can complex models induce multimodal or highly correlated predictive distributions that?"
+                    },
+                    "limitations": {
+                        "value": "The authors openly discuss the current limitations of their approach."
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": 6
+                    },
+                    "confidence": {
+                        "value": 4
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "VALImQdKjt",
+                "forum": "zBG7WogAvm",
+                "replyto": "zBG7WogAvm",
+                "signatures": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/Reviewer_WHLG"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2024/Conference",
+                    "NeurIPS.cc/2024/Conference/Submission4055/Reviewer_WHLG"
+                ],
+                "number": 3,
+                "invitations": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/-/Official_Review",
+                    "NeurIPS.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2024/Conference",
+                "tcdate": 1720515797028,
+                "cdate": 1720515797028,
+                "tmdate": 1730878895034,
+                "mdate": 1730878895034,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "This paper tackles an important problem of designing experiments in a way that directly optimizes downstream decision-making tasks, going beyond just inferring parameters of interest. The authors make several valuable contributions:\n\n1. They introduce the concept of Decision Utility Gain (DUG) to quantify how much an experimental design improves the expected utility of the downstream decision. \n\n2. They propose a novel neural architecture called the Transformer Neural Decision Process (TNDP) that amortizes both the experimental design selection and the approximation of the predictive distribution needed for decision-making. This unified amortized framework is a key innovation.\n\n3. The authors develop a non-myopic training objective that looks beyond just the immediate decision utility to account for effects of the current design on future rewards.\n\n4. Empirically, they demonstrate TNDP's effectiveness over traditional methods on various tasks like active learning, hyperparameter optimization, showing it can find informative designs and make accurate downstream decisions.\n\nIn summary, this work makes valuable conceptual and technical contributions to the area of Bayesian experimental design by pioneering decision-aware amortized methods. It opens up new research directions for further enhancing real-world decision-making via optimized experimental data acquisition."
+                    },
+                    "soundness": {
+                        "value": 3
+                    },
+                    "presentation": {
+                        "value": 3
+                    },
+                    "contribution": {
+                        "value": 3
+                    },
+                    "strengths": {
+                        "value": "- The paper presents a novel problem formulation by introducing the concept of Decision Utility Gain (DUG), which shifts the focus of experimental design from reducing parameter uncertainty to directly optimizing downstream decision utility. This new perspective is a creative departure from traditional Bayesian experimental design (BED) approaches.\n- The application of amortized inference techniques to decision-aware experimental design can be considered an original contribution, as it represents a new domain for these methods beyond traditional BED.\n- The empirical evaluation is comprehensive, spanning diverse tasks such as active learning, hyperparameter optimization, and synthetic regression problems. The results demonstrate the consistent superiority of TNDP over traditional methods."
+                    },
+                    "weaknesses": {
+                        "value": "- The authors could provide a more rigorous analysis of the properties and characteristics of the TNDP architecture, such as its convergence behavior, sample complexity, and theoretical guarantees (if any) regarding the quality of the proposed designs and decisions.\n- The experimental evaluation, while comprehensive, focuses primarily on synthetic and benchmark datasets. While these serve as important proof-of-concept demonstrations, the paper could benefit from including real-world case studies or applications to further validate the practical utility of the proposed framework.\n- While the amortized nature of TNDP is highlighted as a key advantage, the paper could provide a more detailed analysis of the computational complexity and scalability of the proposed approach. This analysis could include factors such as the training time required for different problem sizes, the memory footprint, and the scalability of the attention mechanisms used in the Transformer architecture."
+                    },
+                    "questions": {
+                        "value": "- Can the authors provide a more in-depth theoretical analysis of the Decision Utility Gain (DUG) concept, including its relationship with existing concepts like Value of Information (VoI) or Information Gain (IG)?\n\n- Have the authors explored the sensitivity of TNDP's performance to different hyperparameter choices, such as the discount factor \u03b1 used in the non-myopic objective? If so, can they share insights into this analysis?"
+                    },
+                    "limitations": {
+                        "value": "- The authors mention the use of a basic REINFORCE algorithm for training the query head, which can lead to unstable training, especially in tasks with sparse reward signals. While they suggest the use of more advanced reinforcement learning methods as a potential solution, a more detailed discussion on the specific challenges faced during training and the trade-offs involved in selecting different RL algorithms would be beneficial.\n- The authors mention that their model is trained on a fixed-step length, assuming a finite horizon for the experimental design process. A discussion on the limitations of this assumption and the potential difficulties in extending their approach to infinite horizon or open-ended experimental scenarios would be valuable."
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": 6
+                    },
+                    "confidence": {
+                        "value": 4
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "LaytIYhfLY",
+                "forum": "zBG7WogAvm",
+                "replyto": "zBG7WogAvm",
+                "signatures": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/Reviewer_Zp5w"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2024/Conference",
+                    "NeurIPS.cc/2024/Conference/Submission4055/Reviewer_Zp5w"
+                ],
+                "number": 4,
+                "invitations": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/-/Official_Review",
+                    "NeurIPS.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2024/Conference",
+                "tcdate": 1721254389853,
+                "cdate": 1721254389853,
+                "tmdate": 1730878894865,
+                "mdate": 1730878894865,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "rebuttal": {
+                        "value": "We thank the reviewers for their thoughtful comments and suggestions. We are glad to see that all reviewers have a positive view of the paper. Specifically, the reviewers agreed on the following strengths of the paper:\n* **Relevance**: Zp5w: \u201ctackles an important problem\u201d. Ctfm: \u201crelevant and interesting topic\u201d. 7z19: \u201cThis is an innovative paper with high practical relevance\u201d.\n* **Novelty**: Reviewers Zp5w, WHLG, and Ctfm agree that \u201cthe proposed architecture is novel\u201d.\n* **Good presentation**: WHLG: \u201cThe paper is clearly written\u2026 a pleasure to read\u201d.  Ctfm: \u201cclarity of writing is excellent\u201d. \n* **Experiments**: Zp5w: \u201cThe empirical evaluation is comprehensive\u201d. WHLG: \u201cThe results indicate superior and stable performance\u2026\u201d.\n\n**New experiments and results**\n\n* As suggested by reviewers WHLG and 7z19, we added an amortized method as a benchmark for top-$k$ optimization experiments. Specifically, we chose PFNs4BO [1], a transformer-based amortized model designed for hyperparameter optimization. The final results are shown in Figure R1 of the rebuttal PDF. Our method outperforms PFNs4BO across all four tasks, as PFNs4BO does not consider the downstream task (i.e., top-$k$ optimization). We will update the results in the revised paper.\n* As asked by reviewers Zp5w, Ctfm, and 7z19, we ran an extra ablation study to evaluate the impact of the discount factor $\\alpha$. When $\\alpha=0$, our objective is purely myopic. We observed that, compared to other non-myopic settings, the policy did not learn to query designs effectively. This could be due to the sparse nature of rewards in this task; when the algorithm only considers immediate rewards, it struggles to learn the value of actions that lead to future rewards. We included the experimental results in the rebuttal PDF (Figure R2).\n* As suggested by reviewer Zp5w, we included a real-world experiment on retrosynthesis planning. Specifically, our task is to assist chemists in identifying the top-$k$ synthetic routes for a novel molecule, as selecting the most practical routes from many random routes generated by the retrosynthesis software can be troublesome. We trained our TNDP on a novel meta-dataset, including 1500 molecules and their routes collected by our collaborators. In this task, experimental design refers to selecting a route for a novel molecule to query its score. The downstream task is to recommend the top $k$ routes based on the collected data. Due to limited time, we compared only TNDP and the random search. The results in Figure R3 of the rebuttal PDF show that the utility of TNDP is significantly better than that of random search. We will include more baselines and provide a detailed problem description in the final paper.\n\n**Clarification to Section 2.2**\n\nWe thank the reviewers for raising thoughtful questions regarding the definition of $p(y_\\Xi | h_t)$ and the utility function. We acknowledge that this section lacks some details, and we would like to provide further explanations here.\n\nOur utility function is defined based on the measured outcomes ($y$) instead of the state of the world ($\\theta$), as many downstream tasks directly rely on the predictions of outcomes for decision-making (see P4L124 in our paper as an example). It is a natural extension of the traditional definition of utility by marginalizing out the posterior distribution of $\\theta$, a similar decision-theoretical setup can be found in [2]. As we are switching the belief about the state of the world (posterior) to the outcomes (posterior predictive) and to keep as much information as possible about the state of the world, we need to evaluate $\\theta$\u2019s effect on all points of the design space, thus, we define the utility based on $p(y_\\Xi | h_t)$, which is a stochastic process that defines a joint predictive distribution of outcomes indexed by the elements of the design set $\\Xi$, given the current information $h_t$. We formulate the decisions in terms of this stochastic process, which differs from traditional utility based on individual observations, such as those defined in [3, 4]. A familiar example of our framework may be a decision process that depends on the observed values of a Gaussian process simultaneously evaluated at a large number of points. For example, in top-$k$ optimization, the goal is to select $k$ hyperparameter settings from a predefined finite set that maximize the cumulative accuracy. In this task, estimating the predictive distribution of a single hyperparameter setting is not sufficient for making the optimal decision. We need to determine the optimal decision based on the predictive distributions of all candidate hyperparameter settings. We adhere to the standard definitions of decision theory, but the entities now are stochastic processes instead of individual observations. \n\nOur architecture simultaneously amortizes two tasks. The first task is to amortize the predictive distribution needed for maximizing the utility during inference, which is similar to the goal of neural processes. When we can accurately predict $p(y_\\Xi | h_t)$, we can make optimal decisions. For example, if we can accurately predict the outcomes corresponding to all hyperparameter settings, we can directly determine the optimal set of hyperparameters. The second task is to amortize the design of experiments. Our goal is to enable the neural network to propose more informative designs, thereby allowing more accurate prediction of the outcome and facilitating optimal decision-making.\n\nWe will include the above explanations in the revised paper.\n\n**References**\n\n[1] M\u00fcller et al. (2023). Pfns4bo: In-context learning for Bayesian optimization. *ICML*.\n\n[2] Ku\u015bmierczyk et al. (2019). Variational Bayesian decision-making for continuous utilities. *Neurips*.\n\n[3] Lindley (1972). Bayesian statistics: A review. *Society for industrial and applied mathematics*.\n\n[4] Chaloner & Verdinelli (1995). Bayesian experimental design: A review. *Statistical science*."
+                    },
+                    "pdf": {
+                        "value": "/pdf/b61998d48eec3a506d6f2cca339696d675b7e77f.pdf"
+                    }
+                },
+                "id": "4sVkmDFBHB",
+                "forum": "zBG7WogAvm",
+                "replyto": "zBG7WogAvm",
+                "signatures": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2024/Conference",
+                    "NeurIPS.cc/2024/Conference/Submission4055/Authors"
+                ],
+                "number": 1,
+                "invitations": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/-/Author_Rebuttal",
+                    "NeurIPS.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2024/Conference",
+                "tcdate": 1723029098626,
+                "cdate": 1723029098626,
+                "tmdate": 1730888287317,
+                "mdate": 1730888287317,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "title": {
+                        "value": "Paper Decision"
+                    },
+                    "decision": {
+                        "value": "Accept (poster)"
+                    },
+                    "comment": {
+                        "value": "The paper presents an amortized decision-aware Bayesian experimental design framework that explicitly prioritizes maximizing downstream decision utility. The paper also introduces Transformer Neural Decision Process (TNDP), an architecture capable of instantly proposing the next experimental design by inferring the downstream decision. The reviewers were generally positive about the submission and highlighted the novelty of the BED framework and the proposed architecture, and they appreciated the strength of the empirical results."
+                    }
+                },
+                "id": "C2vHWucZy7",
+                "forum": "zBG7WogAvm",
+                "replyto": "zBG7WogAvm",
+                "signatures": [
+                    "NeurIPS.cc/2024/Conference/Program_Chairs"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2024/Conference",
+                    "NeurIPS.cc/2024/Conference/Program_Chairs"
+                ],
+                "number": 1,
+                "invitations": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/-/Decision",
+                    "NeurIPS.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2024/Conference",
+                "tcdate": 1727277414864,
+                "cdate": 1727277414864,
+                "tmdate": 1730885554127,
+                "mdate": 1730885554127,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "title": {
+                        "value": "Related work"
+                    },
+                    "comment": {
+                        "value": "A closely related NeurIPS paper from last year is not cited:\nMaraval, Alexandre, et al. \"End-to-end meta-bayesian optimisation with transformer neural processes.\" Advances in Neural Information Processing Systems 36 (2024)."
+                    }
+                },
+                "id": "HlKWyYg9wl",
+                "forum": "zBG7WogAvm",
+                "replyto": "zBG7WogAvm",
+                "signatures": [
+                    "~Artur_Sza\u0142ata1"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2024/Conference",
+                    "~Artur_Sza\u0142ata1"
+                ],
+                "number": 1,
+                "invitations": [
+                    "NeurIPS.cc/2024/Conference/Submission4055/-/Public_Comment"
+                ],
+                "domain": "NeurIPS.cc/2024/Conference",
+                "tcdate": 1734205774582,
+                "cdate": 1734205774582,
+                "tmdate": 1734205774582,
+                "mdate": 1734205774582,
+                "license": "CC BY 4.0",
+                "version": 2
+            }
+        ]
+    }
+}

@@ -1,0 +1,434 @@
+{
+    "id": "zW1tyw3UFu",
+    "forum": "zW1tyw3UFu",
+    "content": {
+        "title": {
+            "value": "Dozerformer: Sequence Adaptive Sparse Transformer for Multivariate Time Series Forecasting"
+        },
+        "authors": {
+            "value": [
+                "Yifan Zhang",
+                "Rui Wu",
+                "Sergiu Dascalu",
+                "Frederick Harris"
+            ]
+        },
+        "authorids": {
+            "value": [
+                "~Yifan_Zhang24",
+                "~Rui_Wu4",
+                "~Sergiu_Dascalu1",
+                "~Frederick_Harris1"
+            ]
+        },
+        "keywords": {
+            "value": [
+                "Time series forecasting",
+                "Transformer",
+                "Deep learning"
+            ]
+        },
+        "TLDR": {
+            "value": "We introduce the Dozerformer Framework, which incorporates the sequence-adaptive sparse Dozer Attention Mechanism for MTS forecasting."
+        },
+        "abstract": {
+            "value": "Transformers have achieved remarkable performance in multivariate time series(MTS) forecasting due to their capability to capture long-term dependencies. However, the canonical attention mechanism has two key limitations: (1) its quadratic time complexity limits the sequence length, and (2) it generates future values from the entire historical sequence. To address this, we propose a Dozer Attention mechanism consisting of three sparse components: (1) Local, each query exclusively attends to keys within a localized window of neighboring time steps. (2) Stride, enables each query to attend to keys at predefined intervals. (3) Vary, allows queries to selectively attend to keys from a subset of the historical sequence. Notably, the size of this subset dynamically expands as forecasting horizons extend. Those three components are designed to capture essential attributes of MTS data, including locality, seasonality, and global temporal dependencies. Additionally, we present the Dozerformer Framework, incorporating the Dozer Attention mechanism for the MTS forecasting task. We evaluated the proposed Dozerformer framework with recent state-of-the-art methods on nine benchmark datasets and confirmed its superior performance."
+        },
+        "primary_area": {
+            "value": "representation learning for computer vision, audio, language, and other modalities"
+        },
+        "code_of_ethics": {
+            "value": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics."
+        },
+        "submission_guidelines": {
+            "value": "I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2024/AuthorGuide."
+        },
+        "anonymous_url": {
+            "value": "I certify that there is no URL (e.g., github page) that could be used to find authors' identity."
+        },
+        "no_acknowledgement_section": {
+            "value": "I certify that there is no acknowledgement section in this submission for double blind review."
+        },
+        "venue": {
+            "value": "Submitted to ICLR 2024"
+        },
+        "venueid": {
+            "value": "ICLR.cc/2024/Conference/Rejected_Submission"
+        },
+        "pdf": {
+            "value": "/pdf/5615db791e028d2ea12f122b9f2f1afad71a31f6.pdf"
+        },
+        "_bibtex": {
+            "value": "@misc{\nzhang2024dozerformer,\ntitle={Dozerformer: Sequence Adaptive Sparse Transformer for Multivariate Time Series Forecasting},\nauthor={Yifan Zhang and Rui Wu and Sergiu Dascalu and Frederick Harris},\nyear={2024},\nurl={https://openreview.net/forum?id=zW1tyw3UFu}\n}"
+        },
+        "paperhash": {
+            "value": "zhang|dozerformer_sequence_adaptive_sparse_transformer_for_multivariate_time_series_forecasting"
+        }
+    },
+    "invitations": [
+        "ICLR.cc/2024/Conference/-/Submission",
+        "ICLR.cc/2024/Conference/-/Post_Submission",
+        "ICLR.cc/2024/Conference/Submission4970/-/Revision",
+        "ICLR.cc/2024/Conference/Submission4970/-/Rebuttal_Revision",
+        "ICLR.cc/2024/Conference/-/Edit"
+    ],
+    "cdate": 1695368589846,
+    "odate": 1697213872796,
+    "mdate": 1707625716245,
+    "signatures": [
+        "ICLR.cc/2024/Conference/Submission4970/Authors"
+    ],
+    "writers": [
+        "ICLR.cc/2024/Conference",
+        "ICLR.cc/2024/Conference/Submission4970/Authors"
+    ],
+    "readers": [
+        "everyone"
+    ],
+    "details": {
+        "directReplies": [
+            {
+                "content": {
+                    "summary": {
+                        "value": "To address the challenges of multivariate time series forecasting, this paper introduces 'Dozerformer,' an innovative approach that incorporates adaptive sparse attention mechanisms. Drawing insights from the analysis of seasonality and locality within the attention maps of Transformers, it introduces the concepts of 'local attention' and 'stride attention.' Moreover, recognizing that using the entire historical sequence may not always be beneficial for accurate forecasting, the paper introduces 'varying attention.' This feature adjusts the number of historical observations attended to based on the forecasting positions. As a result, Dozerformer demonstrates exceptional performance when compared to eight different baseline models across a range of forecasting tasks, effectively reducing attention-related computational costs."
+                    },
+                    "soundness": {
+                        "value": "2 fair"
+                    },
+                    "presentation": {
+                        "value": "3 good"
+                    },
+                    "contribution": {
+                        "value": "2 fair"
+                    },
+                    "strengths": {
+                        "value": "They select an appropriate attention mechanisms to catch temporal dynamics in time series forecasting"
+                    },
+                    "weaknesses": {
+                        "value": "**Problems in motivations**\n\n1. In the second paragraph of the first page, the authors argue \"predicting the value at horizon 1 using the entire historical sequence is suboptimal and inefficient.\". This is the main motivation of vary attention in cross-attention modules. However, the reason for suboptimality is not provided in this paragraph. Why do we have to use varying-sequence attention?\n\n2. The target task is multivariate time series forecasting. In this task, considering inter-feature connections is also important as well as temporal connections [1]. However, there is a discrepancy between the characteristics of the main task and your method. In other words, Dozerformer doesn't incorporate any parts to consider inter-feature dependencies. Can you explain the reason for this design or Do I understand wrong?\n\n3. In the second paragraph of the first page, the authors argue \"They (might include Transformers with full attention) also ignored the characteristics of MTS data, like locality and seasonality.\". This is the reason for local and stride attention. However, when observing Figure 1 (a), Transformers with full attention already capture locality and seasonality automatically. At this point, why do we have to make constraints on self-attention?\n\n4. For the motivation of local attention, the authors mention local properties in Figure 3(a) (it might be Figure 1(a)) in Section 3.2.1. However,   the tokens of the attention map in Figure 1(a) are observations. However, because your method includes patchifying, the tokens of yours are patches. The characteristics of patches cannot be directly explained by that of observations.\n\n**Incomplete equations**\n\n1. I recommend that the detailed formula of the dimension invariant embedding (DI Embed) should be included. I think many people might encounter DI Embed for the first time because [2] including DI Embed is not widely known. This makes readers easy to understand.\n\n2. When decomposing time series into seasonal and trend parts, you might use average pooling and residual techniques. Although the same techniques are used in other papers, I recommend mentioning average pooling in your manuscript. Also, I'm curious about what kernel size is used for this average pooling.\n\n3. For the Linear model to process $X_t$, can you include the formula of Linear model in the manuscript?\n\n4. Eq. (2), (3), and (4) can be written more clearly, for example, with 'if else'.\n\n5. In Eq. (4), I think something is wrong because when i = 1 and v = 3, $t-v+i-t<0$. Indices cannot be negative. Can you fix it?\n\n**Insufficient experiments**\n\n1. In Section 4.3, you just give us theoretical complexity. Can you give a cost comparison in an empirical way such as flops or wall-clock time?\n\n2. In Table 3. it seems that local, stride, and vary attention modules are not quite helpful for forecasting in ETTh1 and ETTm1. Can you give more experimental results to prove the efficacy of the three modules?\n\n[1] Zhang et al., Crossformer: Transformer Utilizing Cross-Dimension Dependency for Multivariate Time Series Forecasting, 2023, ICLR  \n[2] Zhang et al., Multi-scale transformer pyramid networks for multivariate time series forecasting"
+                    },
+                    "questions": {
+                        "value": "See the weakness part."
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": "3: reject, not good enough"
+                    },
+                    "confidence": {
+                        "value": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work."
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "sQU3GuUdia",
+                "forum": "zW1tyw3UFu",
+                "replyto": "zW1tyw3UFu",
+                "signatures": [
+                    "ICLR.cc/2024/Conference/Submission4970/Reviewer_nz5f"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2024/Conference",
+                    "ICLR.cc/2024/Conference/Submission4970/Reviewer_nz5f"
+                ],
+                "number": 1,
+                "invitations": [
+                    "ICLR.cc/2024/Conference/Submission4970/-/Official_Review",
+                    "ICLR.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "ICLR.cc/2024/Conference",
+                "tcdate": 1698205754108,
+                "cdate": 1698205754108,
+                "tmdate": 1699636484189,
+                "mdate": 1699636484189,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "This work introduces Dozerformer that has the Dozer attention mechanism at its core. The proposed approach addresses the quadratic time complexity and the focus on full history for applying attention in traditional transformers. The Dozer attention allows for attending to a local window, and also selected past keys. It also presents a stride mechanism to that allows attending at predefined intervals. Ablation studies and empirical explorations are made available to support the proposed approach."
+                    },
+                    "soundness": {
+                        "value": "3 good"
+                    },
+                    "presentation": {
+                        "value": "3 good"
+                    },
+                    "contribution": {
+                        "value": "3 good"
+                    },
+                    "strengths": {
+                        "value": "Originality :\n\nThe work is somewhat original as it combines multiple attention formulations (local, stride, vary) to produce a joint efficient formulation. \n\nQuality :\n\nThis work creates a well structured framework and proposes an efficient attention mechanism for MTS.  The proposed approach is supported by ablation studies and explorations on several datasets. However, there are some questions that come up.\n\nClarity :\n\nThis work is somewhat clear although there are some parts (such as those mentioned under Questions) that could be made more clear.\n\n\nSignificance:\n\nEfficient attention mechanisms are important not just conceptually for forecasting but also for practical training of the model. To this end, the proposed work presents a step forward."
+                    },
+                    "weaknesses": {
+                        "value": "Although the work is well structured and conceptually the proposed formulations can be beneficial, it can benefit by providing additional clarity and evidence through different downstream tasks (as indicated in the Questions section)"
+                    },
+                    "questions": {
+                        "value": "Figure 1b-stride is a bit unclear. Why is it that t+1 and t+O are attending to different number of past steps. I am assuming that each of figure in 1b refer to the corresponding specific component (such as 'full', 'local' etc.). Furthermore, what is the stride value in 1b-stride.\n\n\nSection 3.1 is a bit unclear. How are the outputs of 1x1 conv and the linear layers combined. I assume that the linear layer produce an output $\\in \\mathbb{R}^{I \\times D_1}$ which is then projected to  $X_{pred}$ after combining with the output of 1x1 conv. However it is not clear how the I rows of $X_{t}$ matrix get converted to O rows so that they can be added to the output of 1x1 conv.\n\n\nThe explorations are performed on datasets that contain signals that perhaps do not change at a very fast rate rate. It would be good to have experiments on fast changing data. The effectiveness of local , stride and vary can be more clear on such datasets. \n\n\nIt is also not clear about the practical significance of the difference in forecasted numbers from the different model. Ideally, the forecasted numbers would be used in another appropriate downstream task to show how the different forecasting mechanisms perform. MSE/MAE numbers are perhaps not enough. For example, in Figure 4/5 , several forecasting approaches produce plots that are very close to each other. Therefore, they might perform equivalently when the forecasted data is used for downstream task.\n\n\nAs efficiency is one of the focus areas of this work, if possible, it would be good to have actual computation numbers (such as memory and wall-clock time) for the proposed approach. A comparison of such numbers from other baselines (if available) would also be useful."
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": "6: marginally above the acceptance threshold"
+                    },
+                    "confidence": {
+                        "value": "2: You are willing to defend your assessment, but it is quite likely that you did not understand the central parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked."
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "wfVmXlFRNc",
+                "forum": "zW1tyw3UFu",
+                "replyto": "zW1tyw3UFu",
+                "signatures": [
+                    "ICLR.cc/2024/Conference/Submission4970/Reviewer_Pv5r"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2024/Conference",
+                    "ICLR.cc/2024/Conference/Submission4970/Reviewer_Pv5r"
+                ],
+                "number": 2,
+                "invitations": [
+                    "ICLR.cc/2024/Conference/Submission4970/-/Official_Review",
+                    "ICLR.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "ICLR.cc/2024/Conference",
+                "tcdate": 1698513489563,
+                "cdate": 1698513489563,
+                "tmdate": 1699636484104,
+                "mdate": 1699636484104,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "Transformer based models of existing time series forecasting show quadratic time complexity. In addition, it shows the limitations of existing self-attention in making predictions using the entire input sequence. This paper shows excellent results in terms of performance and complexity by paying attention only to the historical data needed for prediction. To do this, this paper proposes dozer attention. dozer attention\n\nIt consists of three parts: Local, Stride, and Vary. Each component captures temporal dependencies from time-points deemed important.\n\nDozerformer is an adaptive sparse transformer framework, the core of which is sparse Dozer attention."
+                    },
+                    "soundness": {
+                        "value": "3 good"
+                    },
+                    "presentation": {
+                        "value": "2 fair"
+                    },
+                    "contribution": {
+                        "value": "2 fair"
+                    },
+                    "strengths": {
+                        "value": "1. It is meaningful that motivation is clear and attention is defined using the inductive bias of multivariate time series data for self-attention.\n2. Comparison of all recent state-of-the-art models."
+                    },
+                    "weaknesses": {
+                        "value": "1. It would be nice to have a structural comparison or analysis with Pyraformer, Informer, and PatchTST, which propose sparse attention. Furthermore, I would like to know which aspect of Dozerformer shows a better contribution.\n2. Performance is not very good compared to PatchTST and Dlinear (LTSF-Linear). Is there any reason or basis for this?\n3. Although the motivation is clear, I think this paper lacks a point of differentiation from many existing similar studies."
+                    },
+                    "questions": {
+                        "value": "1. It would be nice to have a structural comparison or analysis with Pyraformer and Informer, which proposed sparse attention. Furthermore, I would like to know which aspect of Dozerformer shows better contribution.\n- minor typos\n    - In 3.2.1 Figure 3 (a) \u2014> Figure 3"
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": "3: reject, not good enough"
+                    },
+                    "confidence": {
+                        "value": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work."
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "yFnRamN3sW",
+                "forum": "zW1tyw3UFu",
+                "replyto": "zW1tyw3UFu",
+                "signatures": [
+                    "ICLR.cc/2024/Conference/Submission4970/Reviewer_zXpM"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2024/Conference",
+                    "ICLR.cc/2024/Conference/Submission4970/Reviewer_zXpM"
+                ],
+                "number": 3,
+                "invitations": [
+                    "ICLR.cc/2024/Conference/Submission4970/-/Official_Review",
+                    "ICLR.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "ICLR.cc/2024/Conference",
+                "tcdate": 1698675991983,
+                "cdate": 1698675991983,
+                "tmdate": 1699636483995,
+                "mdate": 1699636483995,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "This article proposes some new attention mechanisms for Transformers in the context of Multivariate Time Series (MTV) forecasting. The main idea is to segregate local, seasonal, and global temporal dependencies and capture them through independent/corresponding attention portfolios. They call their approach sequence-adaptive Dozer Attention, and it comprises three sparse attention components (a) Local (to attend local relationship), (b) Stride (to attend intervals), and (c) Vary (to selectively attend to keys of historical sequence). \n\nThe authors have compared their method with some state-of-the-art methods through nine benchmark datasets. Results look promising;  also, the proposed method shows improved complexity analysis results for certain settings."
+                    },
+                    "soundness": {
+                        "value": "3 good"
+                    },
+                    "presentation": {
+                        "value": "3 good"
+                    },
+                    "contribution": {
+                        "value": "3 good"
+                    },
+                    "strengths": {
+                        "value": "The ideas of signal locality, seasonality, and global temporal dependency are quite standard in time series processing. Connecting these notions to corresponding attention mechanisms, especially in the context of Multivariate Time Series (MTV) forecasting, look to be quite new, and one of the major contributions of this work. \n\nOverall, the paper is well organized, clearly written, and it is easy to follow.  The proposed method has been tested on a number of benchmarks, and reported results are found to be promising. In addition, the computational complexity analysis and the attention mechanism ablation study have added some extra points to the work.  The paper exhibits some potential significance in the field of Multivariate Time Series forecasting."
+                    },
+                    "weaknesses": {
+                        "value": "Most of the results are reported using MAE and MSE as evaluation matrices. I would suggest adding Mean Absolute Scaled Error (MASE) in to the evaluation metric mix, as this an important metric for many time series prediction problems. \n\nReported results over different benchmarks look promising; however, none of the experiments include any significance tests. So, it is hard to evaluate if the results are statistically significant or not. I would also suggest running some statistical significance tests when comparing results. \n\nWe can get rid of the third digit after the decimal point in Table 1(page 7); this may improve the readability of the content."
+                    },
+                    "questions": {
+                        "value": "I have a few suggestions which may improve the quality of the paper:\n\n(a) To add Mean Absolute Scaled Error (MASE) in to the evaluation metric mix, (b) To perform some statistical significance tests, so we can be sure the results are not random, (c) We can get rid of the third digit after the decimal point in Table 1 (page 7); this should improve the readability of the content.  \n\nOne question: Did you only try grid search as your HP optimization technique (section 4.1)?"
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "details_of_ethics_concerns": {
+                        "value": "NA"
+                    },
+                    "rating": {
+                        "value": "6: marginally above the acceptance threshold"
+                    },
+                    "confidence": {
+                        "value": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work."
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "bDrDdOWa39",
+                "forum": "zW1tyw3UFu",
+                "replyto": "zW1tyw3UFu",
+                "signatures": [
+                    "ICLR.cc/2024/Conference/Submission4970/Reviewer_xCiy"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2024/Conference",
+                    "ICLR.cc/2024/Conference/Submission4970/Reviewer_xCiy"
+                ],
+                "number": 4,
+                "invitations": [
+                    "ICLR.cc/2024/Conference/Submission4970/-/Official_Review",
+                    "ICLR.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "ICLR.cc/2024/Conference",
+                "tcdate": 1698800854871,
+                "cdate": 1698800854871,
+                "tmdate": 1699636483918,
+                "mdate": 1699636483918,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "metareview": {
+                        "value": "The paper proposed Dozerformer - an innovative approach that incorporates adaptive sparse attention mechanisms to address the challenges of multivariate time series forecasting. The reviewers appreciate the authors\u2019 effort to resolve the reviewers\u2019 concerns. However, they want more concrete observations or experimental results to justify the authors\u2019 design or arguments. Without concrete results or other related papers, only some weak intuition is not enough. Therefore, the reviewers decide not to support the paper."
+                    },
+                    "justification_for_why_not_higher_score": {
+                        "value": "Most of the reviewers do not support the paper."
+                    },
+                    "justification_for_why_not_lower_score": {
+                        "value": "N/A"
+                    }
+                },
+                "id": "SMrjLc1QdS",
+                "forum": "zW1tyw3UFu",
+                "replyto": "zW1tyw3UFu",
+                "signatures": [
+                    "ICLR.cc/2024/Conference/Submission4970/Area_Chair_1SaE"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2024/Conference",
+                    "ICLR.cc/2024/Conference/Submission4970/Senior_Area_Chairs",
+                    "ICLR.cc/2024/Conference/Submission4970/Area_Chair_1SaE"
+                ],
+                "number": 1,
+                "invitations": [
+                    "ICLR.cc/2024/Conference/Submission4970/-/Meta_Review",
+                    "ICLR.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "ICLR.cc/2024/Conference",
+                "tcdate": 1701834613004,
+                "cdate": 1701834613004,
+                "tmdate": 1708115333896,
+                "mdate": 1708115333896,
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "title": {
+                        "value": "Paper Decision"
+                    },
+                    "decision": {
+                        "value": "Reject"
+                    },
+                    "comment": {
+                        "value": ""
+                    }
+                },
+                "id": "THfUZaio17",
+                "forum": "zW1tyw3UFu",
+                "replyto": "zW1tyw3UFu",
+                "signatures": [
+                    "ICLR.cc/2024/Conference/Program_Chairs"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2024/Conference",
+                    "ICLR.cc/2024/Conference/Program_Chairs"
+                ],
+                "number": 1,
+                "invitations": [
+                    "ICLR.cc/2024/Conference/Submission4970/-/Decision",
+                    "ICLR.cc/2024/Conference/-/Edit"
+                ],
+                "domain": "ICLR.cc/2024/Conference",
+                "tcdate": 1705406074171,
+                "cdate": 1705406074171,
+                "tmdate": 1708116034187,
+                "mdate": 1708116034187,
+                "license": "CC BY 4.0",
+                "version": 2
+            }
+        ]
+    }
+}

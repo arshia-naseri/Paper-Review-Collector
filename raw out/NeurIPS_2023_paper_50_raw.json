@@ -1,0 +1,490 @@
+{
+    "id": "zAQK5r1enm",
+    "forum": "zAQK5r1enm",
+    "content": {
+        "title": {
+            "value": "Decision Stacks: Flexible Reinforcement Learning via Modular Generative Models"
+        },
+        "authors": {
+            "value": [
+                "Siyan Zhao",
+                "Aditya Grover"
+            ]
+        },
+        "authorids": {
+            "value": [
+                "~Siyan_Zhao1",
+                "~Aditya_Grover1"
+            ]
+        },
+        "keywords": {
+            "value": [
+                "reinforcement learning",
+                "generative models",
+                "offline RL",
+                "sequential decision making"
+            ]
+        },
+        "abstract": {
+            "value": "Reinforcement learning presents an attractive paradigm to reason about several distinct aspects of sequential decision making, such as specifying complex goals, planning future observations and actions, and critiquing their utilities. However, the combined integration of these capabilities poses competing algorithmic challenges in retaining maximal expressivity while allowing for flexibility in modeling choices for efficient learning and inference. We present Decision Stacks, a generative framework that decomposes goal-conditioned policy agents into 3 generative modules. These modules simulate the temporal evolution of observations, rewards, and actions via independent generative models that can be learned in parallel via teacher forcing. Our framework guarantees both expressivity and flexibility in designing individual modules to account for key factors such as architectural bias, optimization objective and dynamics, transferrability across domains, and inference speed. Our empirical results demonstrate the effectiveness of Decision Stacks for offline policy optimization for several MDP and POMDP environments, outperforming existing methods and enabling flexible generative decision making."
+        },
+        "venue": {
+            "value": "NeurIPS 2023 poster"
+        },
+        "venueid": {
+            "value": "NeurIPS.cc/2023/Conference"
+        },
+        "TLDR": {
+            "value": "Decision Stacks is a generative framework for goal-conditioned RL that models trajectories as composable modular components for observations, rewards, and actions leading to superior performance for planning and RL in MDP and POMDPs."
+        },
+        "pdf": {
+            "value": "/pdf/f3a50f2538c91ff916c94e4be2cc52fed9cd9e43.pdf"
+        },
+        "_bibtex": {
+            "value": "@inproceedings{\nzhao2023decision,\ntitle={Decision Stacks: Flexible Reinforcement Learning via Modular Generative Models},\nauthor={Siyan Zhao and Aditya Grover},\nbooktitle={Thirty-seventh Conference on Neural Information Processing Systems},\nyear={2023},\nurl={https://openreview.net/forum?id=zAQK5r1enm}\n}"
+        },
+        "paperhash": {
+            "value": "zhao|decision_stacks_flexible_reinforcement_learning_via_modular_generative_models"
+        }
+    },
+    "invitations": [
+        "NeurIPS.cc/2023/Conference/-/Submission",
+        "NeurIPS.cc/2023/Conference/-/Post_Submission",
+        "NeurIPS.cc/2023/Conference/Submission10083/-/Revision",
+        "NeurIPS.cc/2023/Conference/Submission10083/-/Supplementary_Material_Revision",
+        "NeurIPS.cc/2023/Conference/-/Edit",
+        "NeurIPS.cc/2023/Conference/Submission10083/-/Camera_Ready_Revision"
+    ],
+    "cdate": 1683778070870,
+    "pdate": 1695326036941,
+    "odate": 1698949762396,
+    "mdate": 1698949762409,
+    "signatures": [
+        "NeurIPS.cc/2023/Conference/Submission10083/Authors"
+    ],
+    "writers": [
+        "NeurIPS.cc/2023/Conference",
+        "NeurIPS.cc/2023/Conference/Submission10083/Authors"
+    ],
+    "readers": [
+        "everyone"
+    ],
+    "details": {
+        "directReplies": [
+            {
+                "content": {
+                    "summary": {
+                        "value": "This paper focuses on solving offline RL with generative models. Concretely, it proposes a method to modularize the joint distribution of time-induced trajectories and use separate generative models to represent observation module, reward module, and action module. Evaluations are conducted on D4RL benchmark with MDP and POMDP environments. Extensive comparisons against prior works are included."
+                    },
+                    "soundness": {
+                        "value": "2 fair"
+                    },
+                    "presentation": {
+                        "value": "3 good"
+                    },
+                    "contribution": {
+                        "value": "2 fair"
+                    },
+                    "strengths": {
+                        "value": "- The paper is fairly well presented and easy to follow. \n\n- The proposed method is extensively evaluated against multiple related approaches."
+                    },
+                    "weaknesses": {
+                        "value": "- Novelty of the proposed method is limited. The improved performance can also be attributed to other confounding factors, such as larger models due to reward and action modules being factored out.\n\n- It is counter-intuitive to ignore the canonical time-induced casual ordering in favor of different token types. More intuitions and theoretical analysis (if applicable) are encouraged to provide.\n\n- Lack of evidences to support the claims on modular expressivity (L145). Are there any experiments showing it can transfer to new environments?\n\n- The empirical results, especially those on D4RL locomotion tasks, are not significant enough to justify the extra compute introduced.\n\n- Just swapping each module with different model architectures/modeling strategies is not enough to gain insights of the proposed method. More ablations and analysis are necessary."
+                    },
+                    "questions": {
+                        "value": "- Why DS's performance on POMDP Hopper task with medium-expert data (Table 3) is even better than that on fully observable setting (Table 2)?\n\n- How does DS compare to more straightforward baseline, such as the one with separate heads for three modules but shares the same backbone?"
+                    },
+                    "limitations": {
+                        "value": "- The design choice of ignoring temporal causality is not well motivated. Case studies or even proof-of-concept experiments would be helpful to justify it.\n\n- The performance improvement could be attributed to confounding factors such as larger model sizes. More experiments with controlled variables (e.g., same amount of model parameters) would help to support claims made in the paper. "
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": "3: Reject: For instance, a paper with technical flaws, weak evaluation, inadequate reproducibility and incompletely addressed ethical considerations."
+                    },
+                    "confidence": {
+                        "value": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work."
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "8oDTuF8DrG",
+                "number": 1,
+                "cdate": 1687910441534,
+                "tcdate": 1687910441534,
+                "mdate": 1702411267450,
+                "tmdate": 1702411267450,
+                "signatures": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/Reviewer_ywNv"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2023/Conference",
+                    "NeurIPS.cc/2023/Conference/Submission10083/Reviewer_ywNv"
+                ],
+                "forum": "zAQK5r1enm",
+                "replyto": "zAQK5r1enm",
+                "invitations": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/-/Official_Review",
+                    "NeurIPS.cc/2023/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2023/Conference",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "This paper highlights a drawback in prior frameworks, such as Decision Transformer and Diffuser, where the absence of modular hierarchies among different tokens results in limited expressivity and flexibility. To overcome this issue, the paper introduces Decision Stacks (DS), a modular algorithm designed for learning goal-conditioned policies using offline datasets. The proposed method parameterizes three generative model-based modules for future observation prediction, reward estimation, and action generation, respectively. Through various offline evaluations in both MDP and POMDP environments, this paper demonstrates that DS outperforms previous approaches by generating superior plans."
+                    },
+                    "soundness": {
+                        "value": "3 good"
+                    },
+                    "presentation": {
+                        "value": "3 good"
+                    },
+                    "contribution": {
+                        "value": "2 fair"
+                    },
+                    "strengths": {
+                        "value": "This paper presents a modular probabilistic framework, utilizing deep generative models to establish token-level hierarchies in trajectory generation. The proposed algorithm, Decision Stacks (DS), incorporates independent generative models for simulating the temporal evolution of observations, rewards, and actions, allowing for parallel learning and enabling flexible generative decision making. The algorithm is both straightforward and effective, particularly in the POMDP setting, where DS surpasses other baseline methods by a significant margin. Additionally, the experiments are conducted meticulously, and the visualizations of example rollouts in the Maze2D-medium-v1 environment are clear."
+                    },
+                    "weaknesses": {
+                        "value": "One major concern regarding the proposed algorithm DS is the high complexity of the model, as it requires training three generative models. However, in most experiments such as offline RL with an MDP setting, the performance improvement compared to other baselines that use only one generative model is not significant. Furthermore, the paper lacks an explanation of the specific dimensions that were excluded to construct the POMDP setting. Additionally, as depicted in Figure 1, the generation of observation, reward, and action sequences follows a sequential order, and there exist dependencies among the three generative models. However, the paper does not provide clear explanations on how training can be parallelized and how the choice of generative models affects performance.\n"
+                    },
+                    "questions": {
+                        "value": "(1)How is the handcoded controller implemented in 4.1 and 4.2, respectively? What role does it play? In Table 1 and Figure 1, why do Decision Diffuser (DD) and DS exhibit similar performance when this controller is added? DD does not adopt a modular structure but utilizes the same diffusion-based observation model as DS. Does this indirectly suggest that the modular structure has minimal impact as long as a good generative model is chosen?\n(2)During the experiment, why was a diffusion model used for the observation model while transformer models were used for the action and reward models? Why do different choices of generative models lead to the results shown in Table 4? It is hoped that the author can provide corresponding reasonable explanations instead of simple combination attempts.\n\ntypoes, e.g., \"seggregate\" --> \"segregate\"."
+                    },
+                    "limitations": {
+                        "value": "Methods such as Decision Transformer [1], which reduce reinforcement learning to a prediction task, have gained popularity partly due to their simplicity. In contrast, DS trades a high model complexity for relatively modest expressivity. It would be more convincing in terms of expressivity if experiments were conducted in stochastic environments[2] that yield better results. Furthermore, the paper lacks rational analysis in certain aspects, such as the selection of generative models to generate higher quality trajectories.\n[1] Chen L, Lu K, Rajeswaran A, et al. Decision transformer: Reinforcement learning via sequence modeling[J]. Advances in neural information processing systems, 2021, 34: 15084-15097.\n[2] Paster K, McIlraith S, Ba J. You Can't Count on Luck: Why Decision Transformers Fail in Stochastic Environments[J]. arXiv preprint arXiv:2205.15967, 2022."
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": "4: Borderline reject: Technically solid paper where reasons to reject, e.g., limited evaluation, outweigh reasons to accept, e.g., good evaluation. Please use sparingly."
+                    },
+                    "confidence": {
+                        "value": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work."
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "uzpvEoFIfe",
+                "number": 2,
+                "cdate": 1688370349617,
+                "tcdate": 1688370349617,
+                "mdate": 1702411267368,
+                "tmdate": 1702411267368,
+                "signatures": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/Reviewer_xgrf"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2023/Conference",
+                    "NeurIPS.cc/2023/Conference/Submission10083/Reviewer_xgrf"
+                ],
+                "forum": "zAQK5r1enm",
+                "replyto": "zAQK5r1enm",
+                "invitations": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/-/Official_Review",
+                    "NeurIPS.cc/2023/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2023/Conference",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "This paper proposes to tackle the problem decision making using a stack of different generative models. The first generative model constructs a conditional distribution over observations. A subsequent generative model constructs a conditional distribution over rewards, with a final generative model constructs a distribution over actions. The authors illustrate the efficacy of this decomposed approach across a suite of different tasks."
+                    },
+                    "soundness": {
+                        "value": "3 good"
+                    },
+                    "presentation": {
+                        "value": "3 good"
+                    },
+                    "contribution": {
+                        "value": "3 good"
+                    },
+                    "strengths": {
+                        "value": "- I enjoyed reading the paper -- it was quite clear and easy to read. The motivation of the paper to decompose the generative modeling objective into a set of component modules is sound. \n- The paper follows a formulation of offline reinforcement learning as probabilistic inference that is likely to relevant to a large audience at NeurIPS with the increasing popularity of generative models\n- The approach performs well across a set of different environments, outperforming existing baselines across 3 separate tasks."
+                    },
+                    "weaknesses": {
+                        "value": "- The results illustrated in the approach are a bit toy -- with the largest gains in the Maze2D environment. The Mujoco control environment has somewhat limited gains and the constructed POMDP environment seems a bit artificial. It may be that the Mujoco control environments have already saturated in performance and it may be interesting to try more complex planning tasks such as RLBench or other robotic manipulation environments.\n- While I understand the motivation to decompose trajectory synthesis into a set of modular components, I'm not sure I completely understand the particular decomposition of first observations, then rewards, and then actions. It seems like decomposing rewards first may be more natural then observations.\n- It might also be interesting to explore the extent to which decomposed submodules can enable compositional generalization or more efficient multitask learning by encoding structure in the greneration procedure. For instance -- perhaps the observation model can be used across a set of different tasks.\n\n\nThere are a couple of typos in the paper listed below:\n\n- L133 typo auotregressive -> autoregressive\n- In L303  Dai et al should be Du et al. The method does not use a state model as a pretrained text2image model but rather a learned text2video model.\n- The table before section 4.2 is misformatted and extends to the margin of the paper"
+                    },
+                    "questions": {
+                        "value": "I had a couple questions about the underlying approach that might be interesting to discuss:\n\n- In equation 6, we sequentially sample from each factored distribution to sample from equation 3. In practice, would we instead want to sample marginalized distribution over actions across all possible observations and rewards given the goal?\n- It might be interesting to think a bit about how the individual decomposed modules can also provide feedback with respect to each other. For instance a planned set of states may induce a poor distribution over rewards. Having the conditional reward model then provide some feedback to regenerate the planned set of states may then be interesting. [1] may be an interesting read\n\n[1] Composing Ensembles of Pretrained Networks via Iterative Consensus"
+                    },
+                    "limitations": {
+                        "value": "Yes"
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": "7: Accept: Technically solid paper, with high impact on at least one sub-area, or moderate-to-high impact on more than one areas, with good-to-excellent evaluation, resources, reproducibility, and no unaddressed ethical considerations."
+                    },
+                    "confidence": {
+                        "value": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work."
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "f74EVVHLl0",
+                "number": 3,
+                "cdate": 1688580175914,
+                "tcdate": 1688580175914,
+                "mdate": 1702411267255,
+                "tmdate": 1702411267255,
+                "signatures": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/Reviewer_E8pR"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2023/Conference",
+                    "NeurIPS.cc/2023/Conference/Submission10083/Reviewer_E8pR"
+                ],
+                "forum": "zAQK5r1enm",
+                "replyto": "zAQK5r1enm",
+                "invitations": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/-/Official_Review",
+                    "NeurIPS.cc/2023/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2023/Conference",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "This paper proposes to disentangle the different modalities (reward, observations, and actions) utilized in offline goal-conditioned reinforcement learning instead of the standard temporal single-module structure. The paper contributes three independent generative modules that have the benefit of parallelizable training. The paper includes empirical results showing the proposed algorithm's comparable or superior performance to baselines on several MDP and POMDP environments. "
+                    },
+                    "soundness": {
+                        "value": "3 good"
+                    },
+                    "presentation": {
+                        "value": "3 good"
+                    },
+                    "contribution": {
+                        "value": "3 good"
+                    },
+                    "strengths": {
+                        "value": "1. The core idea to utilize a different decomposition of tokens to enable independent training of generative models appears interesting and novel. I enjoyed the simplicity of the approach, accompanied by the good empirical results. \n\n2. Overall, I found the paper to be well-written and clear. I liked that the authors are clearly familiar with the relevant related literature and used diagrams throughout to help illustrate concepts. \n\n3. Given the good empirical results, the idea of semantic decomposition (noted in strength 1) could be generally impactful for communities interested in transformers + RL.\n\n4. I appreciate the extensive experiments performed to support the claims of flexibility and performance.  "
+                    },
+                    "weaknesses": {
+                        "value": "In general, I liked this paper. A few things that I think could improve it:\n\n1. I would have liked to see the training cost comparison to the other algorithms. \n\n2. In general, I would also like to see a more extensive discussion of the experimental results, as noted in questions 4-6 in the Questions section below. \n\n3. I feel like some of the claims are a bit strong. For example, how does the work \"guarantee\" expressivity and flexibility? This language is often used when we have an assured property of the system or algorithm, but I don't see any rigorous theoretical evaluation of this claim. \n\nMore minor:\n\n1. Missing some references, including work in compositional offline RL (as mentioned in the introduction, first paragraph) [Mendez et al., 2022] and a reference to the POMDP formalism [Kaelbling, Littman, and Cassandra, 1998]. \n\n2. The focus on MDP and POMDP environments was somewhat unclear to me. I think including some motivation or intuition in the Introduction as to why this approach would work better than previous works in both types of environments would make this more clear.\n\n-----------------------------------------------------------------------------\n\n[Mendez et al., 2022] Mendez, Jorge A., Harm van Seijen, and Eric Eaton. \"Modular lifelong reinforcement learning via neural composition.\" arXiv preprint arXiv:2207.00429 (2022).\n\n[Kaelbling, Littman, and Cassandra, 1998] Kaelbling, Leslie Pack, Michael L. Littman, and Anthony R. Cassandra. \"Planning and acting in partially observable stochastic domains.\" Artificial intelligence 101.1-2 (1998): 99-134."
+                    },
+                    "questions": {
+                        "value": "1. Recent work [Carroll, et al. 2022] incorporates dynamics learning in some training setups and demonstrates improved performance over vanilla Decision Transformer. Is this not included in the experimental comparisons due to the different training scheme & architecture choice? \n\n2. Why do only some of the algorithms have a reported error (e.g., in Tables 1&2)? Also, is the value standard error, standard deviation?\n\n3. Could the authors please clarify what is meant by the expert-normalized scores in Section 4.2? \n\n4. What is the training cost of the proposed algorithm (in terms of both samples and wall clock time)? How does it compare to the baselines?\n\n5. Why is the architectural flexibility investigated using Hopper-medium-v2 despite it not being used in the other experiments (e.g., those presented in Table 3)? \n\n6. Why does DS work better on medium but not medium expert or medium replay HalfCheetah (Table 3)? \n\n7. How were the two dimensions of the state chosen to exclude (Section 4.3)? What is the observation representation in these experiments?\n\n---------------------------------------------------------------------------------\n[Carroll et al., 2022] Carroll, Micah, et al. \"Uni [mask]: Unified inference in sequential decision problems.\" Advances in neural information processing systems 35 (2022): 35365-35378."
+                    },
+                    "limitations": {
+                        "value": "The authors have a small section in the Conclusion focusing on the limitations. I felt like this was sufficient. However, I can always appreciate a lengthier discussion section, especially when one's proposed algorithm performs similarly to other algorithms in some settings. "
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": "6: Weak Accept: Technically solid, moderate-to-high impact paper, with no major concerns with respect to evaluation, resources, reproducibility, ethical considerations."
+                    },
+                    "confidence": {
+                        "value": "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked."
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "86zMRcuU5P",
+                "number": 4,
+                "cdate": 1688931563954,
+                "tcdate": 1688931563954,
+                "mdate": 1702411267178,
+                "tmdate": 1702411267178,
+                "signatures": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/Reviewer_vCY4"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2023/Conference",
+                    "NeurIPS.cc/2023/Conference/Submission10083/Reviewer_vCY4"
+                ],
+                "forum": "zAQK5r1enm",
+                "replyto": "zAQK5r1enm",
+                "invitations": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/-/Official_Review",
+                    "NeurIPS.cc/2023/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2023/Conference",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "summary": {
+                        "value": "The paper proposes using different generative models (transformer or diffusion) rather than the same model (like in trajectory transformer/decision diffuser) for observation prediction, reward estimation, and action prediction in \u201cmodel-based\u201d offline RL. They demonstrate that this flexibility improves performance in offline RL in a POMDP setting where two dimensions of the state vector are removed for each environment."
+                    },
+                    "soundness": {
+                        "value": "3 good"
+                    },
+                    "presentation": {
+                        "value": "4 excellent"
+                    },
+                    "contribution": {
+                        "value": "2 fair"
+                    },
+                    "strengths": {
+                        "value": "1. The paper is well written and easy to read.\n2. The consistent increase on POMDPs is encouraging. And the ablation with different modules is very interesting."
+                    },
+                    "weaknesses": {
+                        "value": "1. Similar performance to DD on D4RL Gym tasks.\n\n2. Major similarities to previous work (trajectory transformer, decision diffuser) and the authors acknowledge this and highlight the reward modeling as novel. While it is interesting, a (temporal difference) variant already exists in the trajectory transformer paper [Janner et al 2021].  Namely, the trajectory transformer with Q function (a form of reward modeling) guided planning which can be found in Section 4.2 of [Janner et al 2021], under \u201cCombining with Q functions\u201d. \n\n3. Does it matter which two observation dimensions are removed? An explanation of which dimensions were removed and why is missing and a sensitivity analysis to the dimensions removed are missing as well.\n\n4. Is there any intuition for why the conditioning in Equations (4), (5), (6) were chosen? \n\n5. Is there heuristic that could be used to choose the different modules with any online interaction? Such a heuristic would be necessary in offline RL."
+                    },
+                    "questions": {
+                        "value": "Please see weaknesses."
+                    },
+                    "limitations": {
+                        "value": "Yes."
+                    },
+                    "flag_for_ethics_review": {
+                        "value": [
+                            "No ethics review needed."
+                        ]
+                    },
+                    "rating": {
+                        "value": "5: Borderline accept: Technically solid paper where reasons to accept outweigh reasons to reject, e.g., limited evaluation. Please use sparingly."
+                    },
+                    "confidence": {
+                        "value": "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked."
+                    },
+                    "code_of_conduct": {
+                        "value": "Yes"
+                    }
+                },
+                "id": "hOYeCAT6gw",
+                "number": 5,
+                "cdate": 1690511286133,
+                "tcdate": 1690511286133,
+                "mdate": 1702411267063,
+                "tmdate": 1702411267063,
+                "signatures": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/Reviewer_Xfrm"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2023/Conference",
+                    "NeurIPS.cc/2023/Conference/Submission10083/Reviewer_Xfrm"
+                ],
+                "forum": "zAQK5r1enm",
+                "replyto": "zAQK5r1enm",
+                "invitations": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/-/Official_Review",
+                    "NeurIPS.cc/2023/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2023/Conference",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "rebuttal": {
+                        "value": "We thank all the reviewers for providing insightful feedback and constructive suggestions, including recommendations for new ablation studies. In alignment with these insightful suggestions, we have conducted and provided 4 new experimental results that clarify Decision Stacks's novelty and address the concerns raised in the reviews. \n\nThe summary of these experiments is as follows:\n\n1. Table 1: **Sensitivity Analysis on Occluded Dimensions for POMDPs**. In the Hopper environment, the full state encompasses 5 dimensions of position data and 6 dimensions of velocity data across different joints. The table outlines experiments involving various dimensions and semantics for occlusion. DS consistently exhibits superior or second-best performance compared to other baselines on the hopper-medium-expert-v2 dataset.\n\n     Results: **DS continues to outperform other baselines across different ways of dimension occlusions in aggregate performance.**\n\n\n\n2. Table 2: **Experiments on Compositional Generalization in Maze2D**. With the absence of parameter sharing, the DS modular design allows efficient compositional generalization. This experiment investigates the transfer to other environments using shared observation models with diverse action and reward spaces. In the Maze2D environment, both dense and sparse rewards are analyzed, along with three variations of force applied to a 2D ball. These results emphasize DS's modular efficiency across scenarios where reusable components exist across different tasks or environments. \n\n   Results: **DS modular design allows efficient compositional generalization**\n\n3. Table 3: **Performance Comparison on Modeling Ordering**. From the chain rule of probability, any autoregressive factorization can model the data distribution under idealized conditions. In practice, we choose the ordering of states, rewards, and actions. Specifically, we ordered states prior to rewards to be consistent with the functional definitions in MDPs, where the reward is typically a function of observations (and potentially other variables), but not vice versa. We tested this choice empirically and found our choice to significantly outperform the counterpart. This table compares two different orderings: Reward-State-Action (R, S, A) and State-Reward-Action (S, R, A). The findings reveal that the S, R, A ordering outperforms the R, S, A ordering in the halfcheetah-medium-replay-v2 environment, underscoring DS's consistency with functional definitions in MDPs.\n\n\n   Results: **DS's choice of S, R, A ordering outperforms the R, S, A ordering**\n\n\n4. Table 4: **Per-Iteration Training Cost for Different Algorithms**. We provide a comparison of the per-iteration cost. DS's training time is influenced by the choice of generative models. Since the state model has a high dimensionality, and the modules can be trained in parallel, the training time for DS is determined by the state model's training time. Specifically, DS's training cost aligns with those of DT and TT (transformer-based) and is consistent with DD's and on par with Diffuser's (diffusion-based) training cost. This result further affirms that DS delivers an efficient approach without compromising on training cost.\n\n   Results: **DS's training cost aligns with other baselines.**\n\nPlease refer to the attached PDF for details of the experiments"
+                    },
+                    "pdf": {
+                        "value": "/pdf/d83935252d22d2e74a048598be2fb699a739a323.pdf"
+                    }
+                },
+                "id": "uAd7CQEIog",
+                "number": 1,
+                "cdate": 1691641582985,
+                "tcdate": 1691641582985,
+                "mdate": 1704275027048,
+                "tmdate": 1704275027048,
+                "signatures": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2023/Conference",
+                    "NeurIPS.cc/2023/Conference/Submission10083/Authors"
+                ],
+                "forum": "zAQK5r1enm",
+                "replyto": "zAQK5r1enm",
+                "invitations": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/-/Author_Rebuttal",
+                    "NeurIPS.cc/2023/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2023/Conference",
+                "license": "CC BY 4.0",
+                "version": 2
+            },
+            {
+                "content": {
+                    "title": {
+                        "value": "Paper Decision"
+                    },
+                    "decision": {
+                        "value": "Accept (poster)"
+                    },
+                    "comment": {
+                        "value": "The reviews and discussion offered mixed reactions and support. However, the clarity of presentation and analysis of the approach is relatively well done, and the modular design complements existing approaches. We do encourage the authors to use the feedback to revise and strengthen this work in the coming weeks."
+                    }
+                },
+                "id": "jvHM5YXFT2",
+                "number": 1,
+                "cdate": 1695317892341,
+                "tcdate": 1695317892341,
+                "mdate": 1703016740146,
+                "tmdate": 1703016740146,
+                "signatures": [
+                    "NeurIPS.cc/2023/Conference/Program_Chairs"
+                ],
+                "nonreaders": [],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "NeurIPS.cc/2023/Conference",
+                    "NeurIPS.cc/2023/Conference/Program_Chairs"
+                ],
+                "forum": "zAQK5r1enm",
+                "replyto": "zAQK5r1enm",
+                "invitations": [
+                    "NeurIPS.cc/2023/Conference/Submission10083/-/Decision",
+                    "NeurIPS.cc/2023/Conference/-/Edit"
+                ],
+                "domain": "NeurIPS.cc/2023/Conference",
+                "license": "CC BY 4.0",
+                "version": 2
+            }
+        ]
+    }
+}

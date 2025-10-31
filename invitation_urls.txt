@@ -1,0 +1,22 @@
+== ICLR ==
+
+ICLR 2016: ICLR.cc/2016/workshop/-/submission                              (api1)
+ICLR 2017: ICLR.cc/2017/conference/-/submission                             [CHECK]
+ICLR 2018: ICLR.cc/2018/Conference/-/Blind_Submission                       [CHECK]
+ICLR 2019: ICLR.cc/2019/Conference/-/Blind_Submission                       decision in metareview, recomended [CHECK]
+ICLR 2020: ICLR.cc/2020/Conference/-/Blind_Submission                       [CHECK]
+ICLR 2021: ICLR.cc/2021/Conference/-/Blind_Submission                       [CHECK]
+ICLR 2022: ICLR.cc/2022/Conference/-/Blind_Submission                       [CHECK]
+ICLR 2023: ICLR.cc/2023/Conference/-/Blind_Submission                 
+ICLR 2024: ICLR.cc/2024/Conference/-/Submission                            (api2)
+ICLR 2025: ICLR.cc/2025/Conference/-/Submission                            (api2)
+
+
+== NeurIPS ==
+
+NeurIPS 2019: NeurIPS.cc/2019/Reproducibility_Challenge/-/Blind_Report     (api1)
+NeurIPS 2021: NeurIPS.cc/2021/Conference/-/Blind_Submission
+NeurIPS 2022: NeurIPS.cc/2022/Conference/-/Blind_Submission
+NeurIPS 2023: NeurIPS.cc/2023/Conference/-/Submission                       (api2)
+NeurIPS 2024: NeurIPS.cc/2024/Conference/-/Submission
+NeurIPS 2025: NeurIPS.cc/2025/Conference/-/Submission

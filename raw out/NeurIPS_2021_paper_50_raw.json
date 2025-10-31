@@ -1,0 +1,370 @@
+{
+    "id": "yr7nrY18Xu",
+    "original": "ml8WhYCO4Nf",
+    "cdate": 1621630024599,
+    "pdate": 1636492738594,
+    "odate": 1636492738594,
+    "mdate": null,
+    "tcdate": 1621630024599,
+    "tmdate": 1683307661676,
+    "ddate": null,
+    "number": 6149,
+    "content": {
+        "title": "Learning and Generalization in RNNs",
+        "authorids": [
+            "~Abhishek_Panigrahi1",
+            "~Navin_Goyal1"
+        ],
+        "authors": [
+            "Abhishek Panigrahi",
+            "Navin Goyal"
+        ],
+        "keywords": [
+            "Recurrent Neural Networks",
+            "Generalization",
+            "Overparametrized Neural Networks",
+            "Optimization"
+        ],
+        "TL;DR": "The paper presents improved Generalization guarantees for recurrent neural networks.",
+        "abstract": "Simple recurrent neural networks (RNNs) and their more advanced cousins LSTMs etc. have been very successful in sequence modeling. Their theoretical understanding, however, is lacking and has not kept pace with the progress for feedforward networks, where a reasonably complete understanding in the special case of highly overparametrized one-hidden-layer networks has emerged. In this paper, we make progress towards remedying this situation by proving that RNNs can learn functions of sequences. In contrast to the previous work that could only deal with functions of sequences that are sums of functions of individual tokens in the sequence, we allow general functions. Conceptually and technically, we introduce new ideas which enable us to extract information from the hidden state of the RNN in our proofs---addressing a crucial weakness in previous work. We illustrate our results on some regular language recognition problems.",
+        "submission_history": "",
+        "checklist": "",
+        "code_of_conduct": "I certify that all co-authors of this work have read and commit to adhering to the NeurIPS Statement on Ethics, Fairness, Inclusivity, and Code of Conduct.",
+        "paperhash": "panigrahi|learning_and_generalization_in_rnns",
+        "pdf": "/pdf/1fd1643647a59a9524494b5fbfb97791012854e0.pdf",
+        "submission_history_-_venue_and_year": "",
+        "submission_history_-_improvements_made": "",
+        "supplementary_material": "/attachment/23fa6c711ae6e7034227f28e64739577423de687.pdf",
+        "thumbnail": "",
+        "_bibtex": "@inproceedings{\npanigrahi2021learning,\ntitle={Learning and Generalization in {RNN}s},\nauthor={Abhishek Panigrahi and Navin Goyal},\nbooktitle={Advances in Neural Information Processing Systems},\neditor={A. Beygelzimer and Y. Dauphin and P. Liang and J. Wortman Vaughan},\nyear={2021},\nurl={https://openreview.net/forum?id=yr7nrY18Xu}\n}",
+        "venue": "NeurIPS 2021 Poster",
+        "venueid": "NeurIPS.cc/2021/Conference"
+    },
+    "forum": "yr7nrY18Xu",
+    "referent": null,
+    "invitation": "NeurIPS.cc/2021/Conference/-/Blind_Submission",
+    "replyto": null,
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "NeurIPS.cc/2021/Conference"
+    ],
+    "writers": [
+        "NeurIPS.cc/2021/Conference"
+    ],
+    "details": {
+        "revisions": true,
+        "directReplies": [
+            {
+                "id": "R0yyvheU8c",
+                "original": null,
+                "number": 1,
+                "cdate": 1626124805064,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626124805064,
+                "tmdate": 1626124805064,
+                "tddate": null,
+                "forum": "yr7nrY18Xu",
+                "replyto": "yr7nrY18Xu",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper6149/-/Official_Review",
+                "content": {
+                    "rating": "7: Good paper, accept",
+                    "confidence": "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.",
+                    "summary": "The authors provide a proof that sufficiently wide recurrent neural networks can accurately learn functions of sequences of data, providing a much needed extension of known results about standard feed-forward neural network to recurrent neural networks.",
+                    "main_review": "The authors first extend the result shown in (https://arxiv.org/pdf/1811.04918.pdf) to recurrent neural networks, showing that a wide enough RNN can learn *any* function from sequence input space (i.e. R^(d*L), where d is the input dimension and L is the sequence length) to output space, so long as it can parametrized by a neural network with one hidden layer and smooth activation, which is a very large concept class. \n\nThis is not trivial, as RNNs are 'limited' to a constant function between input space and hidden layer, hidden layer at one time-point and the next, and the hidden layer to output, and they authors showed SGD is in fact able to learn any function from the concept class described above. \n\nWhile the proof is obviously very long, the authors do provide a straight forward 'sketch' of the proof, which makes it clear what are the key innovations and ideas that went into it. The further make note of their contributions beyond other works such as https://arxiv.org/pdf/1902.01028.pdf and https://papers.nips.cc/paper/2019/file/62dad6e273d32235ae02b7d321578ee8-Paper.pdf, which follow a similar formalism.\n\nOverall, this work is a critical step in the theoretical analysis of sequential neural networks and I recommend acceptance.",
+                    "limitations_and_societal_impact": "I see not negative societal impact from this work.",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [],
+                    "time_spent_reviewing": "2 hours",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper6149/Reviewer_pm6R"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper6149/Reviewer_pm6R"
+                ]
+            },
+            {
+                "id": "oAjR6RD4Zdm",
+                "original": null,
+                "number": 2,
+                "cdate": 1626431861537,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626431861537,
+                "tmdate": 1626431861537,
+                "tddate": null,
+                "forum": "yr7nrY18Xu",
+                "replyto": "yr7nrY18Xu",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper6149/-/Official_Review",
+                "content": {
+                    "rating": "5: Marginally below the acceptance threshold",
+                    "confidence": "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.",
+                    "summary": "In this paper, the authors try to prove that overparametrized RNNs can ef\ufb01ciently learn concept classes consisting of one-hidden-layer neural networks that take the entire sequence of tokens as input. The training algorithm used is SGD with suf\ufb01ciently small step size. Conceptually and technically, the introduced new ideas enable us to extract information from the hidden state of the RNN, which addresses a crucial weakness in previous work. In the end, the authors illustrate their results on some regular language recognition problems.",
+                    "main_review": "Originality:\nThe motivation of this paper comes from the fact that, compared to the previous work [37], this paper investigates the learnability of RNN for more general concept class. The motivation is ok and the proofs seem non-trivial.\n\nQuality:\nI have checked  details and did not find technical \ufb02aws.\n\nClarity:\nThe paper is in general well-written. ",
+                    "limitations_and_societal_impact": "\n1. The concept class (definition 3.1), as the main difference from related work [37], should be discussed in more detail. It would be better to add a remark (e.g., below Definition 3.3) to illustrate the relation between the concept classes in this paper and [37].\n\n2. There\u2019s some notational confusion here and there, e.g.,  Back_{i->j} (line 217, Equation 4) is used before being introduced,  parameter p (Equation 2) is not formally introduced, etc.\n\n3. (line 142) Why is the output coefficient b_{r,s} set to |b_{r,s}|\\leq 1?\n\n4.  In Theorem 3.1, we see that the step size \\eta=\\frac{1}{\\epsilon \\rho^2 m}. If I am not wrong, the step size \\eta tends to be large when \\epsilon moves towards 0, which seems to contradict the statement in line 69  (\u201cThe training algorithm used is SGD with suf\ufb01ciently small step size.\u201d). \n\nSome typos, e.g.,\nLine 160: sgd  SGD\nLine 162: traintrained",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [],
+                    "time_spent_reviewing": "12",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper6149/Reviewer_Gmdk"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper6149/Reviewer_Gmdk"
+                ]
+            },
+            {
+                "id": "Yy1aA-lQOlk",
+                "original": null,
+                "number": 3,
+                "cdate": 1626498930704,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626498930704,
+                "tmdate": 1626500359750,
+                "tddate": null,
+                "forum": "yr7nrY18Xu",
+                "replyto": "yr7nrY18Xu",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper6149/-/Official_Review",
+                "content": {
+                    "rating": "8: Top 50% of accepted NeurIPS papers, clear accept",
+                    "confidence": "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.",
+                    "summary": "Reference [37] demonstrated that that SGD learns the recurrent weight matrix of an RNN with provable generalization if the number of training sequences is at least polynomial in the logarithm of the number of hidden nodes, and if the target function computes, at each time step, a sum of differentiable functions of linear transforms of previous  time steps.  This paper uses the same notation, and many of the same methods, but significantly extends the previous work  in the following way: the function class that can be computed is significantly expanded, to include sums of differentiable functions of linear transforms of the __concatenated sequence__ of inputs, not just transforms of individual inputs. In order to do so, this paper cosiders bounds on the input matrix (A) and recurrent matrix (W) sufficient to encode the entire sequence of inputs into the state vector.",
+                    "main_review": "Strengths\n\nIn the spirit of many recent papers, the generalization error bound considered here is not a monotonically increasing function of the number of hidden nodes.  Instead, as in  reference [37], the generalization bound is actually a monotonically decreasing function of the number of hidden nodes, for any fixed dataset size.  \n\nAn interesting  and surprising result in this derivation is that the number of hidden nodes is required to be very large: at least polynomial in the sequence length, function class complexity, and output dimension.  This result is fundamental to the proof method, because the proof method encodes the entire input sequence into the state vector.  I'm actually not sure if this is a strength or a weakness of the paper: it obviously limits the applicability of this result  in practical settings, but the purpose of that limitation (the state vector needs to encode the input) is quite interesting, and might cause practitioners to think about the designs of their architectures.\n\nWeaknesses\n\nThe convergence proof depends on similarity between the pseudo-network and the learned network.  The pseudo-network and learned network differ if many of the ReLUs have switched on or off during  training.  Although each step of SGD might switch very few  ReLUs, the optimum weights (the end of SGD) might  have a completely  different set of ReLU activations than the initial set, and in that case, the pseudo-network will be an arbitrarily poor approximation of the true network.  In that case, I believe, the convergence proof fails.\n\nThe requirement that the length is fixed at L is proposed in the text as being \"w.l.o.g.\"  It is more accurate to say, as the conclusion says, that because of this requirement, the results in this article are ony proven for test sequences that are shorter than the longest training sequence.\n\n\"parameterization\" is sometimes spelled \"parameterization\", sometimes \"paramterization\", sometimes \"paramtrization\".  OK, we know what you mean, but this  seems sloppy.  There are  other places where spelling or grammar are sloppy.\n\n\n\n",
+                    "limitations_and_societal_impact": "The key contribution of the paper is a result demonstrating generalization error bounds for very wide recurrent neural networks trained with SGD.",
+                    "ethical_concerns": "N/A",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [],
+                    "time_spent_reviewing": "4",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper6149/Reviewer_N1qr"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper6149/Reviewer_N1qr"
+                ]
+            },
+            {
+                "id": "FwPbB6Sf1pi",
+                "original": null,
+                "number": 4,
+                "cdate": 1626950686292,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1626950686292,
+                "tmdate": 1632069886998,
+                "tddate": null,
+                "forum": "yr7nrY18Xu",
+                "replyto": "yr7nrY18Xu",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper6149/-/Official_Review",
+                "content": {
+                    "rating": "6: Marginally above the acceptance threshold",
+                    "confidence": "2: You are willing to defend your assessment, but it is quite likely that you did not understand central parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.",
+                    "summary": "This paper shows that overparamterized RNNs trained with SGD can learn a concept class defined over the entire input sequence. The paper provides convergence and generalization guarantees.",
+                    "main_review": "**Originality** - The work is a natural extension of previous work, the main difference between this work and prior work [1] is the the analysis under a more general concept class and instead of fixing A and B at initialization only B is fixed in this work. The contribution seems marginal as the majority of technical tools were introduced in prior work.\n\n**Quality** - The submission seems technically sound and well supported although verifying correctness of all claims will require hundreds of hours to do rigorously and is beyond the capacity of a standard review.\nI would appreciate a discussion on the practical bounds achieved, i.e. are the bounds meaningful in practice or do they require huge widths that practically make this result no different than those obtained via NTK?\n\n**Clarity** - The paper is clear and well written. The authors do a good job in interpreting their technical claims.\nThe implications of theorem 3.1 are not clear enough, an example would be very informative, for example in lemma D.4 the bound contains $\\rho^7$ where in theorem 3.1 $\\rho$ is defined to be $\\rho=100Ld_{out}$, for sequence length $10$ and output dimension $1$, the value is huge: $\\rho^7=10^{21}$. It seems a bit misleading to present this as analysis in the finite case.\n\n**Significance** - I think this paper\u2019s significance is incremental as it is mostly technical changes to prior work and the technical tools that constitute a significant contribution were mostly established in [1].\n\n\n\nAdditional points:\n1. The introduction provides background and then shifts to be related work in line 52.\n2. Line 97 - why is C_s of sin z O(1) ?\n3. Lemma 4.2 - if you set W*=0, doesn\u2019t this imply you find a feed-forward NN and not an RNN?\n4. Re-randomization 295-305 - what are the assumptions implied by this process? Is it equivalent to having random weights?\n\n[1] Can SGD Learn Recurrent Neural Networks with Provable Generalization? Zeyuan Allen-Zhu, Yuanzhi Li, 2019",
+                    "limitations_and_societal_impact": "The main limitation is the practicality of the obtained guarantees, it is not clear if the sample complexity and network width obtained by theorem 3.1 are meaningful.\nThere is no concern for negative social impact by this submission. ",
+                    "ethical_concerns": "No ethical concerns arise from this submission",
+                    "needs_ethics_review": "No",
+                    "ethics_review_area": [],
+                    "time_spent_reviewing": "7",
+                    "code_of_conduct": "While performing my duties as a reviewer (including writing reviews and participating in discussions), I have and will continue to abide by the NeurIPS code of conduct."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper6149/Reviewer_vs66"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper6149/Reviewer_vs66"
+                ]
+            },
+            {
+                "id": "h1WXayV0j6P",
+                "original": null,
+                "number": 3,
+                "cdate": 1628543160447,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1628543160447,
+                "tmdate": 1628574913826,
+                "tddate": null,
+                "forum": "yr7nrY18Xu",
+                "replyto": "yr7nrY18Xu",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper6149/-/Official_Comment",
+                "content": {
+                    "title": "Learning and Generalization in RNNs",
+                    "comment": "We thank all the reviewers for their thoughtful feedback. There is a general appreciation for the clarity and quality of the overall presentation. Two of the reviewers appreciated our contributions. Other reviewers had some concerns that we have answered below. We will carefully incorporate the reviewers\u2019 suggestions (regarding typos, omissions, unclear writing) in the revision of the paper. In our replies below, we will focus on other points.\n\nOur work is an \u201cend-to-end\u201d analysis of RNNs: We show that (overparametrized) RNNs, when trained using SGD, can learn very general concept classes. Such a result requires a combination of analysis of RNNs with respect to representation power, optimization, and generalization. All of the previous work, with the exception of [37], analyzed at most two of the above three. As noted in the paper, the concept class in [37] is very limited.  \n\nWe reiterate that the analysis of RNNs poses major challenges compared to feedforward networks because of the time component which leads to reuse of weights and effectively deeper networks. The hidden state of the RNN is where the network stores information about the past tokens. Our work provides tools for utilizing the information in the hidden state using a linear transformation---to our knowledge, for the first time. This allows us to prove that using SGD, RNNs can learn far more general concept classes than previously known. There are other contributions in the paper, in particular, the study of RNNs as a recognizer of regular languages. \n"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Paper6149/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference",
+                    "NeurIPS.cc/2021/Conference/Paper6149/Authors"
+                ]
+            },
+            {
+                "id": "sjx58gi3lmJ",
+                "original": null,
+                "number": 1,
+                "cdate": 1632776963891,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1632776963891,
+                "tmdate": 1632776963891,
+                "tddate": null,
+                "forum": "yr7nrY18Xu",
+                "replyto": "yr7nrY18Xu",
+                "invitation": "NeurIPS.cc/2021/Conference/Paper6149/-/Decision",
+                "content": {
+                    "title": "Paper Decision",
+                    "decision": "Accept (Poster)",
+                    "comment": "This paper proves that sufficiently overparameterized RNNs can learn functions of their input that can be computed by a hidden single layer MLP operating on the entire sequence concatenated together (the size of which is related to the size of the required RNN). If I understand correctly, the main idea is to show that a carefully initialized RNN basically encodes the entire sequence up to the current time step within its hidden state vector, similar to an echo-state network. From there, an NTK-style argument is given that this information can be decoded by the output layer through gradient descent training.\n\nWhile probably still an oversimplification of how RNNs actually work in practice, this paper represents an improvement on our state of formal understanding compared to previous theoretical works. The reviewers and myself found the paper to be well written and relatively easy to read, despite the difficult subject matter. The reviewers weren't able to find any serious technical issues with the proofs or problems with the plausibility of the claims, although they weren't able to carefully check the proofs thoroughly due to the very long length of the appendix. (I suppose it is questionable whether a paper of this kind of suitable for NeurIPS.) Thus, while I cannot 100% certify the correctness of this paper, I think it's most likely to be correct, and thus a solid contribution to the theory of overparameterized neural networks. "
+                },
+                "signatures": [
+                    "NeurIPS.cc/2021/Conference/Program_Chairs"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2021/Conference/Program_Chairs"
+                ]
+            }
+        ],
+        "invitation": {
+            "reply": {
+                "writers": {
+                    "values": [
+                        "NeurIPS.cc/2021/Conference"
+                    ]
+                },
+                "signatures": {
+                    "values": [
+                        "NeurIPS.cc/2021/Conference"
+                    ]
+                },
+                "content": {
+                    "title": {
+                        "values-regex": ".*",
+                        "order": 1
+                    },
+                    "authors": {
+                        "values": [
+                            "Anonymous"
+                        ],
+                        "order": 2
+                    },
+                    "authorids": {
+                        "values-regex": ".*",
+                        "order": 3
+                    },
+                    "keywords": {
+                        "description": "Comma separated list of keywords.",
+                        "order": 4,
+                        "values-regex": ".*"
+                    },
+                    "TL;DR": {
+                        "description": "\"Too Long; Didn't Read\": a short sentence describing your paper",
+                        "order": 5,
+                        "values-regex": ".*"
+                    },
+                    "abstract": {
+                        "description": "Abstract of paper. Add TeX formulas using the following formats: $In-line Formula$ or $$Block Formula$$",
+                        "order": 6,
+                        "value-regex": "[\\S\\s]{1,5000}"
+                    },
+                    "pdf": {
+                        "value-regex": ".*",
+                        "order": 7
+                    },
+                    "supplementary_material": {
+                        "value-regex": ".*",
+                        "order": 8
+                    },
+                    "submission_history": {
+                        "value-regex": ".*",
+                        "order": 10
+                    },
+                    "submission_history_-_venue_and_year": {
+                        "value-regex": ".*",
+                        "order": 11
+                    },
+                    "submission_history_-_improvements_made": {
+                        "value-regex": "[\\s\\S]*",
+                        "order": 12
+                    },
+                    "checklist": {
+                        "value-regex": ".*",
+                        "order": 13
+                    },
+                    "code_of_conduct": {
+                        "value-regex": ".*",
+                        "order": 14
+                    },
+                    "thumbnail": {
+                        "description": "Please upload poster thumbnails together with posters at https://neurips.cc/PosterUpload.",
+                        "order": 13,
+                        "value-regex": ".*",
+                        "required": false
+                    },
+                    "community_implementations": {
+                        "required": false,
+                        "description": "Optional link to open source implementations",
+                        "value-regex": ".*",
+                        "markdown": true,
+                        "order": 103
+                    }
+                }
+            },
+            "replyForumViews": [],
+            "expdate": 1682960158331,
+            "signatures": [
+                "NeurIPS.cc/2021/Conference"
+            ],
+            "readers": [
+                "everyone"
+            ],
+            "writers": [
+                "NeurIPS.cc/2021/Conference"
+            ],
+            "invitees": [
+                "NeurIPS.cc/2021/Conference"
+            ],
+            "tcdate": 1621629661809,
+            "tmdate": 1682960158376,
+            "id": "NeurIPS.cc/2021/Conference/-/Blind_Submission",
+            "type": "note"
+        }
+    }
+}

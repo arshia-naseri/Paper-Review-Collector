@@ -20,3 +20,8 @@ pip install -r requirements.txt;
 ```bash
 python main.py
 ```
+
+#### The Output will be located in folder _out/_
+
+> [!Warning]
+> The Program also converts the pdf_urls to markdown, but DO NOT try this on your local machine, you will run out of storage

@@ -1,0 +1,353 @@
+{
+    "id": "yoLGaLPEPo_",
+    "original": "qeZPTA0Ofkl",
+    "cdate": 1652737444134,
+    "pdate": 1667239200000,
+    "odate": null,
+    "mdate": null,
+    "tcdate": 1652737444134,
+    "tmdate": 1665729912731,
+    "ddate": null,
+    "number": 4032,
+    "content": {
+        "title": "Hyperbolic Feature Augmentation via Distribution Estimation and Infinite Sampling on Manifolds",
+        "authorids": [
+            "~Zhi_Gao4",
+            "~Yuwei_Wu1",
+            "~Yunde_Jia1",
+            "~Mehrtash_Harandi2"
+        ],
+        "authors": [
+            "Zhi Gao",
+            "Yuwei Wu",
+            "Yunde Jia",
+            "Mehrtash Harandi"
+        ],
+        "keywords": [
+            "Hyperbolic Space",
+            "Feature Augmentation",
+            "Distribution Estimation",
+            "Neural ODE",
+            "Infinite Augmentation"
+        ],
+        "abstract": "Learning in hyperbolic spaces has attracted growing attention recently, owing to their capabilities in capturing hierarchical structures of data. However, existing learning algorithms in the hyperbolic space tend to overfit when limited data is given. In this paper, we propose a hyperbolic feature augmentation method that generates diverse and discriminative features in the hyperbolic space to combat overfitting. We employ a wrapped hyperbolic normal distribution to model augmented features, and use a neural ordinary differential equation module that benefits from meta-learning to estimate the distribution. This is to reduce the bias of estimation caused by the scarcity of data. We also derive an upper bound of the augmentation loss, which enables us to train a hyperbolic model by using an infinite number of augmentations. Experiments on few-shot learning and continual learning tasks show that our method significantly improves the performance of hyperbolic algorithms in scarce data regimes.",
+        "paperhash": "gao|hyperbolic_feature_augmentation_via_distribution_estimation_and_infinite_sampling_on_manifolds",
+        "TL;DR": "We propose a hyperbolic feature augmentation method that generates diverse and discriminative features in the hyperbolic space to combat overfitting.",
+        "pdf": "/pdf/131623fcebf4e15e72f06d0eb19bd5ec76bf646f.pdf",
+        "supplementary_material": "/attachment/2ee4bcb52ae9ef10f2c85f6e5c650e7db61ee342.pdf",
+        "venue": "NeurIPS 2022 Accept",
+        "venueid": "NeurIPS.cc/2022/Conference",
+        "_bibtex": "@inproceedings{\ngao2022hyperbolic,\ntitle={Hyperbolic Feature Augmentation via Distribution Estimation and Infinite Sampling on Manifolds},\nauthor={Zhi Gao and Yuwei Wu and Yunde Jia and Mehrtash Harandi},\nbooktitle={Advances in Neural Information Processing Systems},\neditor={Alice H. Oh and Alekh Agarwal and Danielle Belgrave and Kyunghyun Cho},\nyear={2022},\nurl={https://openreview.net/forum?id=yoLGaLPEPo_}\n}"
+    },
+    "forum": "yoLGaLPEPo_",
+    "referent": null,
+    "invitation": "NeurIPS.cc/2022/Conference/-/Blind_Submission",
+    "replyto": null,
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "NeurIPS.cc/2022/Conference"
+    ],
+    "writers": [
+        "NeurIPS.cc/2022/Conference"
+    ],
+    "details": {
+        "revisions": true,
+        "directReplies": [
+            {
+                "id": "AC6wB_38xPf",
+                "original": null,
+                "number": 1,
+                "cdate": 1655934338634,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1655934338634,
+                "tmdate": 1655934338634,
+                "tddate": null,
+                "forum": "yoLGaLPEPo_",
+                "replyto": "yoLGaLPEPo_",
+                "invitation": "NeurIPS.cc/2022/Conference/Paper4032/-/Official_Review",
+                "content": {
+                    "rating": "7: Accept: Technically solid paper, with high impact on at least one sub-area, or moderate-to-high impact on more than one areas, with good-to-excellent evaluation, resources, reproducibility, and no unaddressed ethical considerations.",
+                    "confidence": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.",
+                    "summary": "The paper considers the problem of feature augmentation, a special kind of data augmentation, in some low-data regime tasks such as few-shot learning. \nThe main idea is to consider a wrapped normal distribution for each category and use the reparametrization trick (in the tangent space of the hyperbolic manifold) to obtain a differentiable algorithm for sampling augmented data. A Neural ODE is then used to estimate the parameters of the wrap distribution. Since optimizing the problem for a large number of sampled data can be difficult, the paper proposes in Section 4.4 to upper bound the classification loss and optimize a tractable upper bound in the tangent space, which is Euclidean. \nAs explained in Section 4.5, the training process is done by exploiting the validation data in a bi-level optimization manner.\nExperimental results in the few-shot and continual learning tasks show the relevance of the approach.",
+                    "strengths_and_weaknesses": "Strengths: The paper is clear and well written. I think that the approach is original and significant in the hyperbolic manifold learning community. In particular, it proposes different tricks to make the training algorithm tractable so that samples represented on a hyperbolic manifold are high quality (as shown in Figure 3) and improve classification performance. \n\nWeaknesses: The main \"weakness\" of the approach is that it does not quantitatively outperform baselines by a large margin (many baselines return similar performance on many datasets).\nHowever, I still think that the methodology is interesting and can influence future work in the same direction.",
+                    "questions": "- Have you tried to learn prototypes by using the provided category hierarchy (e.g., on tiered-Imagenet)? It does not seem to be the case.",
+                    "limitations": "N/A",
+                    "ethics_flag": "No",
+                    "ethics_review_area": [],
+                    "soundness": "3 good",
+                    "presentation": "3 good",
+                    "contribution": "4 excellent",
+                    "code_of_conduct": "Yes"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2022/Conference/Paper4032/Reviewer_xaq1"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2022/Conference",
+                    "NeurIPS.cc/2022/Conference/Paper4032/Reviewer_xaq1"
+                ]
+            },
+            {
+                "id": "C-ICPik5ySd",
+                "original": null,
+                "number": 2,
+                "cdate": 1657535177235,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1657535177235,
+                "tmdate": 1657535177235,
+                "tddate": null,
+                "forum": "yoLGaLPEPo_",
+                "replyto": "yoLGaLPEPo_",
+                "invitation": "NeurIPS.cc/2022/Conference/Paper4032/-/Official_Review",
+                "content": {
+                    "rating": "5: Borderline accept: Technically solid paper where reasons to accept outweigh reasons to reject, e.g., limited evaluation. Please use sparingly.",
+                    "confidence": "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.",
+                    "summary": "This paper proposes a hyperbolic feature augmentation method to prevent overfitting when limited data is given. The authors derive an upper bound of the loss function with infinite data augmentation. Therefore, the classifiers and distribution estimators can be trained via a bi-level optimization manner without complex hyperbolic operations. They also provide extensive experimental results on few-shot learning and continual learning to demonstrate the effectiveness of their proposed method.",
+                    "strengths_and_weaknesses": "Strengths\n1.\tThis paper uses Neural ODEs to estimate the distribution of hyperbolic features and then sampling augmented features from the learned distribution.\n2.\tThis paper provides an upper bound of the augmentation loss using an infinite number of augmentations. This upper bound allows the authors to make efficient augmentation without complex computation.\n3.\tThe authors conduct extensive comparison experiments, ablation experiments and visualization experiments. The results demonstrate the effectiveness of their proposed feature augmentation method.\n\n\nWeaknesses and Questions\n1.\tFor the distribution estimation, this paper uses three Gradient flow networks to learn different parameters. According to Section 4.3, the networks learn specific parameters for each class using different inputs (i.e., $\\bar x_j$). That is to say, the network $F_1$ will output ${c_j}_{j=1}^n$ for $n$ classes. However, in Line 142, the authors point that the parameter $c$ is shared between all classes. How to unify this $c$?\n2.\tHow to update $F_2$, and $F_3$ via minimizing Eq. (16)? When the classifiers are fixed, it seems that only the network $F_1$ can be trained.\n3.\tSome experimental details are missing.\n3.1.\tWhat is the ratio of training data $D_t$ to validation data $D_v$ in the training stage.\n3.2.\tWhat is the value of initial $c$.\n4.\tIn Table 2, the metric-based baseline FEAT performs similar accuracy to the proposed method. It\u2019s better to discuss the superiority of the method in terms of time consumption. According to Algorithm 2, the upper bound Eq. (14) simplifies the training of classifiers, but Eq. (16) is still difficult to compute.\nTypo: In Table 2, the description does not match the content, e.g., \"Euclidean Metric\" (or \"Hyperbolic Metric\") and \"Model\".\n",
+                    "questions": "see weakness and questions",
+                    "limitations": "Limitations are not given",
+                    "ethics_flag": "No",
+                    "ethics_review_area": [],
+                    "soundness": "3 good",
+                    "presentation": "3 good",
+                    "contribution": "3 good",
+                    "code_of_conduct": "Yes"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2022/Conference/Paper4032/Reviewer_sUbE"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2022/Conference",
+                    "NeurIPS.cc/2022/Conference/Paper4032/Reviewer_sUbE"
+                ]
+            },
+            {
+                "id": "ooRuOV31f2x",
+                "original": null,
+                "number": 3,
+                "cdate": 1657826921688,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1657826921688,
+                "tmdate": 1657826921688,
+                "tddate": null,
+                "forum": "yoLGaLPEPo_",
+                "replyto": "yoLGaLPEPo_",
+                "invitation": "NeurIPS.cc/2022/Conference/Paper4032/-/Official_Review",
+                "content": {
+                    "rating": "4: Borderline reject: Technically solid paper where reasons to reject, e.g., limited evaluation, outweigh reasons to accept, e.g., good evaluation. Please use sparingly.",
+                    "confidence": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.",
+                    "summary": "This paper introduces hyperbolic feature augmentation. This is done by way of introducing a neural-ODE distribution estimation scheme, whose continuous optimization process can approximate the real data distribution reasonably well in scarce data regimes. An upper bound of the augmentation loss is also derived; the paper makes use of this bound to train the final models without explicit augmentation. Experimental results on several few shot datasets give some evidence for the efficacy of the method.",
+                    "strengths_and_weaknesses": "### Strengths\n\n1. The paper is a novel early feature augmentation method in hyperbolic space. Feature augmentation has not been explored much outside of Euclidean space, and I believe this is an interesting area for work.\n\n2. The Table 1 results seem to give reasonable evidence for the efficacy of the introduced method. That is, under the extreme data scarcity seen in the few shot setting, the method does outperform several reasonable baselines, to a statistically significant extent.\n\n### Weaknesses\n\n1. While the method is an early work in hyperbolic feature augmentation, I am unsure as to why the paper focuses so much on few shot learning. All of the test datasets are few shot, and moreover, there is no particular reasons to assume they have an inherently hierarchical structure. This is rather puzzling. If the method is truly a good hyperbolic feature augmentation method, it should be helpful regardless of the few shot setting. I think the experiments are currently quite flawed and incomplete. At the minimum, the paper needs to demonstrate good performance on a reasonably hyperbolic dataset (e.g. the disease dataset from HGCN [b]), and at best, it should do this for several datasets with hyperbolic structure that are outside of the few shot setting.\n\nCertainly, if the margin is the best for the few shot case, so be it. But I would expect cases with actual hyperbolic structure to work better. Moreover, the few shot descriptor should not be an essential test dataset characteristic of a general feature augmentation method.\n\nUltimately, this additional evaluation will help determine if the improvement is truly due to the geometry captured by the method, or if the improvement is mostly due to some unrelated architectural modification.\n\n2. Regular Euclidean Neural ODEs are used to learn the feature densities, despite the fact that the method is clearly about hyperbolic feature augmentation. This should be augmented by using a Neural Manifold ODE [a] for hyperbolic space.\n\n3. The results in Tables 2 and 4 seem to be relatively marginal. Again this increases my suspicion that the evaluation is not being done on sufficiently hyperbolic datasets to see a real significant difference due to the captured geometry (i.e. due to the fact that the method is hyperbolic and not Euclidean). \n\n### Verdict\n\nOverall this paper has some promise as an early work attempting to do hyperbolic feature augmentation. However, lack of proper evaluation, as described above, make me question the significance of the proposed method. As a result, I recommend a borderline reject rating for this paper.\n\n### References\n\n[a] Neural Manifold ODEs. https://arxiv.org/abs/2006.10254\n\n[b] Hyperbolic GCN. https://arxiv.org/abs/1910.12933",
+                    "questions": "### Detailed Comments, Corrections and Questions\n\nOverall the writing in the paper is understandable, but has some grammatical issues.\n\nIn terms of questions, I can perhaps reiterate one of the key points from the weaknesses section here: why is the feature augmentation method focused so much on datasets that don't have hyperbolic structure, and moreover, so focused on the extreme data scarce case (few shot) as opposed to more traditional settings? Data augmentation should be helpful in general, not just at the extremes. \n\nA non exhaustive list of minor corrections is given below:\n\nL13: \"low data regimes\" -> \"scarce data regimes\". I will only highlight this correction once, but it should be applied many times throughouth the paper.\n\nL58: \"in the hyperbolic space\" -> \"in hyperbolic space\"\n\nL305: \"much computational loads\" -> \"much computational load\"",
+                    "limitations": "The paper does reasonably address limitations in the final paragraph. Namely, the paper states the assumption that the data used with their method has a uniform hierarchical structure, whereas in actuality, real-world data may have be more complex and have complex hierarchical structure with varying local structures.",
+                    "ethics_flag": "No",
+                    "ethics_review_area": [],
+                    "soundness": "3 good",
+                    "presentation": "3 good",
+                    "contribution": "2 fair",
+                    "code_of_conduct": "Yes"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2022/Conference/Paper4032/Reviewer_KDoT"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2022/Conference",
+                    "NeurIPS.cc/2022/Conference/Paper4032/Reviewer_KDoT"
+                ]
+            },
+            {
+                "id": "V5wUN21Wr_",
+                "original": null,
+                "number": 4,
+                "cdate": 1658797522112,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1658797522112,
+                "tmdate": 1658797522112,
+                "tddate": null,
+                "forum": "yoLGaLPEPo_",
+                "replyto": "yoLGaLPEPo_",
+                "invitation": "NeurIPS.cc/2022/Conference/Paper4032/-/Official_Review",
+                "content": {
+                    "rating": "8: Strong Accept: Technically strong paper, with novel ideas, excellent impact on at least one area, or high-to-excellent impact on multiple areas, with excellent evaluation, resources, and reproducibility, and no unaddressed ethical considerations.",
+                    "confidence": "5: You are absolutely certain about your assessment. You are very familiar with the related work and checked the math/other details carefully.",
+                    "summary": "This paper proposes a hyperbolic feature augmentation method to avoid the overfitting problem of hyperbolic learning in few data setting, the authors extend the method by using an infinite number of augmentations through an interesting upper bound analysis, promising results on few-shot learning and continual learning are given. ",
+                    "strengths_and_weaknesses": "Strengths:\nThe motivation of the method is clear and the paper is well-organized/presented, the method is novel/straightforward to understand, the proposal to do learning with infinite data augmentation provides a rigorous and sound way to train the classifier. Experiments on few-shot learning provides promising results in this area. \n\n\nWeaknesses: \nw1. The main weakness is related to the gradient flow network, there are multiple things to model, a practical question is whether these gradient flow networks learn correctly and generalize, especially in a few data setting, it would make the paper stronger if the authors can provide any empirical evaluation of these networks to further verify.\n\nw2: The optimization of the gradient flow networks are a little bit complicated, including both the inner- and outer-loop optimization process + many hyper-parameters, the authors should provide a detailed analysis in this aspect for real usage of this method in practice. \n\nOverall, this paper is novel to me and I'm glad to see hyperbolic models in this setting, the method is clear and straightforward, though a detailed guidance of the method should be made available. \n",
+                    "questions": "Q1: I think a projection of the sampled noise hat v into the tangent space at the origin is needed? \nQ2: can the code, also the reverse mapping algorithm for the visualization made public? \nQ3: can the method be made in an end-to-end manner for some example tasks? ",
+                    "limitations": "discussed above. ",
+                    "ethics_flag": "No",
+                    "ethics_review_area": [],
+                    "soundness": "4 excellent",
+                    "presentation": "3 good",
+                    "contribution": "4 excellent",
+                    "code_of_conduct": "Yes"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2022/Conference/Paper4032/Reviewer_FKNX"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2022/Conference",
+                    "NeurIPS.cc/2022/Conference/Paper4032/Reviewer_FKNX"
+                ]
+            },
+            {
+                "id": "KBaEhJjM7y",
+                "original": null,
+                "number": 1,
+                "cdate": 1661849286181,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1661849286181,
+                "tmdate": 1661849286181,
+                "tddate": null,
+                "forum": "yoLGaLPEPo_",
+                "replyto": "yoLGaLPEPo_",
+                "invitation": "NeurIPS.cc/2022/Conference/Paper4032/-/Meta_Review",
+                "content": {
+                    "metareview": "This paper attempts to improve learning in hyperbolic space under limited data (few shot setting). In this regards, the authors propose a hyperbolic feature augmentation method to circumvent overfitting. Furthermore, as optimizing using a large number of sampled data can be expensive, the paper proposes an upper bound the classification loss and optimize this tractable upper bound in the tangent space, which is Euclidean making the approach much more practical. There was a wide variance among reviewer scores. We thank the authors and reviewers for actively engaging in discussion and taking steps towards improving the paper including for providing additional experiments. Finally it would be appropriate to tone down the claim that this is the first paper to perform feature augmentation in hyperbolic space as it might be unsubstantiated, cf Weber et al \"Robust large-margin learning in hyperbolic space\" NeurIPS 2020 which also augments by solving a certification problem.",
+                    "recommendation": "Accept",
+                    "confidence": "Less certain",
+                    "award": "No"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2022/Conference/Paper4032/Area_Chair_PtMC"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2022/Conference/Program_Chairs",
+                    "NeurIPS.cc/2022/Conference/Paper4032/Area_Chairs"
+                ],
+                "pdate": null
+            },
+            {
+                "id": "4TY5ooIHtF",
+                "original": null,
+                "number": 1,
+                "cdate": 1663188542750,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1663188542750,
+                "tmdate": 1663188542750,
+                "tddate": null,
+                "forum": "yoLGaLPEPo_",
+                "replyto": "yoLGaLPEPo_",
+                "invitation": "NeurIPS.cc/2022/Conference/Paper4032/-/Decision",
+                "content": {
+                    "title": "Paper Decision",
+                    "decision": "Accept",
+                    "comment": ""
+                },
+                "signatures": [
+                    "NeurIPS.cc/2022/Conference/Program_Chairs"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2022/Conference/Program_Chairs"
+                ]
+            }
+        ],
+        "invitation": {
+            "reply": {
+                "writers": {
+                    "values": [
+                        "NeurIPS.cc/2022/Conference"
+                    ]
+                },
+                "signatures": {
+                    "values": [
+                        "NeurIPS.cc/2022/Conference"
+                    ]
+                },
+                "content": {
+                    "title": {
+                        "value-regex": ".*",
+                        "order": 1
+                    },
+                    "authors": {
+                        "values": [
+                            "Anonymous"
+                        ],
+                        "order": 2
+                    },
+                    "authorids": {
+                        "values-regex": ".*",
+                        "order": 3
+                    },
+                    "keywords": {
+                        "value-regex": ".*",
+                        "order": 6
+                    },
+                    "TL;DR": {
+                        "value-regex": ".*",
+                        "order": 7
+                    },
+                    "abstract": {
+                        "value-regex": ".*",
+                        "order": 8
+                    },
+                    "pdf": {
+                        "value-regex": ".*",
+                        "order": 9
+                    },
+                    "supplementary_material": {
+                        "value-regex": ".*",
+                        "order": 10
+                    },
+                    "community_implementations": {
+                        "required": false,
+                        "description": "Optional link to open source implementations",
+                        "value-regex": ".*",
+                        "markdown": true,
+                        "order": 103
+                    }
+                }
+            },
+            "replyForumViews": [],
+            "expdate": 1682960163772,
+            "signatures": [
+                "NeurIPS.cc/2022/Conference"
+            ],
+            "readers": [
+                "everyone"
+            ],
+            "writers": [
+                "NeurIPS.cc/2022/Conference"
+            ],
+            "invitees": [
+                "NeurIPS.cc/2022/Conference"
+            ],
+            "tcdate": 1652737260774,
+            "tmdate": 1682960163821,
+            "id": "NeurIPS.cc/2022/Conference/-/Blind_Submission",
+            "type": "note"
+        }
+    }
+}

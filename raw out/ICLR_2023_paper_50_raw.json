@@ -1,0 +1,388 @@
+{
+    "id": "z9C5dGip90",
+    "original": "7E2P2Z2rz-7",
+    "cdate": 1663850441604,
+    "pdate": 1675279392187,
+    "odate": 1664468100000,
+    "mdate": null,
+    "tcdate": 1663850441604,
+    "tmdate": 1760256615715,
+    "ddate": null,
+    "number": 5403,
+    "content": {
+        "title": "Phase2vec: dynamical systems embedding with a physics-informed convolutional network",
+        "authorids": [
+            "~Matt_Ricci1",
+            "~Noa_Moriel1",
+            "~Zoe_Piran1",
+            "~Mor_Nitzan1"
+        ],
+        "authors": [
+            "Matt Ricci",
+            "Noa Moriel",
+            "Zoe Piran",
+            "Mor Nitzan"
+        ],
+        "keywords": [
+            "dynamical systems",
+            "convolutional networks",
+            "computational physics",
+            "physics-informed"
+        ],
+        "TL;DR": "Unsupervised framework for learning high-quality, physically-meaningful embeddings of dynamical systems. ",
+        "abstract": "Dynamical systems are found in innumerable forms across the physical and biological sciences, yet all these systems fall naturally into equivalence classes: conservative or dissipative, stable or unstable, compressible or incompressible. Predicting these classes from data remains an essential open challenge in computational physics on which existing time-series classification methods struggle. Here, we propose, phase2vec, an embedding method that learns high-quality, physically-meaningful representations of low-dimensional dynamical systems without supervision. Our embeddings are produced by a convolutional backbone that extracts geometric features from flow data and minimizes a physically-informed vector field reconstruction loss. The trained architecture can not only predict the equations of unseen data, but also produces embeddings that encode meaningful physical properties of input data (e.g. stability of fixed points, conservation of energy, and the incompressibility of flows) more faithfully than standard blackbox classifiers and state-of-the-art time series classification techniques. We additionally apply our embeddings to the analysis of meteorological data, showing we can detect climatically meaningful features. Collectively, our results demonstrate the viability of embedding approaches for the discovery of dynamical features in physical systems.",
+        "anonymous_url": "I certify that there is no URL (e.g., github page) that could be used to find authors\u2019 identity.",
+        "no_acknowledgement_section": "I certify that there is no acknowledgement section in this submission for double blind review.",
+        "code_of_ethics": "I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics",
+        "submission_guidelines": "Yes",
+        "resubmission": "",
+        "student_author": "",
+        "Please_choose_the_closest_area_that_your_submission_falls_into": "Machine Learning for Sciences (eg biology, physics, health sciences, social sciences, climate/sustainability )",
+        "paperhash": "ricci|phase2vec_dynamical_systems_embedding_with_a_physicsinformed_convolutional_network",
+        "pdf": "/pdf/be58512bd70dfcd1702f2a09b66d60dfce307f20.pdf",
+        "_bibtex": "@inproceedings{\nricci2023phasevec,\ntitle={Phase2vec: dynamical systems embedding with a physics-informed convolutional network},\nauthor={Matt Ricci and Noa Moriel and Zoe Piran and Mor Nitzan},\nbooktitle={The Eleventh International Conference on Learning Representations },\nyear={2023},\nurl={https://openreview.net/forum?id=z9C5dGip90}\n}",
+        "venue": "ICLR 2023 notable top 25%",
+        "venueid": "ICLR.cc/2023/Conference",
+        "community_implementations": "[![CatalyzeX](/images/catalyzex_icon.svg) 1 code implementation](https://www.catalyzex.com/paper/phase2vec-dynamical-systems-embedding-with-a/code)"
+    },
+    "forum": "z9C5dGip90",
+    "referent": null,
+    "invitation": "ICLR.cc/2023/Conference/-/Blind_Submission",
+    "replyto": null,
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "ICLR.cc/2023/Conference"
+    ],
+    "writers": [
+        "ICLR.cc/2023/Conference"
+    ],
+    "details": {
+        "revisions": true,
+        "directReplies": [
+            {
+                "id": "hPBfH_3VL9",
+                "original": null,
+                "number": 1,
+                "cdate": 1666603490927,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1666603490927,
+                "tmdate": 1666603490927,
+                "tddate": null,
+                "forum": "z9C5dGip90",
+                "replyto": "z9C5dGip90",
+                "invitation": "ICLR.cc/2023/Conference/Paper5403/-/Official_Review",
+                "content": {
+                    "confidence": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.",
+                    "summary_of_the_paper": "This paper introduces a method similar to word2vec but applied to dynamic systems. The approach considers the phase space as an image, from which we can extract a latent representation summarizing the characteristics of the dynamics.",
+                    "strength_and_weaknesses": "The paper introduces an interesting method for the study of dynamical systems. One of the key points of the approach is the ability to generalize to different dynamical systems without requiring re-training, which is not the case for existing methods. The network architecture seems reasonable, as does the design of the criterion.\n\nHowever, I believe the following points are debatable:\n\n- Embeddings are learned using a phase field reconstruction task, through a sparse regression to the coefficients of the dynamic equation. This has several limitations in my opinion:\n    - This requires the supervision of a relatively complete dynamics map, which is not easy to access in many situations. However, the authors show that their method is sufficiently robust to withstand failures and errors in the phase field.\n    - Predictions are limited to the structure of the function dictionary used $\\Phi_\\alpha$. Since this contains only polynomial structures, a large number of dynamical systems become out of reach. Can the authors discuss this limitation in a more general framework?\n\n- The use of convolution greatly limits the number of systems that can be studied, since the dynamics must be of dimension 2. Convolution can possibly be extended to higher dimensions, but this becomes non-trivial. This is for me one of the most negative points of the approach.\n\n- The experiments are for me rather unconvincing, in particular the reconstruction of the dynamics. Of the 10 systems studied, LASSO greatly outperforms Phase2Vec on 4 systems. When Phase2vec dominates, the gap with LASSO is smaller. However, I acknowledge that Phase2Vec do not requires training to infer on unseen dynamics, while it is not the case for LASSO. The denoising and masking experiments are very interesting, but quite unrealistic for me. Would it be more relevant to generate the phase field from a set of trajectories whose initial conditions will be chosen at random? This will make the phase field more representative of what can be obtained in practice.\n\n- I would also be curious to see how the network behaves beyond the training set, i.e. outside the spatial limits of the phase plane used to estimate the embedding.\n\nMINOR\n- I found experiments on real world data a bit hard to read.\n- 3.1: \"at a discrete LOCATION\"",
+                    "clarity,_quality,_novelty_and_reproducibility": "The paper is well written (with a minor exception for the last section), seems interesting and novel yet not very efficient, and limited to rather simple dynamical systems. However, reproducibility is not straightforward. Extensive description of the model should be added in the appendix. Code release would have been appreciated too.",
+                    "summary_of_the_review": "This paper introduces an interesting idea, but too limited on the number of possible applications. It is, however, an important line of research, which deserves to be taken into account.",
+                    "correctness": "4: All of the claims and statements are well-supported and correct.",
+                    "technical_novelty_and_significance": "3: The contributions are significant and somewhat new. Aspects of the contributions exist in prior work.",
+                    "empirical_novelty_and_significance": "3: The contributions are significant and somewhat new. Aspects of the contributions exist in prior work.",
+                    "flag_for_ethics_review": [
+                        "NO."
+                    ],
+                    "recommendation": "5: marginally below the acceptance threshold"
+                },
+                "signatures": [
+                    "ICLR.cc/2023/Conference/Paper5403/Reviewer_STRm"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "ICLR.cc/2023/Conference",
+                    "ICLR.cc/2023/Conference/Paper5403/Reviewer_STRm"
+                ]
+            },
+            {
+                "id": "E7CoN9vtWI",
+                "original": null,
+                "number": 2,
+                "cdate": 1666618345876,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1666618345876,
+                "tmdate": 1666618345876,
+                "tddate": null,
+                "forum": "z9C5dGip90",
+                "replyto": "z9C5dGip90",
+                "invitation": "ICLR.cc/2023/Conference/Paper5403/-/Official_Review",
+                "content": {
+                    "confidence": "4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.",
+                    "summary_of_the_paper": "The manuscript discuss how to encode 2D phase space images to shorter vectors. The embedding can be decoded to reveal the governing equations, recover simple, sparse models or de-noise the input preserving the dynamical relations. As the phase portrait is so fundamental in describing the dynamics, it is not a surprise the physical features like energy conversation, etc can be decoded out, as there are very visible in the phase space image.\n\nThe proposed pipeline feeds the phase portrait, through a bottleneck, to polynomials that can be used to reconstruct the phase plot through solving the decoded equation. A consistency error is set between the original and newly generated phase plots and the sparsity loss is set to keep the equations as simple as possible.\n\nThe training data is an ensemble of polynomial ODEs in such a way that the form of equation where the model was tested were removed from the training data - to check the generalisation capability. The results were compared to a traditional per-equation fitting method.\n\nThe authors demonstrate the encodings with an analysis of atmosphere.",
+                    "strength_and_weaknesses": "Phase space is a traditional way to understand what is happening in dynamical systems. This is a combined in a nice way to a traditional deep learning image classification pipeline, using the strengths of both the physical domain and the machine learning domain.  The idea of using equation terms as \"words\" in the encoding is excellent, as the decoding through solving the resulting sparse differential equation has a real chance of being the optimally sparse representation of the system.\n\nHere lies also the weakness of the system - as small changes to a differential equation terms, can lead to big changes in the phase space, so the encoder may not be very stable. Restraining to polynomial functions of low degree may help on that, but at the same time they system becomes less able to encode such complicated behaviour. Would there be some Lipschitz condition based reasoning that would provide smoothness of the phase space transformation with respect to the changes of polynomial weightings or is the de-noising training with digital ensembles able to find stable encodings and move away for highly sensitive combinations? Or are the described normalization procedures able o solve this?",
+                    "clarity,_quality,_novelty_and_reproducibility": "The paper is very well written, to my knowledge original, clear and concise. Appendices give enough information for reproducibilty.",
+                    "summary_of_the_review": "The paper is valuable contribution to explainability research, where experimental data can be encoded in a physically meaningful manner that supports common intuition.  The network architecture is a variation of an auto-encoder, where part of the generator is replaced with a world model. I would really be interested seeing this connected to a control problem, where the intuition gained in the encoding is used to control the physical processes....  So, this is not only about seen that, done that, but also opens new ways for machine learning based, explainable, control systems, besides the more straightforward venue to dimensions greater than two.",
+                    "correctness": "3: Some of the paper\u2019s claims have minor issues. A few statements are not well-supported, or require small changes to be made correct.",
+                    "technical_novelty_and_significance": "4: The contributions are significant, and do not exist in prior works.",
+                    "empirical_novelty_and_significance": "3: The contributions are significant and somewhat new. Aspects of the contributions exist in prior work.",
+                    "flag_for_ethics_review": [
+                        "NO."
+                    ],
+                    "recommendation": "8: accept, good paper"
+                },
+                "signatures": [
+                    "ICLR.cc/2023/Conference/Paper5403/Reviewer_sZrD"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "ICLR.cc/2023/Conference",
+                    "ICLR.cc/2023/Conference/Paper5403/Reviewer_sZrD"
+                ]
+            },
+            {
+                "id": "_n4KQD_Q9R",
+                "original": null,
+                "number": 3,
+                "cdate": 1667428336301,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1667428336301,
+                "tmdate": 1670452298184,
+                "tddate": null,
+                "forum": "z9C5dGip90",
+                "replyto": "z9C5dGip90",
+                "invitation": "ICLR.cc/2023/Conference/Paper5403/-/Official_Review",
+                "content": {
+                    "confidence": "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.",
+                    "summary_of_the_paper": "This paper proposes phase2vec - a self-supervised framework for learning representations of dynamical systems in 2D. The main technical contribution is to use a 2D convolutional network for embedding dynamical system velocities, and formulating a reconstruction loss based on the data creation process to train the network weights. Experiments demonstrate that phase2vec can generalise to previously unseen dynamics equations, noisy systems, and real-world climate data, as well as serve as a downstream classifier for physical properties of dynamical systems.",
+                    "strength_and_weaknesses": "### Strengths\n+ The paper is generally well written and well motivated. The Introduction is readable by non-experts and contextualises the contributions well.\n+ The proposed technique is straightforward and easy to understand. The main technical contribution - combining a 2D ConvNet and self-supervised loss applied to dynamical systems - is novel to the best of my knowledge. Phase2vec is an autoencoder for dynamical systems - which by itself isn't new - but the formulation of using a 2D ConvNet and self supervision signal is. (I would like to see the authors address the question of novelty during the rebuttal, see my questions below.)\n+ The experimental evaluation seems thorough - phase2vec is probed for its ability to generalise outside its training distribution as well as on real world data. (But I would be keen to read other reviewers' opinion on the novelty of the technical contributions as well as the experimental rigour.)\n\n### Weaknesses\n- As the entire methodology and experiments are only geared towards dynamical systems in 2D Euclidean space, I would have liked to see this mentioned in the Abstract/Introduction. The only place where this is mentioned is in the Conclusion. (I realise this can be opinionated.)\n- I found the Methodology and Related Work sections to have minor clarity issues which could be addressed by re-writing. I would like the authors to better contextualise the novelty of the proposed approach.\n\n### Questions and Feedback\n1. I appreciate the Related Work headers. While the section does a good job at surveying the literature, I was unsure how this paper, its methodology, and its experiments fit into each of those headers. Could the authors contextualise how their work is situated compared to what has been done. This may help to explicitly identify the main novelty of the paper w.r.t. existing literature. As a concrete example, there is a paragraph on vector-field-based approaches - but does phase2vec use them - if yes, how? \n2. Along this line of contextualising the novelty w.r.t. related work, could the authors clarify whether the proposed self supervised reconstruction loss is original? Are there similar works which encode observations to a latent dimension and run dynamics there?\n3. Section 3.1. describes the 2 x n x n input array. How is the size n chosen? Does n need to be fixed? Assuming not, could the authors comment on how sensitive phase2vec is to changes in the input size?\n5. Currently, the 2D ConvNet operates on a 2D grid array where each pixel/entry is a 2D velocity vector. Has phase2vec made any assumptions about the symmetries that may act on this vector space? E.g. is it realistic to assume that the velocity vectors should be rotationally equivariant (i.e. if the system is rotated, they would rotate along with it)? How would additional symmetry constraints impact the design of phase2vec and the underlying ConvNet + self-supervised loss function used?\n\n### Minor Comments\n- Along these lines, in Figure 1, it may be useful to list the dimensionality of the intermediate tensors. Just to double check my understanding: the input is 2 x n x n, it goes through a series of convolutions, the final prediction is 2 x 10? \n- I found the paragraph under equation 2 to be unclear. I assume it describes the basis functions? What is the multi-index? Why cubic degree? Would the resulting basis be: $1, x_1, x_2, x_1^2, x_2^2, x_1 x_2, x_1^2 x_2, x_1 x_2^2, x_1^3, x_2^3$?",
+                    "clarity,_quality,_novelty_and_reproducibility": "**Clarity and quality:** the paper is generally well written and well motivated. The presentation is of high quality. \n\n**Novelty:** the main technical contribution of phase2vec - combining a 2D ConvNet and self-supervised loss applied to dynamical systems - is novel to the best of my knowledge. \n\n**Reproducibility:** No code is provided, which can limit follow-up work. However, datasets and experiments are described in some detail in the appendix.\n\nAs previously stated, I will be monitoring other reviewers' opinion on the novelty of the technical contributions as well as the experimental rigour.",
+                    "summary_of_the_review": "I currently recommend acceptance. Overall, the paper is well written, the proposed phase2vec method is straightforward, and the experimental evaluation demonstrates its usefulness across several scenarios. I would like the authors to better contextualise the novelty of the proposed approach in the rebuttal.\n\n---\n\n**Post-rebuttal:** Thank you to the authors for their rebuttal and revised manuscript. Based on the rebuttal as well as the other reviewers' summary, I would currently like to keep my original score/assessment.\n\n**Post-discussion:** Apologies for the late action. Based on revisiting the discussion and the authors releasing open source code (I have not tried running it, but it looks modular, well thought out, and extensible), I have upgraded my score. I think the revised manuscript is an improvement over the original and addresses reviewers' concerns. I would like to re-iterate my moderate confidence.",
+                    "correctness": "3: Some of the paper\u2019s claims have minor issues. A few statements are not well-supported, or require small changes to be made correct.",
+                    "technical_novelty_and_significance": "3: The contributions are significant and somewhat new. Aspects of the contributions exist in prior work.",
+                    "empirical_novelty_and_significance": "3: The contributions are significant and somewhat new. Aspects of the contributions exist in prior work.",
+                    "flag_for_ethics_review": [
+                        "NO."
+                    ],
+                    "recommendation": "8: accept, good paper"
+                },
+                "signatures": [
+                    "ICLR.cc/2023/Conference/Paper5403/Reviewer_HbBX"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "ICLR.cc/2023/Conference",
+                    "ICLR.cc/2023/Conference/Paper5403/Reviewer_HbBX"
+                ]
+            },
+            {
+                "id": "MJsjfVA0Ny",
+                "original": null,
+                "number": 4,
+                "cdate": 1667539852067,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1667539852067,
+                "tmdate": 1670717807334,
+                "tddate": null,
+                "forum": "z9C5dGip90",
+                "replyto": "z9C5dGip90",
+                "invitation": "ICLR.cc/2023/Conference/Paper5403/-/Official_Review",
+                "content": {
+                    "confidence": "3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.",
+                    "summary_of_the_paper": "This paper introduces a methodology for predicting the equations of polynomial ODEs and obtaining embeddings of dynamical systems which can be applied to denoising data and classifying time series based on their physical properties. The authors propose a novel architecture based on CNNs to encode geometric features of vector fields, which is trained to minimize reconstruction losses. A FC layer predicts polynomial ODE coefficients, which are used for predicting equations that haven't been seen previously. They present results in synthetic datasets generated from polynomial ODEs, and utilize meteorological data to showcase their embedding space is meaningful. ",
+                    "strength_and_weaknesses": "Strengths:\n- S1. Interesting and important problem. \n- S2. Recapitulation of relevant related work is very good.\n- S3. The methodology is sound and non-trivial contribution.\n\nWeaknesses:\n- W1. The evaluation does not appear to be systematic. In neither the paper nor the appendix, the authors specify which dataset/ODE they are using for the examples of dynamically-informed denoising. It is possible that this is anecdotal evidence and not a legitimate claim for the paper. Additionally, I wonder why authors did not compare their method with other denoising methods and compute error metrics.\n- W2. I found their method's design choices difficult to understand. There were some of them that I had to read several times from the appendix to the main paper. Other times, the information was simply not available. For example, why should we use the cubic expansion? Did you find this out experimentally?\n- W3. The physics-informed term commonly refers to the physics-informed neural networks (PINNs), but authors use it with a significantly different meaning. It might be a good idea to think of another term or at least another title.\n- W4. Readability would be benefited from putting clear examples, especially when addressing the mathematics in Section 3.\n\nQuestions:\n\n- Q1. Can you please response to questions in W1?\n- Q2. Please see questions stated in W2.\n- Q3. Can you elaborate on why LASSO should be the only baseline for results in generalization to held-out systems? It is hard to judge if these are good results when compared to one simple baseline, and it\u2019s not clear which were the reasons to exclude them from the evaluation to the several methods listed in the related work.\n- Q4. From which literature did you obtain the physical properties of the underlying data (stability of fixed points, conservation of energy, and the incompressibility of flows)? Is this an exhaustive list?\n",
+                    "clarity,_quality,_novelty_and_reproducibility": "Although I am not familiar with literature on the specific challenge addressed by authors, I do believe they did a good job with their related work section and showing the novelties of their approach. This paper proposes a good method, but it is hard to follow on its most technical parts, and its evaluation does not seem convincing (for the reasons outlined above).",
+                    "summary_of_the_review": "The main concern I have with this paper is the lack of systematic evaluation in some sections. Although I have some concerns about the presentation, I hope authors add more details and make it more digestible. In my opinion, this paper is marginally over the threshold for acceptance. I would be willing to increase my score with the authors responding to my concerns on evaluation.\n\n----\n**After authors response:** I changed my decision to ACCEPT. See thread for details.",
+                    "correctness": "3: Some of the paper\u2019s claims have minor issues. A few statements are not well-supported, or require small changes to be made correct.",
+                    "technical_novelty_and_significance": "2: The contributions are only marginally significant or novel.",
+                    "empirical_novelty_and_significance": "3: The contributions are significant and somewhat new. Aspects of the contributions exist in prior work.",
+                    "flag_for_ethics_review": [
+                        "NO."
+                    ],
+                    "recommendation": "8: accept, good paper"
+                },
+                "signatures": [
+                    "ICLR.cc/2023/Conference/Paper5403/Reviewer_PePd"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "ICLR.cc/2023/Conference",
+                    "ICLR.cc/2023/Conference/Paper5403/Reviewer_PePd"
+                ]
+            },
+            {
+                "id": "vPaOl2zRXFy",
+                "original": null,
+                "number": 5,
+                "cdate": 1668803240557,
+                "mdate": 1668803240557,
+                "ddate": null,
+                "tcdate": 1668803240557,
+                "tmdate": 1668803240557,
+                "tddate": null,
+                "forum": "z9C5dGip90",
+                "replyto": "z9C5dGip90",
+                "invitation": "ICLR.cc/2023/Conference/Paper5403/-/Official_Comment",
+                "content": {
+                    "title": "OVERALL REMARKS",
+                    "comment": "We would like to thank all of the reviewers for their comments, and we believe the changes we have consequently made to the manuscript improve it significantly. Following the reviewers' remarks we have made extensive changes to the text to improve the clarity, readability, and consistency of the notation. The Related Work section has been extensively updated to compare and contrast existing techniques with our method. Further, new details about the architecture and training procedure were added to the Methodology and Appendix section A.1, as well as figures which help depict the effect of fixed-point normalization and the resolution of input data. We are very intrigued, nevertheless, about extensions of our work in this direction in future work.\n\nHere, we would like to emphasize that in the current setting, we consider the classification of physical properties as the principal task, so as we have made an attempt to clarify in the text, comparison to other baselines on the auxiliary task is not our main focus. With that, following the reviewers' remarks, we have improved phase2vec performance (by training with a lower learning rate compared to a LASSO baseline on both clean and noisy equation generalization tasks. \n\nAt last, upon publication, we will release a python package and github repository for reproducibility.  \n"
+                },
+                "signatures": [
+                    "ICLR.cc/2023/Conference/Paper5403/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "ICLR.cc/2023/Conference",
+                    "ICLR.cc/2023/Conference/Paper5403/Authors"
+                ]
+            },
+            {
+                "id": "QRgPUFufwhk",
+                "original": null,
+                "number": 1,
+                "cdate": 1674241752549,
+                "pdate": null,
+                "mdate": null,
+                "ddate": null,
+                "tcdate": 1674241752549,
+                "tmdate": 1674241752549,
+                "tddate": null,
+                "forum": "z9C5dGip90",
+                "replyto": "z9C5dGip90",
+                "invitation": "ICLR.cc/2023/Conference/Paper5403/-/Decision",
+                "content": {
+                    "title": "Paper Decision",
+                    "decision": "Accept: notable-top-25%",
+                    "metareview:_summary,_strengths_and_weaknesses": "The paper introduces a new method for embedding dynamical systems and predicting ODE equations, which can be applied to denoising and classification. Reviewers agree that this is an interesting and important problem, and that the method is sound and well-motivated. Most reviewers agreed that the experiments are thorough and show promising results. The primary concern, raised by multiple reviewers, is that the method is only applied to 2D systems, and can only ever work for rather low-dimensional systems in its current form. In my view the authors have done a decent job motivating the importance of 2D systems, and have provided a 3D implementation as well. As such I recommend the paper be accepted to ICLR.",
+                    "justification_for_why_not_higher_score": "Method is only applicable to 2D systems",
+                    "justification_for_why_not_lower_score": "I found this to be an interesting and innovative paper. Reviewers mostly agree it is of high quality (8,8,8,5), with the concerns raised by (5) seemingly minor",
+                    "note_from_PC": "if the above contains the word \"oral\" or \"spotlight\" please see: \"oral\" presentation means -> notable-top-5% and \"spotlight\" means -> notable-top-25%. As stated in our emails, we are disassociating presentation type from AC recommendations"
+                },
+                "signatures": [
+                    "ICLR.cc/2023/Conference/Program_Chairs"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "ICLR.cc/2023/Conference/Program_Chairs"
+                ]
+            }
+        ],
+        "invitation": {
+            "reply": {
+                "writers": {
+                    "values": [
+                        "ICLR.cc/2023/Conference"
+                    ]
+                },
+                "signatures": {
+                    "values": [
+                        "ICLR.cc/2023/Conference"
+                    ]
+                },
+                "content": {
+                    "title": {
+                        "value-regex": ".*",
+                        "order": 1
+                    },
+                    "authors": {
+                        "values": [
+                            "Anonymous"
+                        ],
+                        "order": 2
+                    },
+                    "authorids": {
+                        "values-regex": ".*",
+                        "order": 3
+                    },
+                    "keywords": {
+                        "value-regex": ".*",
+                        "order": 6
+                    },
+                    "TL;DR": {
+                        "value-regex": ".*",
+                        "order": 7
+                    },
+                    "abstract": {
+                        "value-regex": ".*",
+                        "order": 8
+                    },
+                    "pdf": {
+                        "value-regex": ".*",
+                        "order": 9
+                    },
+                    "anonymous_url": {
+                        "value-regex": ".*",
+                        "order": 10
+                    },
+                    "no_acknowledgement_section": {
+                        "value-regex": ".*",
+                        "order": 11
+                    },
+                    "supplementary_material": {
+                        "value-regex": ".*",
+                        "order": 12
+                    },
+                    "code_of_ethics": {
+                        "value-regex": ".*",
+                        "order": 13
+                    },
+                    "submission_guidelines": {
+                        "value-regex": ".*",
+                        "order": 14
+                    },
+                    "resubmission": {
+                        "value-regex": ".*",
+                        "order": 15
+                    },
+                    "student_author": {
+                        "value-regex": ".*",
+                        "order": 16
+                    },
+                    "Please_choose_the_closest_area_that_your_submission_falls_into": {
+                        "value-regex": ".*",
+                        "order": 17
+                    },
+                    "community_implementations": {
+                        "required": false,
+                        "description": "Optional link to open source implementations",
+                        "value-regex": ".*",
+                        "markdown": true,
+                        "order": 103
+                    }
+                }
+            },
+            "replyForumViews": [],
+            "expdate": 1682960123388,
+            "signatures": [
+                "ICLR.cc/2023/Conference"
+            ],
+            "readers": [
+                "everyone"
+            ],
+            "writers": [
+                "ICLR.cc/2023/Conference"
+            ],
+            "invitees": [
+                "ICLR.cc/2023/Conference"
+            ],
+            "tcdate": 1663849799994,
+            "tmdate": 1682960123442,
+            "id": "ICLR.cc/2023/Conference/-/Blind_Submission",
+            "type": "note"
+        }
+    }
+}

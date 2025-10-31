@@ -1,0 +1,179 @@
+{
+    "id": "HJlCUp5M6H",
+    "original": "Hke2rz-MTr",
+    "cdate": 1575296341732,
+    "pdate": null,
+    "odate": 1575656466206,
+    "mdate": null,
+    "tcdate": 1575296341732,
+    "tmdate": 1683306647025,
+    "ddate": null,
+    "number": 25,
+    "content": {
+        "title": "[Re] Goal-conditioned Imitation Learning",
+        "authors": [
+            "Austin Sumigray",
+            "Soma A. Hota",
+            "Rashi Dhar"
+        ],
+        "authorids": [
+            "austin_sumigray@brown.edu",
+            "soma_arunkanti_hota@brown.edu",
+            "rashi_dhar@brown.edu"
+        ],
+        "abstract": "Often the desired behaviour of an agent can be represented by means of a rewardfunction in a specific state action space.  However, creating a reward functionby hand that is effective with multiple goals is often extremely time-consuming.Techniques like Hindsight Experience Replay (HER) have demonstrated how anagent is able to learn policies able to reach many goals, without the need of a reward,while Generative Adversarial Imitation Learning (GAIL) is able to learn morequickly, but is limited by the capability of the demonstrator. goalGAIL combinesthe two in order to perform sample-efficiently, but still allow for surpassing ademonstration.",
+        "track": "Replicability",
+        "NeurIPS_paper_id": "https://openreview.net/forum?id=BJgjpSSeIS",
+        "pdf": "/pdf/6abf9d1d8081c9a741d100d5ad6b8fb0fd264b9a.pdf",
+        "paperhash": "sumigray|[re]_goalconditioned_imitation_learning",
+        "_bibtex": "@misc{\nsumigray2020re,\ntitle={[Re] Goal-conditioned Imitation Learning},\nauthor={Austin Sumigray and Soma A. Hota and Rashi Dhar},\nyear={2020},\nnote={Submitted to NeurIPS 2019 Reproducibility Challenge},\nurl={https://openreview.net/forum?id=HJlCUp5M6H}\n}"
+    },
+    "forum": "HJlCUp5M6H",
+    "referent": null,
+    "invitation": "NeurIPS.cc/2019/Reproducibility_Challenge/-/Blind_Report",
+    "replyto": null,
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "NeurIPS.cc/2019/Reproducibility_Challenge"
+    ],
+    "writers": [
+        "NeurIPS.cc/2019/Reproducibility_Challenge"
+    ],
+    "details": {
+        "revisions": true,
+        "directReplies": [
+            {
+                "id": "nLL8wxuKH6",
+                "original": null,
+                "number": 1,
+                "cdate": 1578419780007,
+                "ddate": null,
+                "tcdate": 1578419780007,
+                "tmdate": 1581962408056,
+                "tddate": null,
+                "forum": "HJlCUp5M6H",
+                "replyto": "HJlCUp5M6H",
+                "invitation": "NeurIPS.cc/2019/Reproducibility_Challenge/Paper25/-/Official_Review",
+                "content": {
+                    "title": "Review Guidelines Checklist and Comments",
+                    "review": "== Problem statement ==\nI think the paper does a good job at clearly stating the main problem tackled by the paper: to combine the fast convergence of GAIL and the sample efficiency of HER to obtain an agent that can quickly learn a goal-conditioned policy that is able to reach any goal and that can outperform the expert.\n\n== Code ==\nI couldn\u2019t find the code in OpenReview. I also tried looking for the authors\u2019 repositories, but I couldn\u2019t find it. This is disconcerting since the sole purpose of this track is to reproduce the original results from scratch, which is not possible to validate if no code is included. \n\n== Communication with original authors ==\nIt is not clear if there was open communication with the authors. I couldn\u2019t find any discussion in OpenReview either. \n\n== Hyperparameter Search ==\nThis is not applicable since the report was submitted to the replication track (Track 3). The experiments in the report used the same hyperparameters as in the original paper.\n\n== Ablation Study ==\nThis is not applicable since the report was submitted to the replication track (Track 3).\n\n== Discussion on results ==\nThe report contains useful information about the lack of maintenance of RLLab, which is used for the environments in the original paper. This could potentially hinder replicability for anyone that is trying to obtain comparable results in the same environments.\n\nMoreover, although not framed as a comment about reproducibility, the authors of the report expressed that it was difficult to replicate the experiments due to how computationally demanding were the environment and the algorithms. The authors are even upfront about this issue by mentioning that the number of steps used for their replication is clearly less (at least 10^3 times less!) than in the original paper. I don\u2019t hold this against the authors of the report since demonstrations in our field are getting incredibly big; that in itself greatly hinders reproducibility. \n\nOn the other hand, the conclusion section of the report is not well justified since the conclusions are based on just one run of only 20k environment steps, which is 10^3 times less than in the original paper. The report should limit the scope of its conclusions to the reproducibility of the paper and not the performance of the algorithms.\n\n== Recommendations for reproducibility ==\nThe report does not include any recommendations about improving reproducibility.\n\nI have a comment nonetheless. I consider that if we want to improve reproducibility in our field, authors should be encouraged to also provide empirical evaluations in small domains that anyone could run on their desktop or laptop. For example, experiments in environments such as mountain car or cart pole are very light and don\u2019t require any GPUs to run. It is very likely that authors are already running their algorithms in these light environments as a proof of concept for their algorithms, so we should encourage authors to also include those results in an appendix so that other researchers can quickly validate the results of the paper. \n\n== Overall organization and clarity ==\nThe organization of the paper is hard to follow due to the lack of numbering for the subsection. This makes it very hard to understand which sub-subsection corresponds to each of the different subsections or if they all are supposed to have the same hierarchy. \n\nThere are several typos and grammatical errors in the paper. Moreover, some of the equations have notational or formatting errors. For example, the weights of the discriminator network of GAIL are denoted first with w and then with psi. \n",
+                    "rating": "4: Ok but not good enough - rejection",
+                    "confidence": "4: The reviewer is confident but not absolutely certain that the evaluation is correct"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2019/Reproducibility_Challenge/Paper25/AnonReviewer1"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2019/Reproducibility_Challenge/Paper25/AnonReviewer1"
+                ]
+            },
+            {
+                "id": "VPGTimygxA",
+                "original": null,
+                "number": 2,
+                "cdate": 1580280797613,
+                "ddate": null,
+                "tcdate": 1580280797613,
+                "tmdate": 1581962407792,
+                "tddate": null,
+                "forum": "HJlCUp5M6H",
+                "replyto": "HJlCUp5M6H",
+                "invitation": "NeurIPS.cc/2019/Reproducibility_Challenge/Paper25/-/Official_Review",
+                "content": {
+                    "title": "Official Review #2",
+                    "review": "This paper is a replication of the paper \"Goal-conditioned imitation learning\". The paper describes a re-implementation of the goalGAIL algorithm, and tests it on the Fetch Pick and Place environment from the original paper.\n\nStrengths:\n- This paper does a good job of describing the goalGAIL algorithm, and uses considerable space to do so. \n- The paper goes into detail describing how they approached their reimplementation\n- The paper describes some anecdotal difficulties into the reimplementation (e.g. using rllab which has been discontinued), which I find helpful\n\nWeaknesses:\n- The main weakness of this paper is that the scope of the replication isn't clearly defined. Once we get to the results section on page 6, we find that the authors were only able to run goalGAIL on one environment, for one seed, for part of the training time of the original model. I totally understand that computational limitations make it hard to completely replicate a paper. However, based on Figure 2 there seems to be a lot of variance, so all that can be said is \"it seems like goalGAIL learns a bit faster in steps 15000-20000\". Even this might be okay, if this was very clearly stated by the authors at the beginning of the paper by describing the scope of the replication.\n- I found it difficult to distinguish between which parts of the algorithm description were in the paper, and which were inferred by the authors when doing their replication. Thus, it's hard to figure out how reproducible the original paper was in terms of giving appropriate details for implementing the model correctly\n- There is little analysis of how well the original paper did in terms of making their work reproducible. The paper states some hyperparameters were 'originally unspecified' in the original paper, but I wasn't able to find which hyperparameters these were\n\nOverall:\nGiven the above weaknesses, my current recommendation is on the side of rejection. \n\nSmall fixes:\n\"It a supervised learning problem\"\nFormatting could generally be improved, by making more use of subsections (also, underlined text for headers is pretty non-standard)\nIt'd be nice for Figure 1 to be higher quality\n",
+                    "rating": "4: Ok but not good enough - rejection",
+                    "confidence": "3: The reviewer is fairly confident that the evaluation is correct"
+                },
+                "signatures": [
+                    "NeurIPS.cc/2019/Reproducibility_Challenge/Paper25/AnonReviewer2"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2019/Reproducibility_Challenge/Paper25/AnonReviewer2"
+                ]
+            },
+            {
+                "id": "Eq6Zfj47l",
+                "original": null,
+                "number": 1,
+                "cdate": 1582156808592,
+                "ddate": null,
+                "tcdate": 1582156808592,
+                "tmdate": 1582213282814,
+                "tddate": null,
+                "forum": "HJlCUp5M6H",
+                "replyto": "HJlCUp5M6H",
+                "invitation": "NeurIPS.cc/2019/Reproducibility_Challenge/Paper25/-/Decision",
+                "content": {
+                    "title": "Paper Decision",
+                    "decision": "Reject",
+                    "comment": "Overall reviews are not satisfactory enough for the AC to consider for the journal."
+                },
+                "signatures": [
+                    "NeurIPS.cc/2019/Reproducibility_Challenge/Program_Chairs"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "nonreaders": [],
+                "writers": [
+                    "NeurIPS.cc/2019/Reproducibility_Challenge/Program_Chairs"
+                ]
+            }
+        ],
+        "invitation": {
+            "reply": {
+                "readers": {
+                    "values-regex": ".*"
+                },
+                "writers": {
+                    "values": [
+                        "NeurIPS.cc/2019/Reproducibility_Challenge"
+                    ]
+                },
+                "signatures": {
+                    "values": [
+                        "NeurIPS.cc/2019/Reproducibility_Challenge"
+                    ]
+                },
+                "content": {
+                    "authors": {
+                        "values": [
+                            "Anonymous"
+                        ]
+                    },
+                    "authorids": {
+                        "values-regex": ".*"
+                    }
+                }
+            },
+            "signatures": [
+                "NeurIPS.cc/2019/Reproducibility_Challenge"
+            ],
+            "readers": [
+                "everyone"
+            ],
+            "writers": [
+                "NeurIPS.cc/2019/Reproducibility_Challenge"
+            ],
+            "invitees": [
+                "~"
+            ],
+            "tcdate": 1575296205170,
+            "tmdate": 1575303037088,
+            "id": "NeurIPS.cc/2019/Reproducibility_Challenge/-/Blind_Report",
+            "type": "note"
+        }
+    }
+}

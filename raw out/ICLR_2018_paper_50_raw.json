@@ -1,0 +1,290 @@
+{
+    "id": "ry9tUX_6-",
+    "original": "ry5tUQ_T-",
+    "cdate": 1518730191239,
+    "pdate": null,
+    "odate": null,
+    "mdate": null,
+    "tcdate": 1508550274397,
+    "tmdate": 1518730191249,
+    "ddate": null,
+    "number": 32,
+    "content": {
+        "title": "Entropy-SGD optimizes the prior of a PAC-Bayes bound: Data-dependent PAC-Bayes priors via differential privacy",
+        "abstract": "We show that Entropy-SGD (Chaudhari et al., 2017), when viewed as a learning algorithm, optimizes a PAC-Bayes bound on the risk of a Gibbs (posterior) classifier, i.e., a randomized classifier obtained by a risk-sensitive perturbation of the weights of a learned classifier. Entropy-SGD works by optimizing the bound\u2019s prior, violating the hypothesis of the PAC-Bayes theorem that the prior is chosen independently of the data. Indeed, available implementations of Entropy-SGD rapidly obtain zero training error on random labels and the same holds of the Gibbs posterior. In order to obtain a valid generalization bound, we show that an \u03b5-differentially private prior yields a valid PAC-Bayes bound, a straightforward consequence of results connecting generalization with differential privacy. Using stochastic gradient Langevin dynamics (SGLD) to approximate the well-known exponential release mechanism, we observe that generalization error on MNIST (measured on held out data) falls within the (empirically nonvacuous) bounds computed under the assumption that SGLD produces perfect samples. In particular, Entropy-SGLD can be configured to yield relatively tight generalization bounds and still fit real labels, although these same settings do not obtain state-of-the-art performance.",
+        "pdf": "/pdf/973c38ba45d8720ead2c7d267b2027499a0a40da.pdf",
+        "TL;DR": "We show that Entropy-SGD optimizes the prior of a PAC-Bayes bound, violating the requirement that the prior be independent of data; we use differential privacy to resolve this and improve generalization.",
+        "paperhash": "dziugaite|entropysgd_optimizes_the_prior_of_a_pacbayes_bound_datadependent_pacbayes_priors_via_differential_privacy",
+        "_bibtex": "@misc{\nkarolina2018entropysgd,\ntitle={Entropy-{SGD} optimizes the prior of a {PAC}-Bayes bound: Data-dependent {PAC}-Bayes priors via differential privacy},\nauthor={Gintare Karolina Dziugaite and Daniel M. Roy},\nyear={2018},\nurl={https://openreview.net/forum?id=ry9tUX_6-},\n}",
+        "keywords": [
+            "generalization error",
+            "neural networks",
+            "statistical learning theory",
+            "PAC-Bayes theory"
+        ],
+        "authors": [
+            "Gintare Karolina Dziugaite",
+            "Daniel M. Roy"
+        ],
+        "authorids": [
+            "gkd22@cam.ac.uk",
+            "droy@utstat.toronto.edu"
+        ]
+    },
+    "forum": "ry9tUX_6-",
+    "referent": null,
+    "invitation": "ICLR.cc/2018/Conference/-/Blind_Submission",
+    "replyto": null,
+    "readers": [
+        "everyone"
+    ],
+    "nonreaders": [],
+    "signatures": [
+        "ICLR.cc/2018/Conference"
+    ],
+    "writers": [
+        "ICLR.cc/2018/Conference"
+    ],
+    "details": {
+        "revisions": true,
+        "directReplies": [
+            {
+                "tddate": null,
+                "ddate": null,
+                "original": null,
+                "tmdate": 1517260077925,
+                "tcdate": 1517250141462,
+                "number": 802,
+                "cdate": 1517250141448,
+                "id": "r1rP81pSz",
+                "invitation": "ICLR.cc/2018/Conference/-/Acceptance_Decision",
+                "forum": "ry9tUX_6-",
+                "replyto": "ry9tUX_6-",
+                "signatures": [
+                    "ICLR.cc/2018/Conference/Program_Chairs"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2018/Conference/Program_Chairs"
+                ],
+                "content": {
+                    "decision": "Reject",
+                    "title": "ICLR 2018 Conference Acceptance Decision",
+                    "comment": "The paper proposes a new analysis of the optimization method called entropy-sgd which seemingly leads to more robust neural network classifiers. This is a very important problem if successful. The reviewers are on the fence with this paper. On the one hand they appreciate the direction and theoretical contribution, while on the other they feel the assumptions are not clearly elucidated or justified. This is important for such a paper. The author responses have not helped in alleviating these concerns. As one of the reviewers points out, the writing needs a massive overhaul. I would suggest the authors clearly state their assumptions and corresponding justifications in future submissions of this work."
+                },
+                "nonreaders": []
+            },
+            {
+                "tddate": null,
+                "ddate": null,
+                "tmdate": 1513833234147,
+                "tcdate": 1513833234147,
+                "number": 4,
+                "cdate": 1513833234147,
+                "id": "Hk9z76OfG",
+                "invitation": "ICLR.cc/2018/Conference/-/Paper32/Official_Comment",
+                "forum": "ry9tUX_6-",
+                "replyto": "ry9tUX_6-",
+                "signatures": [
+                    "ICLR.cc/2018/Conference/Paper32/Authors"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "writers": [
+                    "ICLR.cc/2018/Conference/Paper32/Authors"
+                ],
+                "content": {
+                    "title": "Summary of the major changes we made addressing reviewer feedback",
+                    "comment": "This comment summarizes the major changes we made to the document while addressing the reviewers' comments. We have also crafted responses to each individual reviewer.\n\nWe took all of the reviewers\u2019 comments seriously and made extensive edits to the article. Some of the major changes include:\n\n1. stating our main results as theorems and writing up the analysis in the form of a proof. This should make our contributions clearer to readers. These results include: i) the connection between Entropy-SGD optimization and PAC-Bayes prior optimization, ii) our differentially private PAC-Bayes bound, iii) our privacy analysis for the data-dependent prior.\n\n2. giving a single unified description of the Entropy-SGD and Entropy-SGLD algorithms, so the difference is obvious.\n\n3. rewriting our differential privacy analysis, to make it easier for the reader to understand our assumptions/approximations.\n\n3. adding experiments comparing SGLD and Entropy-SGD at different levels of thermal noise, which highlights the role of thermal noise in generalization and the difference between empirical risk minimization and local entropy maximization.\n\n4. discussing the relationship between our differentially private PAC-Bayes priors and data-distribution-dependent priors. \n"
+                },
+                "nonreaders": []
+            },
+            {
+                "tddate": null,
+                "ddate": null,
+                "original": null,
+                "tmdate": 1515642431624,
+                "tcdate": 1511836208162,
+                "number": 2,
+                "cdate": 1511836208162,
+                "id": "r1dNqr9xf",
+                "invitation": "ICLR.cc/2018/Conference/-/Paper32/Official_Review",
+                "forum": "ry9tUX_6-",
+                "replyto": "ry9tUX_6-",
+                "signatures": [
+                    "ICLR.cc/2018/Conference/Paper32/AnonReviewer1"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "content": {
+                    "title": "Weak Accept",
+                    "rating": "6: Marginally above acceptance threshold",
+                    "review": "1) I would like to ask for the clarification regarding the generalization guarantees. The original Entropy-SGD paper shows improved generalization over SGD using uniform stability, however the analysis of the authors rely on an unrealistic assumption regarding the eigenvalues of the Hessian (they are assumed to be away from zero, which is not true at least at local minima of interest). What is the enabling technique in this submission that avoids taking this assumption? (to clarify: the analysis is all-together different in both papers, however this aspect of the analysis is not fully clear to me).\n2) It is unclear to me what are the unrealistic assumptions made in the paper. Please, list them all in one place in the paper and discuss in details.\n",
+                    "confidence": "3: The reviewer is fairly confident that the evaluation is correct"
+                },
+                "writers": [],
+                "nonreaders": []
+            },
+            {
+                "tddate": null,
+                "ddate": null,
+                "original": null,
+                "tmdate": 1515642431489,
+                "tcdate": 1512589317958,
+                "number": 3,
+                "cdate": 1512589317958,
+                "id": "Hy0bdarZG",
+                "invitation": "ICLR.cc/2018/Conference/-/Paper32/Official_Review",
+                "forum": "ry9tUX_6-",
+                "replyto": "ry9tUX_6-",
+                "signatures": [
+                    "ICLR.cc/2018/Conference/Paper32/AnonReviewer3"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "content": {
+                    "title": "Reasonably good idea (but with lots of strong assumptions) connecting generalization of entropy SGD and PAC-Bayes risk bound. ",
+                    "rating": "6: Marginally above acceptance threshold",
+                    "review": "Brief summary:\n    Assume any neural net model with weights w. Assume a prior P on the weights. PAC-Bayes risk bound show that for ALL other distributions Q on the weights, the the sample risk (w.r.t to the samples in the data set) and expected risk (w.r.t distribution generating samples) of the random classifier chosen according to Q, averaged over Q, are close by a fudge factor that is KL divergence of P and Q scaled by m^{-1} + some constant.\n\nNow, the authors first show that optimizing the objective of the Entropy SGD algorithm is equivalent to optimizing the empiricial risk term + fudge term over all data dependent priors P and the best Q for that prior. However, PAC-Bayes bound  holds only when P is NOT dependent on the data. So the authors invoke results from differential privacy to show that as long as the prior choosing mechanism in the optimization algorithm is differentially private with respect to data, differentially private priors can be substituted for valid PAC-Bayes bounds rectifying the issue. They show that when entrop SGD is implemented with pure gibbs sampling steps (as in Algorithm 3), the bounds hold.\n\nWeakness that remains is that the gibbs sampling step in Entropy SGD (as in algo 3 in the appendix) is actually approximated by samples from SGLD that converges to this gibbs distribution when run for infinite hops. The authors leave this hole unsolved. But under the very strong sampling assumption, the bound holds. The authors do some experiments with MNIST to demonstrate that their bounds are not trivial. \n\nStrengths:\n  Simple connections between PAC-Bayes bound and entropy SGD objective is the first novelty. Invoking results from differential privacy for fixing the issue of validity of PAC-Bayes bound is the second novelty. Although technically the paper is not very deep, leveraging existing results (with strong assumptions) to show generalization properties of entropy-SGD is good.\n\nWeakness:\n  a) Obvious issue : that analysis assumes the strong gibbs sampling step.\n  b) Experimental results are ok. I see that the bounds computed are non-vacuous. - but can the authors clarify what exactly they seek to justify ? \n c) Typos: \n   Page 4 footnote \"the local entropy should not be <with>..\" - with is missing.\n   Eq 14 typo - r(h) instead of e(h) \n   Definition A.2 in appendix - must have S and S' in the inequality -both seem S.\n\nd) Most important clarification: The way Thm 5.1, 5.2 and the exact gibbs sampling step connect with each other to produce Thm 6.1 is in Thm B.1. How do multiple calls on the same data sample do not degrade the loss ? Explanation is needed. Because the whole process of optimization in TRAIN with may steps is the final 'data dependent prior choosing mechanism' that has to be shown to be differentially private. Can the authors argue why the number of iterations of this does not matter at all ?? If I get run this long enough, and if I get several w's in the process (like step 8 repeated many times in algorithm 3) I should have more leakage about the data sample S intuitively right ?\n\ne) The paper is unclear in many places. Intro could be better written to highlight the connection at the expression level of PAC-Bayes bound and entropy SGD objective and the subsequent fix using differentially private prior choosing mechanism to make the connection provably correct. Why are all the algorithms in the appendix on which the theorems are claimed in the paper ??\n\nFinal decision: I waver between 6 and 7 actually. However I am willing to upgrade to 7 if the authors can provide sound arguments to my above concerns.",
+                    "confidence": "3: The reviewer is fairly confident that the evaluation is correct"
+                },
+                "writers": [],
+                "nonreaders": []
+            },
+            {
+                "tddate": null,
+                "ddate": null,
+                "original": null,
+                "tmdate": 1515642431662,
+                "tcdate": 1511828145939,
+                "number": 1,
+                "cdate": 1511828145939,
+                "id": "ryq2cm9xG",
+                "invitation": "ICLR.cc/2018/Conference/-/Paper32/Official_Review",
+                "forum": "ry9tUX_6-",
+                "replyto": "ry9tUX_6-",
+                "signatures": [
+                    "ICLR.cc/2018/Conference/Paper32/AnonReviewer2"
+                ],
+                "readers": [
+                    "everyone"
+                ],
+                "content": {
+                    "title": "review",
+                    "rating": "6: Marginally above acceptance threshold",
+                    "review": "This paper connects Entropy-SGD with PAC-Bayes learning. It shows that maximizing the local entropy during the execution of Entropy-SGD essentially minimize a PAC-Bayes bound on the risk of the Gibbs posterior. Despite this connection, Entropy-SGD could lead to dependence between prior and data and thus violate the requirement of PAC-Bayes theorem. The paper then proposes to use a differentially private prior to get a valid PAC-Bayes bound with SGLD. Experiments on MNIST shows such algorithm does generalize better.\n\nLinking Entropy-SGD to PAC-Bayes learning and making use of differential privacy to improve generalization is quite interesting. However, I'm not sure if the ideas and techniques used to solve the problem are novel enough.\nIt would be better if the presentation of the paper is improved. The result in Section 4 can be presented in a theorem, and any related analysis can be put into the proof. Section 5 about previous work on differentially private posterior sampling and stability could follow other preliminaries in Section 2. The figures are a bit hard to read. Adding sub-captions and re-scaling y-axis might help.\n",
+                    "confidence": "3: The reviewer is fairly confident that the evaluation is correct"
+                },
+                "writers": [],
+                "nonreaders": []
+            }
+        ],
+        "invitation": {
+            "reply": {
+                "readers": {
+                    "description": "The users who will be allowed to read the above content.",
+                    "values": [
+                        "everyone"
+                    ]
+                },
+                "writers": {
+                    "values": [
+                        "ICLR.cc/2018/Conference"
+                    ]
+                },
+                "signatures": {
+                    "description": "How your identity will be displayed with the above content.",
+                    "values": [
+                        "ICLR.cc/2018/Conference"
+                    ]
+                },
+                "content": {
+                    "pdf": {
+                        "required": true,
+                        "order": 9,
+                        "value-regex": ".*",
+                        "description": "Upload a PDF file that ends with .pdf"
+                    },
+                    "title": {
+                        "required": true,
+                        "order": 1,
+                        "description": "Title of paper.",
+                        "value-regex": ".{1,250}"
+                    },
+                    "abstract": {
+                        "required": true,
+                        "order": 8,
+                        "description": "Abstract of paper.",
+                        "value-regex": "[\\S\\s]{1,5000}"
+                    },
+                    "authors": {
+                        "required": true,
+                        "order": 2,
+                        "values-regex": "[^;,\\n]+(,[^,\\n]+)*",
+                        "description": "Comma separated list of author names. Please provide real names; identities will be anonymized."
+                    },
+                    "keywords": {
+                        "order": 6,
+                        "values-regex": "(^$)|[^;,\\n]+(,[^,\\n]+)*",
+                        "description": "Comma separated list of keywords."
+                    },
+                    "TL;DR": {
+                        "required": false,
+                        "order": 7,
+                        "description": "\"Too Long; Didn't Read\": a short sentence describing your paper",
+                        "value-regex": "[^\n]{0,500}"
+                    },
+                    "authorids": {
+                        "required": true,
+                        "order": 3,
+                        "values-regex": "([a-z0-9_\\-\\.]{2,}@[a-z0-9_\\-\\.]{2,}\\.[a-z]{2,},){0,}([a-z0-9_\\-\\.]{2,}@[a-z0-9_\\-\\.]{2,}\\.[a-z]{2,})",
+                        "description": "Comma separated list of author email addresses, lowercased, in the same order as above. For authors with existing OpenReview accounts, please make sure that the provided email address(es) match those listed in the author's profile. Please provide real emails; identities will be anonymized."
+                    },
+                    "code": {
+                        "required": false,
+                        "description": "Optional link to data sources",
+                        "value-regex": ".*",
+                        "markdown": true,
+                        "order": 100
+                    },
+                    "data": {
+                        "required": false,
+                        "description": "Optional link to data sources",
+                        "value-regex": ".*",
+                        "markdown": true,
+                        "order": 101
+                    },
+                    "community_implementations": {
+                        "required": false,
+                        "description": "Optional link to open source implementations",
+                        "value-regex": ".*",
+                        "markdown": true
+                    }
+                }
+            },
+            "cdate": 1506717071958,
+            "signatures": [
+                "ICLR.cc/2018/Conference"
+            ],
+            "readers": [
+                "everyone"
+            ],
+            "nonreaders": [],
+            "writers": [
+                "ICLR.cc/2018/Conference"
+            ],
+            "invitees": [
+                "ICLR.cc/2018/Conference"
+            ],
+            "noninvitees": [],
+            "tmdate": 1679773890668,
+            "id": "ICLR.cc/2018/Conference/-/Blind_Submission",
+            "type": "note"
+        }
+    }
+}

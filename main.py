@@ -3,7 +3,7 @@ import os, shutil, json, openreview
 
 '''. ONLY set TRUE When not on your LOCAL machine (MASSIVE FILE SIZES), 
 also check the function to remove the railguard  '''
-wantPDFs = False
+wantPDFs = True
 
 venue_invitations_url = {
   'iclr_2016': 'ICLR.cc/2016/workshop/-/submission',
@@ -29,13 +29,13 @@ def get_pdf_markdown(pdf_url):
         !!! This is a SAFTEY return, DO NOT Run this function
         I REPEAT, DO NOT run this function on local 
     '''
-    return 
+    # return 
     from markitdown import MarkItDown
     from io import BytesIO
     import requests
 
     if not(pdf_url): return
-    response = requests.get()
+    response = requests.get(pdf_url)
     pdf_bytes = response.content
 
     md = MarkItDown()

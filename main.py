@@ -3,7 +3,7 @@ import os, shutil, json, openreview
 
 '''. ONLY set TRUE When not on your LOCAL machine (MASSIVE FILE SIZES), 
 also check the function to remove the railguard  '''
-wantPDFs = True
+wantPDFs = False
 
 venue_invitations_url = {
   'iclr_2016': 'ICLR.cc/2016/workshop/-/submission',
@@ -129,18 +129,41 @@ def paperCleaner(paper, specialCase = '',doCleanString = True):
     else:
         cp_paper["pdf_url"] = None
     return cp_paper
+# def print_results(directory_path):
+#     # Check if directory exists
+#     if not os.path.isdir(directory_path):
+#         print(f"Error: '{directory_path}' is not a valid directory.")
+#         return
+
+#     for filename in os.listdir(directory_path):
+#         file_path = os.path.join(directory_path, filename)
+        
+#         if os.path.isfile(file_path):
+#             size_bytes = os.path.getsize(file_path)
+
+#             if size_bytes < 1024:
+#                 readable = f"{size_bytes} B"
+#             elif size_bytes < (1024 ** 2):
+#                 readable = f"{size_bytes / 1024:.2f} KB"
+#             elif size_bytes < (1024 ** 3):
+#                 readable = f"{size_bytes / (1024 ** 2):.2f} MB"
+#             else:
+#                 readable = f"{size_bytes / (1024 ** 3):.2f} GB"
+
+#             print(f"{filename} — {readable}")
+from tabulate import tabulate
+import os
+
 def print_results(directory_path):
-    # Check if directory exists
     if not os.path.isdir(directory_path):
         print(f"Error: '{directory_path}' is not a valid directory.")
         return
 
+    table = []
     for filename in os.listdir(directory_path):
         file_path = os.path.join(directory_path, filename)
-        
         if os.path.isfile(file_path):
             size_bytes = os.path.getsize(file_path)
-
             if size_bytes < 1024:
                 readable = f"{size_bytes} B"
             elif size_bytes < (1024 ** 2):
@@ -149,8 +172,10 @@ def print_results(directory_path):
                 readable = f"{size_bytes / (1024 ** 2):.2f} MB"
             else:
                 readable = f"{size_bytes / (1024 ** 3):.2f} GB"
+            table.append([filename, readable])
 
-            print(f"{filename} — {readable}")
+    print(tabulate(table, headers=["File", "Size"], tablefmt="fancy_grid"))
+
 def save_json(data, file_name: str, convert: bool = True) -> None:
     serializable = convert_2_json(data) if convert else data
     with open(f"{file_name}.json", "w") as fh:
@@ -204,6 +229,7 @@ for venueName, invite_url in venue_invitations_url.items():
           if wantPDFs:
               new_paper["pdf"] = get_pdf_markdown(new_paper.get("pdf_url"))
           f.write(json.dumps(new_paper) + "\n")
+          break
           
 print("---------------------")
 print("\n✓ All Jobs Done ✓")
